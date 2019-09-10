@@ -1,5 +1,5 @@
 # Nadieh Bremer - Visual Cinammon
-
+![](https://github.com/neil-oliver/Major-Studio-1/blob/master/Design%20Studio/Nadieh%20Bremer.jpg)
 ## Background & Biography
 - A freelancing data visualization designer and artist.
 - Based in Amsterdam.
