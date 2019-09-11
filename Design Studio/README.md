@@ -68,7 +68,7 @@ The main project is just a video, so you might want to skip straight to the [pro
 <img src="https://github.com/neil-oliver/Major-Studio-1/blob/master/Design%20Studio/lighthouse_reports_detail.gif" alt="drawing" width="45%"/> <img src="https://github.com/neil-oliver/Major-Studio-1/blob/master/Design%20Studio/lighthouse_reports_detail.jpg" alt="drawing" width="45%"/>
 
 #### Content & Story
-- Collaboration with the lighthouse Report
+- Collaboration with the [Lighthouse Report](https://www.lighthousereports.nl/ourprojects/2018/10/18/the-returns-network).
 - Visualization to show how Frontex (responsible for Europe based deportations) has grown up in Europe in the last decade.
 
 #### Visual design: Graph, layout, color, typography
