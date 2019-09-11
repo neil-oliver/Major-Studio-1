@@ -35,8 +35,8 @@ Alternatively you can jump straight to [Cats](https://whydocatsanddogs.com/cats)
 The combination of currated results and interactive exploration. 
 
 ### Further Reading
-[Project breakdown and description](https://www.visualcinnamon.com/portfolio/why-do-cats-and-dogs)
-[The Design Process](https://www.visualcinnamon.com/2019/04/designing-google-cats-and-dogs)
+[Project breakdown and description](https://www.visualcinnamon.com/portfolio/why-do-cats-and-dogs).  
+[The Design Process](https://www.visualcinnamon.com/2019/04/designing-google-cats-and-dogs).
 
 
 ## Class discussion
