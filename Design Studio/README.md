@@ -46,7 +46,7 @@ If you cant access the NYT website, you might be better looking at the [project 
 
 #### Content & Story
 - Collaboration with the New York Times.  
-- Research inot the number of digital trackers that you gather when you browse the web.
+- Research into the number of digital trackers that you gather when you browse the web.
 
 #### Visual design: Graph, layout, color, typography
 - Use of a Timeline with small multiples.
