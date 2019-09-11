@@ -63,16 +63,24 @@ If you cant access the NYT website, you might be better looking at the [project 
 [Project breakdown and description](https://www.visualcinnamon.com/portfolio/new-york-times-digital-trackers).  
 
 ---
-### Project 3
+### [Frontex: EU’s Deportation Machine](https://vimeo.com/351673775)
+The main project is just a video, so you might want to skip straight to the [project breakdown and description](https://www.visualcinnamon.com/portfolio/lighthouse-reports-frontex).
+<img src="https://github.com/neil-oliver/Major-Studio-1/blob/master/Design%20Studio/lighthouse_reports_detail.gif" alt="drawing" width="45%"/> <img src="https://github.com/neil-oliver/Major-Studio-1/blob/master/Design%20Studio/lighthouse_reports_detail.jpg" alt="drawing" width="45%"/>
 
 #### Content & Story
+- Collaboration with the lighthouse Report
+- 
 
 #### Visual design: Graph, layout, color, typography
 
 #### Why is this work interesting?
+- Animation / Video - Non interactive.
+- Dual graph types visualising both a single moment in time and values over time.
 
 #### Further Reading
+[Project breakdown and description](https://www.visualcinnamon.com/portfolio/lighthouse-reports-frontex).  
 
+---
 ### Honerable Mentions
 Personal Project - [Marble Butterflies](https://www.visualcinnamon.com/portfolio/marble-butterflies).  
 [Design Process](http://www.datasketch.es/february/) of Marble Butterflies. 
