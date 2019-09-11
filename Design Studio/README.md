@@ -15,17 +15,25 @@ Projects include:
 - static visualizations that allow freedom in their design. 
 - Data Art - In Nadieh's own words "Something that wouldn’t look bad hanging on a wall."
 
-## Collaborations
-
-## 3 selected projects
+## Focus Projects
 ### [Why Do Cats and Dogs...](https://whydocatsanddogs.com)
+Alternartively you can jump straight to [Cats](https://whydocatsanddogs.com/cats) or [Dogs](https://whydocatsanddogs.com/dogs)
 <img src="https://github.com/neil-oliver/Major-Studio-1/blob/master/Design%20Studio/why_do_cats_and_dogs.png" alt="drawing" width="45%"/> <img src="https://github.com/neil-oliver/Major-Studio-1/blob/master/Design%20Studio/why_do_cats_and_dogs.gif" alt="drawing" width="45%"/>
 
 ### Content & Story
 
 ### Visual design: Graph, layout, color, typography
+- Responsive design - works on mobile.
+- Pastel color palette used which works well with graphic style.
+- Graphics created in collaboration with [Juliana Chen](http://www.julianachen.net). 
 
 ### Why is this work interesting?
+The combination of currated results and interactive exploration. 
+
+### Further Reading
+[Project breakdown and description](https://www.visualcinnamon.com/portfolio/why-do-cats-and-dogs)
+[The Design Process](https://www.visualcinnamon.com/2019/04/designing-google-cats-and-dogs)
+
 
 ## Class discussion
 ### Question 1
