@@ -69,11 +69,11 @@ The main project is just a video, so you might want to skip straight to the [pro
 
 #### Content & Story
 - Collaboration with the lighthouse Report
-- 
+- Visualization to show how Frontex (responsible for Europe based deportations) has grown up in Europe in the last decade.
 
 #### Visual design: Graph, layout, color, typography
 - Data displayed similar to an [Arc Diagram](https://dvia.samizdat.co/2019/ghost/#/site) only on a map instead of linear.
-- line graph combined with bar graph.
+- line graph combined with bar graph to compare budget and deportations.
 - Single color (red) and greyscale design.
 - Simple font choices - serious, not fun.
 
@@ -91,7 +91,6 @@ Personal Project - [Marble Butterflies](https://www.visualcinnamon.com/portfolio
 [Design Process](http://www.datasketch.es/february/) of Marble Butterflies. 
 
 ## Class discussion
-### Question 1
-### Question 2
-### Question 3
+- Look through Nadieh's portfolio [here](https://www.visualcinnamon.com/portfolio/). What common design themes do you spot?
+- Some of Nadieh's designs put form over function (or the form decision is purely for aesthetic value). Is it acceptable to pick a less-optimized visualization method if it maintains the user interest more?
 
