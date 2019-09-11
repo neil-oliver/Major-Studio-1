@@ -90,7 +90,8 @@ The main project is just a video, so you might want to skip straight to the [pro
 Personal Project - [Marble Butterflies](https://www.visualcinnamon.com/portfolio/marble-butterflies)([Design Process](http://www.datasketch.es/february/)). 
 
 #### Why
-The project is purely about creating something beautiful from random data. It relates back to Nadieh's original goal of creating "Something that wouldn’t look bad hanging on a wall."
+The project is purely about creating something beautiful from random data. It relates back to Nadieh's original goal of creating "Something that wouldn’t look bad hanging on a wall."  
+
 ![](https://github.com/neil-oliver/Major-Studio-1/blob/master/Design%20Studio/marble_butterflies_laptop_animation.gif)
 
 ## Class discussion
