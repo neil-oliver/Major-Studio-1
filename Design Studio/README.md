@@ -24,7 +24,7 @@ Alternatively you can jump straight to [Cats](https://whydocatsanddogs.com/cats)
 ### Content & Story
 
 ### Visual design: Graph, layout, color, typography
-Three different visual tools used - [Graphs](https://dvia.samizdat.co/2019/tree-and-graph/), [Circular Relationship Graphs](https://en.wikipedia.org/wiki/Circle_graph) & []().
+Three different visual tools used - [Graphs](https://dvia.samizdat.co/2019/tree-and-graph/), [Circular Relationship Graphs](https://en.wikipedia.org/wiki/Circle_graph) & Radial Bar Chart.
 - Responsive design - works on mobile.
 - Pastel color palette used which works well with graphic style.
 - Graphics created in collaboration with [Juliana Chen](http://www.julianachen.net). 
