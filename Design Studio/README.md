@@ -19,8 +19,7 @@ Projects include:
 
 ## 3 selected projects
 ### [Why Do Cats and Dogs...](https://whydocatsanddogs.com)
-![](https://github.com/neil-oliver/Major-Studio-1/blob/master/Design%20Studio/why_do_cats_and_dogs.png)
-![](https://github.com/neil-oliver/Major-Studio-1/blob/master/Design%20Studio/why_do_cats_and_dogs.gif)
+<img src="https://github.com/neil-oliver/Major-Studio-1/blob/master/Design%20Studio/why_do_cats_and_dogs.png" alt="drawing" width="45%"/> <img src="https://github.com/neil-oliver/Major-Studio-1/blob/master/Design%20Studio/why_do_cats_and_dogs.gif" alt="drawing" width="45%"/>
 
 ### Content & Story
 
