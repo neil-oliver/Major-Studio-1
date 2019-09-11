@@ -92,6 +92,6 @@ Personal Project - [Marble Butterflies](https://www.visualcinnamon.com/portfolio
 ![](https://github.com/neil-oliver/Major-Studio-1/blob/master/Design%20Studio/marble_butterflies_laptop_animation.gif)
 
 ## Class discussion
-- Look through Nadieh's portfolio [here](https://www.visualcinnamon.com/portfolio/). What common design themes do you spot?
+- Look through Nadieh's portfolio [HERE](https://www.visualcinnamon.com/portfolio/). What common design themes do you spot?
 - Some of Nadieh's designs put form over function (or the form decision is purely for aesthetic value). Is it acceptable to pick a less-optimized visualization method if it maintains the user interest more?
 
