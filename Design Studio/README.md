@@ -22,8 +22,7 @@ Alternatively you can jump straight to [Cats](https://whydocatsanddogs.com/cats)
 <img src="https://github.com/neil-oliver/Major-Studio-1/blob/master/Design%20Studio/why_do_cats_and_dogs.png" alt="drawing" width="45%"/> <img src="https://github.com/neil-oliver/Major-Studio-1/blob/master/Design%20Studio/why_do_cats_and_dogs.gif" alt="drawing" width="45%"/>
 
 ### Content & Story
-Collaboration with Google.
-
+Collaboration with Google.  
 Exploration the ~4400 most asked questions on Google about cats and dogs that start with the word “Why”.
 
 ### Visual design: Graph, layout, color, typography
