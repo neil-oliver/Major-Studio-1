@@ -23,7 +23,8 @@ Alternatively you can jump straight to [Cats](https://whydocatsanddogs.com/cats)
 
 ### Content & Story
 Collaboration with Google.
-Exploration the ~4400 most asked questions on Google about cats and dogs that start with the word “why”.
+
+Exploration the ~4400 most asked questions on Google about cats and dogs that start with the word “Why”.
 
 ### Visual design: Graph, layout, color, typography
 - Three different visual tools used - [Graphs](https://dvia.samizdat.co/2019/tree-and-graph/), [Circular Relationship Graphs](https://en.wikipedia.org/wiki/Circle_graph) & Radial Bar Chart.
