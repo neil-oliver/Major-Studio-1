@@ -72,10 +72,15 @@ The main project is just a video, so you might want to skip straight to the [pro
 - 
 
 #### Visual design: Graph, layout, color, typography
+- Data displayed similar to an [Arc Diagram](https://dvia.samizdat.co/2019/ghost/#/site) only on a map instead of linear.
+- line graph combined with bar graph.
+- Single color (red) and greyscale design.
+- Simple font choices - serious, not fun.
 
 #### Why is this work interesting?
 - Animation / Video - Non interactive.
 - Dual graph types visualising both a single moment in time and values over time.
+- Use of both macro and micro
 
 #### Further Reading
 [Project breakdown and description](https://www.visualcinnamon.com/portfolio/lighthouse-reports-frontex).  
