@@ -38,6 +38,7 @@ The combination of currated results and interactive exploration.
 [Project breakdown and description](https://www.visualcinnamon.com/portfolio/why-do-cats-and-dogs).  
 [The Design Process](https://www.visualcinnamon.com/2019/04/designing-google-cats-and-dogs).
 
+---
 ### [Digital Trackers](https://www.nytimes.com/interactive/2019/08/23/opinion/data-internet-privacy-tracking.html)
 If you cant access the NYT website, you might be better looking at the [project breakdown and description](https://www.visualcinnamon.com/portfolio/new-york-times-digital-trackers).  
 
@@ -61,6 +62,7 @@ If you cant access the NYT website, you might be better looking at the [project 
 #### Further Reading
 [Project breakdown and description](https://www.visualcinnamon.com/portfolio/new-york-times-digital-trackers).  
 
+---
 ### Project 3
 
 #### Content & Story
