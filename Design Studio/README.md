@@ -39,6 +39,7 @@ The combination of currated results and interactive exploration.
 [The Design Process](https://www.visualcinnamon.com/2019/04/designing-google-cats-and-dogs).
 
 ### [Digital Trackers](https://www.nytimes.com/interactive/2019/08/23/opinion/data-internet-privacy-tracking.html)
+If you cant access the NYT website, you might be better looking at the [project breakdown and description](https://www.visualcinnamon.com/portfolio/new-york-times-digital-trackers).  
 
 <img src="https://github.com/neil-oliver/Major-Studio-1/blob/master/Design%20Studio/nyt_trackers_laptop.jpg" alt="drawing" width="45%"/> <img src="https://github.com/neil-oliver/Major-Studio-1/blob/master/Design%20Studio/nyt_trackers_detail.jpg" alt="drawing" width="45%"/>
 
