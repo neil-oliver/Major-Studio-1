@@ -89,6 +89,7 @@ The main project is just a video, so you might want to skip straight to the [pro
 ### Honerable Mentions
 Personal Project - [Marble Butterflies](https://www.visualcinnamon.com/portfolio/marble-butterflies).  
 [Design Process](http://www.datasketch.es/february/) of Marble Butterflies. 
+![](https://github.com/neil-oliver/Major-Studio-1/blob/master/Design%20Studio/marble_butterflies_laptop_animation.gif)
 
 ## Class discussion
 - Look through Nadieh's portfolio [here](https://www.visualcinnamon.com/portfolio/). What common design themes do you spot?
