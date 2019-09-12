@@ -39,6 +39,7 @@ The combination of curated results and interactive exploration.
 #### Further Reading
 [Project breakdown and description](https://www.visualcinnamon.com/portfolio/why-do-cats-and-dogs).  
 [The Design Process](https://www.visualcinnamon.com/2019/04/designing-google-cats-and-dogs).
+[Presentation](https://nbremer.github.io/visualizingconnections/#/pets-concept)
 
 ---
 ### [Digital Trackers](https://www.nytimes.com/interactive/2019/08/23/opinion/data-internet-privacy-tracking.html)
