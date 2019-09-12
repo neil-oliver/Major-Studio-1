@@ -90,7 +90,7 @@ The main project is just a video, so you might want to skip straight to the [pro
 
 ---
 ### Honorable Mentions
-Personal Project - [Marble Butterflies](https://www.visualcinnamon.com/portfolio/marble-butterflies)([Design Process](http://www.datasketch.es/february/)). 
+Personal Project - [Marble Butterflies](https://www.visualcinnamon.com/portfolio/marble-butterflies)([Design Process](http://www.datasketch.es/february/)). In fact, all of the [data sketches](http://www.datasketch.es) project with [Shirley Wu](https://sxywu.com).   
 
 #### Why?
 The project is purely about creating something beautiful from random data. It relates back to Nadieh's original goal of creating "Something that wouldn’t look bad hanging on a wall."  
