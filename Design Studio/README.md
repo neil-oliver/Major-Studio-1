@@ -1,4 +1,4 @@
-# Nadieh Bremer - [Visual Cinammon](https://www.visualcinnamon.com)
+# Nadieh Bremer - [Visual Cinnamon](https://www.visualcinnamon.com)
 ![](https://github.com/neil-oliver/Major-Studio-1/blob/master/Design%20Studio/Nadieh%20Bremer.jpg)
 ## Background & Biography
 - A freelancing data visualization designer and artist.
