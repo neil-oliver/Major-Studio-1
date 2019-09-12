@@ -34,7 +34,7 @@ Alternatively you can jump straight to [Cats](https://whydocatsanddogs.com/cats)
 - Graphics created in collaboration with [Juliana Chen](http://www.julianachen.net). 
 
 #### Why is this work interesting?
-The combination of currated results and interactive exploration. 
+The combination of curated results and interactive exploration. 
 
 #### Further Reading
 [Project breakdown and description](https://www.visualcinnamon.com/portfolio/why-do-cats-and-dogs).  
@@ -81,14 +81,14 @@ The main project is just a video, so you might want to skip straight to the [pro
 
 #### Why is this work interesting?
 - Animation / Video - Non interactive.
-- Dual graph types visualising both a single moment in time and values over time.
+- Dual graph types visualizing both a single moment in time and values over time.
 - Use of both macro and micro
 
 #### Further Reading
 [Project breakdown and description](https://www.visualcinnamon.com/portfolio/lighthouse-reports-frontex).  
 
 ---
-### Honerable Mentions
+### Honorable Mentions
 Personal Project - [Marble Butterflies](https://www.visualcinnamon.com/portfolio/marble-butterflies)([Design Process](http://www.datasketch.es/february/)). 
 
 #### Why?
@@ -99,4 +99,7 @@ The project is purely about creating something beautiful from random data. It re
 ## Class discussion
 - Look through Nadieh's portfolio [HERE](https://www.visualcinnamon.com/portfolio/). What common design themes do you spot?
 - Some of Nadieh's designs put form over function (or the form decision is purely for aesthetic value). Is it acceptable to pick a less-optimized visualization method if it maintains the user interest more?
+
+## Going down the rabbit hole
+Nadieh's website has so much information about her projects and process, but she has compiled a [huge list](https://www.visualcinnamon.com/resources/learning-data-visualization) a resources for learning and discussing data visualization topics that will be very useful to any aspiring data vis artist. Take a deep breath, you could spend months looking through all of this...
 
