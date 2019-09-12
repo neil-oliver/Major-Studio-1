@@ -28,7 +28,7 @@ Alternatively you can jump straight to [Cats](https://whydocatsanddogs.com/cats)
 - Exploration the ~4400 most asked questions on Google about cats and dogs that start with the word “Why”.
 
 #### Visual design: Graph, layout, color, typography
-- Three different visual tools used - **[Graphs](https://dvia.samizdat.co/2019/tree-and-graph/), [Circular Relationship Graphs](https://en.wikipedia.org/wiki/Circle_graph) & Radial Bar Chart**.
+- Three different visual tools used - **[Graphs / Networks](https://dvia.samizdat.co/2019/tree-and-graph/), [Circular Relationship Graphs](https://en.wikipedia.org/wiki/Circle_graph) & Radial Bar Chart** which Nahieh refers to as ['Hacking the Visual Norm'](https://www.youtube.com/watch?v=gBFtER8yHVY).
 - Responsive design - works on mobile.
 - Pastel color palette used which works well with graphic style.
 - Graphics created in collaboration with [Juliana Chen](http://www.julianachen.net). 
