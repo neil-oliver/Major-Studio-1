@@ -101,5 +101,5 @@ The project is purely about creating something beautiful from random data. It re
 - Some of Nadieh's designs put form over function (or the form decision is purely for aesthetic value). Is it acceptable to pick a less-optimized visualization method if it maintains the user interest more?
 
 ## Going down the rabbit hole
-Nadieh's website has so much information about her projects and process, but she has compiled a [huge list](https://www.visualcinnamon.com/resources/learning-data-visualization) a resources for learning and discussing data visualization topics that will be very useful to any aspiring data vis artist. Take a deep breath, you could spend months looking through all of this...
+Nadieh's website has so much information about her projects and process, but she has compiled a [huge list](https://www.visualcinnamon.com/resources/learning-data-visualization) a resources for learning and discussing data visualization topics that will be very useful to any aspiring data vis artist. Her [blog](https://www.visualcinnamon.com/blog/) is also an amazing resource. Take a deep breath, you could spend months looking through all of this...
 
