@@ -9,6 +9,8 @@
 - Joined [Adyen](https://www.adyen.com) in 2015 as a data visualization designer.
 - Quit in 2016 to become a freelancing data visualization designer focusing on the **creative** aspects.
 
+You can read her whole story (including early digital designs in different languages) [HERE](https://www.visualcinnamon.com/2017/03/my-journey-into-dataviz).
+
 ## Current Work
 Projects include:
 - web-based interactive visualizations, frequently using a storytelling technique to show insights into complex data.
