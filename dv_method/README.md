@@ -5,6 +5,14 @@
 A scatter plot is a visualization method designed to show the relationship (if any) between two variables. This is achieved by plotting the two points on a horizontal (X) and veretical (Y) axis using a [cartesian coordinate system](https://en.wikipedia.org/wiki/Cartesian_coordinate_system). Additional variables can be included through the adaptation of color, shape and size.
 
 ## History
+- Cartesian coordinate system developed by René Descartes in the 17th century.
+- First example made in 1833 by the English scientist John Frederick W. Herschel.
+- Estimated to be used in over 70% of scientific experiements.
+- Show to be the chart wich people perceive most accurately and quickly. ([source](https://priceonomics.com/how-william-cleveland-turned-data-visualization/)).
+
+### Further Reading
+The early origins and development of the scatterplot[Friendly & Denis](http://datavis.ca/papers/friendly-scat.pdf)
+
 
 ## Gathering / Plotting Data
 Either
@@ -24,9 +32,16 @@ Both
 ### Basic
 ![](https://github.com/neil-oliver/Major-Studio-1/blob/master/dv_method/Images/basic-scatter-plot-in-r.png)
 Example created in R ([code](https://www.sharpsightlabs.com/blog/scatter-plot-in-r/)). This example is missing axis labels and a title.
-### Use of Shapes
 
 ### Inclusion of Color
+![](https://github.com/neil-oliver/Major-Studio-1/blob/master/dv_method/Images/python-color-scatterplot.jpg)
+Example created in Python with Matplotlib ([code](https://towardsdatascience.com/customizing-plots-with-python-matplotlib-bcf02691931f)). This example also uses transparency to more easily show multiple clustered data points.
+
+### Use of Shapes
+![](https://github.com/neil-oliver/Major-Studio-1/blob/master/dv_method/Images/ggplot-shapes-scatterplot.png)
+Examples created in R with ggplot ([code](https://www.datanovia.com/en/lessons/ggplot-scatter-plot/)). 
+![](https://github.com/neil-oliver/Major-Studio-1/blob/master/dv_method/Images/NYT-shapes-scatterplot.png)
+Example from the [New York Times](https://www.nytimes.com/2017/10/09/learning/whats-going-on-in-this-graph-oct-10-2017.html) (no code sorry!) which uses color images to easily ideitify the different data points.
 
 ### Third Axis (Scatter Plot Matrix)
 For a set of data variables (dimensions) X1, X2, ... , Xk, the scatter plot matrix shows all the pairwise scatter plots of the variables on a single view with multiple scatterplots in a matrix format.
