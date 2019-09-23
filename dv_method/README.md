@@ -12,7 +12,7 @@ Either
   - If a parameter exists that is systematically incremented and/or decremented by the other, it is called the control parameter.
   - Dependent variables depend on the values of independent variables.
   - Dependent variable will usually be plotted along the vertical axis.  
-Or
+Or   
 - Two independent variables (correlation, not causation).
   - Either variable can be plotted on either axis
 
