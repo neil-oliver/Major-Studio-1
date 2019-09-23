@@ -1,0 +1,69 @@
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>The MET</title>
+  <style>
+    body {
+      background : rgb(50, 50, 50);
+      color: rgb(255,255,255);
+      font-family: 'Quicksand', sans-serif;
+    }
+    h1 {
+      margin-top: 50px;
+      font-size: 2em
+    }
+    h2 {
+      font-size: 1em
+    }
+    #select {
+      text-align: right;
+    }
+    #canvas {
+      margin-top: 50px;
+      margin-bottom: 50px;
+    }
+    img {
+      margin-left: 50px;
+      margin-right: 50px;
+      margin-bottom: 50px;
+      float : right;
+    }
+
+    #info {
+      text-align: center;
+    }
+
+    #title, #description {
+      padding-left: 20px
+    }
+
+  </style>
+
+  <!-- if your sketch uses a webfont, be sure to include it here -->
+  <link href="https://fonts.googleapis.com/css?family=Quicksand:300&display=swap" rel="stylesheet">
+
+</head>
+<body>    
+  <img src="images/met-logo2.png" alt="Smiley face" height="200">
+  <div id='title'>
+    <h1>Do we only value art after the artist has died?</h1>
+    <h2>An investigation into the date of aquisition in relation to the artists lifetime.</h2>
+  </div>
+  <div id="description">
+    From the opening on the MET Mueseum in 1870, have the acquisition habbits of the museum shifted between buying historical art to buying art from current artists?
+    The visualization below maps the museums acquisition per decade in relation to if the artist was alive or deceased. The data used only includes acquisions of artists that were still alive at the time of the opening of the museum.
+  </div> 
+  <div id='select'>
+      <input type="checkbox" id="percentageCheck"> Display Percentages
+  </div>
+  <script language="javascript" type="text/javascript" src="processedData_Artists.js"></script>
+  <script language="javascript" type="text/javascript" src="process.js"></script>
+  <script language="javascript" type="text/javascript" src="../lib/p5.min.js"></script>
+  <script language="javascript" type="text/javascript" src="../lib/p5.dom.min.js"></script>
+  <script language="javascript" type="text/javascript" src="sketch.js"></script>
+  <div id="canvas">
+  </div>
+  <div id="info">
+  </div>
+</body>
+</html>
