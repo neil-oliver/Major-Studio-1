@@ -62,5 +62,8 @@ While many bubble charts use a scatter plot format with the addition of changing
 ## Code Examples
 ### P5
 [Example from the P5 documentation](https://editor.p5js.org/allison.parrish/sketches/ry9wlx46b)
+Well commented and easy to follow [P5 code](https://github.com/workergnome/dataviz-workshop/blob/master/scatterplot-p5/sketch.js) using the ```noLoop()``` approach and including color from the [Datavis Workshop](https://github.com/workergnome/dataviz-workshop). The workshop is using the [Carnegie Museum of Art](http://www.cmoa.org) collection API.
 ### D3
+The [D3 Graph Gallery](https://www.d3-graph-gallery.com/index.html) give a short [D3 code](https://www.d3-graph-gallery.com/graph/scatter_basic.html) example which is commented and easy to follow.
+The [Datavis Workshop](https://github.com/workergnome/dataviz-workshop) as includes a [D3 example](https://github.com/workergnome/dataviz-workshop/tree/master/scatterplot-d3).
 
