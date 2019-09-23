@@ -53,7 +53,7 @@ Interactive design by [Hannah Davis](http://www.hannahishere.com/) about [Holywo
 
 ### Bubble Charts
 Bubble Chart have been covered as a seaprate visualization type, but the [Gapminder](https://www.gapminder.org/tools/) example by [Hans Rosling](https://en.wikipedia.org/wiki/Hans_Rosling) is a brilliant interarative example that demonstrates the power of scatterplots / bubble charts, but also to demonstrate that **correlation does not always equal causation**.
-![](https://github.com/neil-oliver/Major-Studio-1/blob/master/dv_method/Images/gapminder-scatterplot.png)
+![](https://github.com/neil-oliver/Major-Studio-1/blob/master/dv_method/Images/gapminder.gif)
 If you havent seen it before, definitely watch [Let my dataset change your mindset](https://www.ted.com/talks/hans_rosling_at_state).
 
 #### Differences from Bubble Chart
@@ -61,6 +61,6 @@ While many bubble charts use a scatter plot format with the addition of changing
 
 ## Code Examples
 ### P5
-
+[Example from the P5 documentation](https://editor.p5js.org/allison.parrish/sketches/ry9wlx46b)
 ### D3
 
