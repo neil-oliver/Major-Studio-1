@@ -22,7 +22,8 @@ Both
 
 ## Examples
 ### Basic
-
+![](https://github.com/neil-oliver/Major-Studio-1/blob/master/dv_method/Images/basic-scatter-plot-in-r.png)
+Example created in R ([code](https://www.sharpsightlabs.com/blog/scatter-plot-in-r/)). This example is missing axis labels and a title.
 ### Use of Shapes
 
 ### Inclusion of Color
