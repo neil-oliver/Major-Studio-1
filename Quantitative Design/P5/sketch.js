@@ -86,7 +86,12 @@ function drawLabels() {
   }
 }
 
+var deptColor = {}
+var colors = ['#f97b72','#A5AA99','#7F3C8D','#11A579','#3969AC','#F2B701','#E68310','#80BA5A','#008695','#4b4b8f','#CF1C90']
+  
+
 function drawGraph(){
+
   if (document.getElementById("percentageCheck").checked == true){
     data = metDataPercentages
   } else {
@@ -122,8 +127,6 @@ function drawGraph(){
     var TbarW = 0
     var FbarH = height - margin
     var TbarH = height - margin
-    var deptColor = {}
-    var colors = ['#f97b72','#A5AA99','#7F3C8D','#11A579','#3969AC','#F2B701','#E68310','#80BA5A','#008695','#4b4b8f','#CF1C90']
     textSize(10)
 
     //create the bars for the 'deceased' side of the graph
