@@ -15,9 +15,10 @@ Either
   
 Or   
 - Two independent variables (correlation, not causation).
-  - Either variable can be plotted on either axis
+  - Either variable can be plotted on either axis.
 
-
+Both
+-  A line of best fit (trendline) can be drawn in order to study the relationship between the variables.
 
 ## Examples
 ### Basic
