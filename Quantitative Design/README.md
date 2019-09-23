@@ -1,12 +1,20 @@
 # The MET Museum
 ## Design Process
 
+## Initial Sketch
+
+This design has been created from the sketch below, which was one of three initials designed detailed [here](https://github.com/neil-oliver/Major-Studio-1/tree/master/Initial%20Sketches).
+![IMG_3443](https://user-images.githubusercontent.com/9771424/64180732-4c48bc80-ce33-11e9-8f05-feb2d41a5981.jpeg)
+
 ### Initial Design
 *Data Represented has been collected via the MET API (details below)*
 ![](https://github.com/neil-oliver/Major-Studio-1/blob/master/Initial%20Designs/The%20MET%201.png)
 
-This design has been created from the sketch below, which was one of three initials designed detailed [here](https://github.com/neil-oliver/Major-Studio-1/tree/master/Initial%20Sketches).
-![IMG_3443](https://user-images.githubusercontent.com/9771424/64180732-4c48bc80-ce33-11e9-8f05-feb2d41a5981.jpeg)
+### Initial P5 Implementation
+![](https://github.com/neil-oliver/Major-Studio-1/blob/master/Quantitative%20Design/Progress%20Images/Design%20Progress.png)
+
+### Final Design
+![](https://github.com/neil-oliver/Major-Studio-1/blob/master/Quantitative%20Design/Progress%20Images/Current%20Design.png)
 
 ### Accessing the MET API Data
 #### Script.js
