@@ -3,7 +3,11 @@ var margin = 50
 var cnv;
 
 function setup() {
-  cnv = createCanvas(windowWidth, windowHeight*0.6);
+  if (windowHeight < 1000){
+  cnv = createCanvas(windowWidth, 1000);
+  } else {
+    cnv = createCanvas(windowWidth, windowHeight*0.6);
+  }
   cnv.parent("canvas");
 }
 
