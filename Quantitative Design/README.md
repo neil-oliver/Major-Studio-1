@@ -11,12 +11,14 @@ Design created in Excel / Illustrator using MET API data. Details [here](https:/
 ![](https://github.com/neil-oliver/Major-Studio-1/blob/master/Initial%20Designs/The%20MET%201.png)
 
 ### P5 Design
-Data set chnged from using only the photography department dataset, to looking at the much larger (9,000 -> 46,000) modern art department department.
+Data set changed from using only the photography department dataset, to looking at the much larger (9,000 -> 46,000) modern art department department.
 ![](https://github.com/neil-oliver/Major-Studio-1/blob/master/Quantitative%20Design/Progress%20Images/Design%20Progress.png)
 
 ## Final Design
-Changed from displaying a single department to using all of the data from the MET collection. 
-![](https://github.com/neil-oliver/Major-Studio-1/blob/master/Quantitative%20Design/Progress%20Images/Current%20Design.png)
+Changed from displaying a single department to using all of the data from the MET collection, switchable between totals and percentage values.. 
+![](https://github.com/neil-oliver/Major-Studio-1/blob/master/Quantitative%20Design/Progress%20Images/Final_Design_1.png)
+![](https://github.com/neil-oliver/Major-Studio-1/blob/master/Quantitative%20Design/Progress%20Images/Final_Design_2.png)
+
 
 ## Accessing and Saving the MET API Collection using Node.js
 ### Get IDs
