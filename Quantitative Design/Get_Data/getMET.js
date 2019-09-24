@@ -17,7 +17,7 @@ let requestData = [];
 // });
 
 // from the response, fetch objects
-fs.readFile('METerrors_get.json', (error, data) => {
+fs.readFile('data/metIDs.json', (error, data) => {
     if (error) console.log(error);
     
     var ids = JSON.parse(data);
@@ -38,11 +38,5 @@ fs.readFile('METerrors_get.json', (error, data) => {
             }
         });
         setTimeout(callback, 100);
-    }, function() {
-         //fs.writeFileSync('METData.json', JSON.stringify(metData));
-        // fs.writeFileSync('data/first.json', JSON.stringify(meetingsData));
-        // console.log('*** *** *** *** ***');
-        // console.log('Number of meetings in this zone: ');
-        // console.log(meetingsData.length);
     });
 });
