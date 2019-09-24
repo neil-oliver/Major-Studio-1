@@ -9,7 +9,7 @@ async function processData() {
       await sortData(rawData[obj]);
     }
     download(JSON.stringify(metData), "ProcessedData.json", '"application/json"');
-    //download(JSON.stringify(metDataPercentages), "ProcessedPercentageData.json", '"application/json"');
+    download(JSON.stringify(metDataPercentages), "ProcessedPercentageData.json", '"application/json"');
 }
 
 //Saving JSON Locally
@@ -118,7 +118,7 @@ function aliveAtAcquisition(artistBeginDate, artistEndDate, acquisitionDate, obj
             result = false
         }
         if (artistBeginDate != ''){
-            //console.log('no start or end date for artist')
+            console.log('no start or end date for artist')
         }
     }
     return result;
