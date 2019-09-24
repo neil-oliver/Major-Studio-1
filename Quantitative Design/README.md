@@ -84,7 +84,7 @@ async function sortData(data){
     acquisitionDate = acquisitionDate.split(',')
     var bracket = await dateBracket(acquisitionDate[acquisitionDate.length-1])
     
-    if (parseInt(data.objectDate) >= 1870){ //&& (department != 'Photographs')
+    if (parseInt(data.objectDate) >= 1870){ 
         
         if (!metData.hasOwnProperty(alive)) {
             metData[alive] = {};
