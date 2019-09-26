@@ -1,5 +1,6 @@
 # Scatter Plot
-*(scatterplot, scatter graph, scatter chart, scattergram, or scatter diagram)*
+*(scatterplot, scatter graph, scatter chart, scattergram, or scatter diagram)*  
+*"The workhorse of data visualization in social science"* - Kieran Healy
 
 ## Description / Use
 A scatter plot is a visualization method designed to show the correlation (which can be positive, negative or null) between two variables. This is achieved by plotting the two points on a horizontal (X) and veretical (Y) axis using a [cartesian coordinate system](https://en.wikipedia.org/wiki/Cartesian_coordinate_system). Additional variables can be included through the adaptation of color, shape and size.
