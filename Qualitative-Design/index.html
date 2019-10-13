@@ -6,226 +6,71 @@
 
   <title>A Story of The MET Collection</title>
 
-  <style>
-    @font-face {
-        font-family: "TheMetSans-RegularTheMet";
-        src: url("fonts/TheMetSans-RegularTheMet.woff");
-    }
-    @font-face {
-        font-family: "TheMetSans-LightTheMet";
-        src: url("fonts/TheMetSans-LightTheMet.woff");
-    }
-    @font-face {
-        font-family: "The Met Serif Web-Italic";
-        src: url("fonts/TheMetSerifWeb-Italic.ttf");
-    }
-    @font-face {
-        font-family: "TheMetSans-BoldTheMet";
-        src: url("fonts/TheMetSans-BoldTheMet.woff");
-    }
-    @font-face {
-        font-family: "TheMetSans-MediumTheMet";
-        src: url("fonts/TheMetSans-MediumTheMet.woff");
-    }
-    header {
-      position: fixed;
-      top: 0;
-      height: 10rem;
-      width: 100%;
-      background-color: #eee;
-    }
-    #topBlank{
-      position: fixed;
-      top:10rem;
-      width: 100%;
-      height : 6rem;
-      background-color: #eee;
-    }
-
-    body {
-        background-color: #eee;
-        font-family: "TheMetSans-LightTheMet";
-        color : rgb(50,50,50);
-        margin-left: 0;
-    }
-    #story{
-        margin-top:16rem;
-        font-size: 3.5em;
-        padding-left: 15%;
-        padding-right: 15%;
-        text-align: justify;
-        font-weight: 400;
-        font-style: normal;
-        letter-spacing: 0.02em;
-
-    }
-    h1 {
-        font-family: "TheMetSans-MediumTheMet";
-        color : rgb(50,50,50);
-        font-size: 3em;
-        margin-bottom: 0;
-        margin-left : 50px
-    }
-    h2 {
-        font-family: "The Met Serif Web-Italic";
-        color : rgb(100,100,100);
-        margin-top: 0;
-        margin-left : 50px;
-        font-weight: 400;
-        font-style: normal;
-        font-stretch: normal;
-        letter-spacing: 0.05em;
-        font-size: inherit;
-        font-size: 21px;
-        line-height: 1.5;
-        letter-spacing: 0.03em;
-    }
-    img {
-      margin-left: 50px;
-      margin-right: 50px;
-      margin-bottom: 20px;
-      margin-top: 40px;
-      padding: 0;
-      float : right;
-      float : top;
-    }
-
-    #select{
-      margin-left: 50px;
-    }
-
-    span {
-      padding-top: 5px;
-    }
-    
-    a {
-      text-decoration:none;
-      font-family: "TheMetSans-MediumTheMet";
-      font-weight: 600;
-      color : rgb(100,100,100);
-      transition: .5s ease-in-out;
-    }
-
-    #highlighted {
-      display: inline;
-      transition: .5s ease-in-out;
-    }
-    #highlighted a {
-      display: inline;
-      transition: .5s ease-in-out;
-
-    }
-    .date {
-      transition: .5s ease-in-out;
-    }
-    .content {
-      transition: .5s ease-in-out;
-    }
-    .geography {
-      transition: .5s ease-in-out;
-    }
-    .date a:hover {
-      color:#EC012A
-    }    
-    .content a:hover {
-      color:#a98b19;
-    }
-    .geography a:hover {
-      color:#235ba4;
-    }
-    #highlighted.date{
-      background-color :#EC012A;
-      color: #eee;
-    }
-    #highlighted.content{
-      background-color : #a98b19;
-      color: #eee;
-    }
-    #highlighted.geography {
-      background-color : #235ba4;
-      color: #eee;
-    }
-    #highlighted.date a:link {
-      background-color: #EC012A;
-      color: #eee;
-    }
-    #highlighted.content a:link {
-      background-color: #a98b19;
-      color: #eee;
-    }
-    #highlighted.geography a:link {
-      background-color: #235ba4;
-      color: #eee;
-    }
-    #footer {
-      position: fixed;
-      bottom: 0;
-      width: 100%;
-      height: 3.5rem;
-      background-image: linear-gradient(to left, rgb(70,70,70), rgb(100,100,100));
-    }
-    #createdBy{
-      text-align: right;
-      color: #eee;
-      font-family: "TheMetSans-LightTheMet";
-      padding-right: 20px;
-    }
-    #bottomBlank {
-      position: fixed;
-      bottom: 3.5rem;
-      width: 100%;
-      height: 15.5rem;
-      background-color: #eee;
-      text-align: center;
-
-    }
-    #more {
-  background: none!important;
-  border: none;
-  padding: 0!important;
-  color:  rgb(100,100,100);
-  text-decoration: none;
-  cursor: pointer;
-  font-family: "The Met Serif Web-Italic";
-  font-weight: 400;
-  font-style: normal;
-  font-stretch: normal;
-  letter-spacing: 0.05em;
-  font-size: inherit;
-  font-size: 21px;
-  line-height: 1.5;
-  letter-spacing: 0.03em;
-}
-#description {
-  padding-left: 15%;
-  padding-right: 15%;
-}
-  </style>
-
+  <link rel="stylesheet" type="text/css" href="stylesheet.css" media="screen" />
 </head>
 
 <body>
   <header>
     <img src="The_Metropolitan_Museum_of_Art_Logo.svg" alt="MET Logo" style="width:75px;">
     <h1>A Story of The MET Collection</h1>
-    <h2>Connecting Art through <span style='color:#EC012A'>Time</span>, <span style='color:#235ba4'>Geography</span> and <span style='color:#a98b19'>Content</span>.</h2>
+    <h3>Connecting Art through <span style='color:#EC012A'>Time</span>, <span style='color:#235ba4'>Geography</span> and <span style='color:#a98b19'>Content</span>.</h3>
   </header>
-  <div id="topBlank"></div>
-  <div id="topFade"></div>
-
   <div id="p5_loading" style='text-align:center' class="loadingclass">
       <img src="https://media.giphy.com/media/131tNuGktpXGhy/giphy.gif">
   </div>
-  <div id="story">
-  </div>
-  <div id="bottomFade"></div>
-  <div id="bottomBlank">
-    <br><br><input id="more" type="submit" name="button" value="Tell me another story"/><br><br><br>
+  <div id="story"></div>
+    <div id='moreButton'><input id="more" type="submit" name="button" value="Tell me another story"/><br></div>
     <div id='description'>The story above has been created by linking every item from the MET collection and randomly following a link.
-      These links are between <strong>Time</strong> (when the artist was born, died or when the piece was created), <strong>Geography</strong> (where the artist was born, where the art was created or excavated) and <strong>Content</strong> (the subject of the artwork).
-      If you would like to find out more you can visit the project on <a href="https://github.com/neil-oliver/Major-Studio-1">GitHub</a>.
+      These links are between <span style='color:#EC012A'><strong>Time</strong></span> (when the artist was born, died or when the piece was created), <span style='color:#235ba4'><strong>Geography</strong></span> (where the artist was born, where the art was created or excavated) and <span style='color:#a98b19'><strong>Content</strong></span> (the subject of the artwork).
+      If you would like to find out exactly how its done, you can <a href="#explanation">scroll down</a>.
   </div>
-    
+  <div id='explanation'>
+      <h1 id="a-great-story-doesnt-happen-by-accident">A Great Story doesnt happen by accident</h1>
+      <p>While every piece within the <a href="https://www.metmuseum.org">MET Museum</a> has an impoertant part in art and history, linking one of the 62,856 pieces together because they both contain <strong>men</strong> really ins&#39;t that interesting.</p>
+      <p>This is just one example of many decisions of what to include (or exclude) in the story above.</p>
+      <h2 id="how-does-it-work-">How does it work?</h2>
+      <p>First we have to decide what would make an interesting link. We chose:</p>
+      <ul>
+      <li>Artist year of birth</li>
+      <li>Artist year of death</li>
+      <li>The year the piece was created (sometimes this is an approximation)</li>
+      <li>The artist</li>
+      <li>Artist place of birth</li>
+      <li>The contents (tags) of the artwork (i.e. does it contain dogs?)</li>
+      <li>The medium of the artwork (what is itr made of?)</li>
+      <li>Where the art was made</li>
+      <li>Where the art was excavated</li>
+      </ul>
+      <p>Then we <strong>Linked it all together.</strong></p>
+      <h3 id="what-did-we-ignore-">What did we ignore?</h3>
+      <p>Within these categories we chose to ignore some possible links. </p>
+      <ul>
+      <li>Any medium that had been used more than 50 times</li>
+      <li>Any tag that was used more than 1000 times</li>
+      </ul>
+      <h3 id="art-data-isnt-perfect">Art data isnt perfect</h3>
+      <p>Sometimes there are errors on more commonly, information is missing or unknown about a piece. We therefore also excluded any of the following:</p>
+      <ul>
+      <li>Artwork with a blank title</li>
+      <li>Artwork by an unknown artist</li>
+      <li>Fragments of items</li>
+      </ul>
+      <h2 id="telling-the-story">Telling the Story</h2>
+      <p>After everything is linked we now need to follow a path from one item to another. </p>
+      <h3 id="decisions-decisions">Decisions, Decisions</h3>
+      <p>Most artworks will be linked to more than one other artwork, so <strong>which one to choose?</strong></p>
+      <p>We could pick a link randomly, but in reality <em>some links are more interesting than others</em>. The other issue with randomly selecting the link is that most links are realted to dates, which can be interesting but we dont want the whole story to be about dates.
+      We created a ranking system by giving each link a score, with <strong>some element of randomness</strong> to pick the more interestings links where possible.</p>
+      <ul>
+      <li>Start at 0</li>
+      <li>Pick a random score between 1 and 5 as a starting point</li>
+      <li>Add 10 if there is a link to something that was excavated (these are pretty rare to find so they make an interesting story)</li>
+      <li>Add 7 if its links to the same city (knowing the country is quite common, but knowing the city is much less common)</li>
+      <li>Add 5 if the artists nationality (where they were born) is known.</li>
+      <li>Add 2 if there link is a tag. As we originally only included tags that were used less than 50 times, these can be very unique and interesting. </li>
+      </ul>
+      <p><strong>Zero Score</strong>. 
+      We want to avoid (where we can) making similar links within the story, so if the same item has been used before, or it was the same kind of link (for expample from place of birth to place of birth), we give it a zero score.</p>      
   </div>
   <footer id="footer"><div id="createdBy"><br>Created by <a href="https://neiloliver.co">Neil Oliver</a></div></footer>
   <script language="javascript" type="text/javascript" src="lib/p5.min.js"></script>

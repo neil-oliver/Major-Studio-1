@@ -1,0 +1,200 @@
+@font-face {
+    font-family: "TheMetSans-RegularTheMet";
+    src: url("fonts/TheMetSans-RegularTheMet.woff");
+}
+@font-face {
+    font-family: "TheMetSans-LightTheMet";
+    src: url("fonts/TheMetSans-LightTheMet.woff");
+}
+@font-face {
+    font-family: "The Met Serif Web-Italic";
+    src: url("fonts/TheMetSerifWeb-Italic.ttf");
+}
+@font-face {
+    font-family: "TheMetSans-BoldTheMet";
+    src: url("fonts/TheMetSans-BoldTheMet.woff");
+}
+@font-face {
+    font-family: "TheMetSans-MediumTheMet";
+    src: url("fonts/TheMetSans-MediumTheMet.woff");
+}
+html {
+    scroll-behavior: smooth;
+}
+
+header {
+  position: fixed;
+  top: 0;
+  width : 96%;
+  height: 10rem;
+  background-color: #eee;
+  padding-left : 2%;
+  padding-right: 2%;
+
+}
+
+body {
+    background-color: #eee;
+    font-family: "TheMetSans-LightTheMet";
+    color : rgb(50,50,50);
+    margin : 0;
+}
+#story{
+    display:block;
+    margin-top:14rem;
+    overflow:scroll;
+    min-height : 500px;
+    font-size: 3.5em;
+    padding-left: 15%;
+    padding-right: 15%;
+    
+    text-align: justify;
+    font-weight: 400;
+    font-style: normal;
+    letter-spacing: 0.02em;
+
+}
+h1 {
+    font-family: "TheMetSans-MediumTheMet";
+    color : rgb(70,70,70);
+    font-size: 3em;
+    margin-bottom: 0;
+}
+h3 {
+    font-family: "The Met Serif Web-Italic";
+    color : rgb(100,100,100);
+    margin-top: 0;
+    font-weight: 400;
+    font-style: normal;
+    font-stretch: normal;
+    letter-spacing: 0.05em;
+    font-size: inherit;
+    font-size: 21px;
+    line-height: 1.5;
+    letter-spacing: 0.03em;
+}
+img {
+  margin-bottom: 20px;
+  margin-top: 40px;
+  padding: 0;
+  float : right;
+  float : top;
+}
+
+#select{
+  margin-left: 50px;
+}
+
+span {
+  padding-top: 5px;
+}
+
+a {
+  text-decoration:none;
+  font-family: "TheMetSans-MediumTheMet";
+  font-weight: 600;
+  color : rgb(100,100,100);
+  transition: .5s ease-in-out;
+}
+
+#highlighted {
+  display: inline;
+  transition: .5s ease-in-out;
+}
+#highlighted a {
+  display: inline;
+  transition: .5s ease-in-out;
+
+}
+.date {
+  transition: .5s ease-in-out;
+}
+.content {
+  transition: .5s ease-in-out;
+}
+.geography {
+  transition: .5s ease-in-out;
+}
+.date a:hover {
+  color:#EC012A
+}    
+.content a:hover {
+  color:#a98b19;
+}
+.geography a:hover {
+  color:#235ba4;
+}
+#highlighted.date{
+  background-color :#EC012A;
+  color: #eee;
+}
+#highlighted.content{
+  background-color : #a98b19;
+  color: #eee;
+}
+#highlighted.geography {
+  background-color : #235ba4;
+  color: #eee;
+}
+#highlighted.date a:link {
+  background-color: #EC012A;
+  color: #eee;
+}
+#highlighted.content a:link {
+  background-color: #a98b19;
+  color: #eee;
+}
+#highlighted.geography a:link {
+  background-color: #235ba4;
+  color: #eee;
+}
+#footer {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  height: 3.5rem;
+  background-image: linear-gradient(to left, rgb(70,70,70), rgb(150,150,150));
+}
+#footer a{
+    color : #eee;
+  }
+#createdBy{
+  text-align: right;
+  color: #eee;
+  font-family: "TheMetSans-LightTheMet";
+  padding-right: 20px;
+}
+
+#more {
+background: none!important;
+border: none;
+padding: 0!important;
+color:  rgb(100,100,100);
+text-decoration: none;
+cursor: pointer;
+font-family: "The Met Serif Web-Italic";
+font-weight: 400;
+font-style: normal;
+font-stretch: normal;
+letter-spacing: 0.05em;
+font-size: inherit;
+font-size: 21px;
+line-height: 1.5;
+letter-spacing: 0.03em;
+}
+#moreButton{
+    padding-top: 2%;
+    text-align: center;
+}
+#description {
+padding-top: 2%;
+padding-left: 15%;
+padding-right: 15%;
+}
+
+#explanation {
+    padding-top : 10%;
+    padding-left: 15%;
+    padding-right: 15%;
+    padding-bottom: 5%;
+}
