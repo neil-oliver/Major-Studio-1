@@ -44,6 +44,7 @@ body {
     margin-top:14rem;
     overflow:scroll;
     min-height : 60vh;
+    max-height: 70vh;
     font-size: 3.5em;
     padding-left: 15%;
     padding-right: 15%;
@@ -88,10 +89,6 @@ img {
 
 #select{
   margin-left: 50px;
-}
-
-span {
-  padding-top: 5px;
 }
 
 a {
@@ -141,24 +138,16 @@ a {
   background-color : #235ba4;
   color: #eee;
 }
-#highlighted.date a:link {
-  background-color: #EC012A;
+#highlighted a:link {
   color: #eee;
 }
-#highlighted.content a:link {
-  background-color: #a98b19;
-  color: #eee;
-}
-#highlighted.geography a:link {
-  background-color: #235ba4;
-  color: #eee;
-}
+
 #footer {
   position: fixed;
   bottom: 0;
   width: 100%;
   height: 3.5rem;
-  background-image: linear-gradient(to left, rgb(70,70,70), rgb(150,150,150));
+  background-image: linear-gradient(to left, rgb(70,70,70), rgb(100,100,100));
 }
 #footer a{
     color : #eee;
