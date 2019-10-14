@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<gexf xmlns="http://www.gexf.net/1.3" version="1.3" xmlns:viz="http://www.gexf.net/1.3/viz" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.gexf.net/1.3 http://www.gexf.net/1.3/gexf.xsd">
+  <meta lastmodifieddate="2019-10-13">
+    <creator>Gephi 0.9</creator>
+    <description></description>
+  </meta>
+  <graph defaultedgetype="undirected" mode="static">
+    <nodes>
+      <node id="artistDisplayName-Claude Monet" label="Claude Monet">
+        <viz:size value="10.0"></viz:size>
+        <viz:position x="215.89821" y="-115.36729"></viz:position>
+      </node>
+      <node id="artistBeginDate-1840" label="1840">
+        <viz:size value="10.0"></viz:size>
+        <viz:position x="52.085754" y="150.80594"></viz:position>
+      </node>
+      <node id="artistEndDate-1926" label="1926">
+        <viz:size value="10.0"></viz:size>
+        <viz:position x="253.05179" y="72.40195"></viz:position>
+      </node>
+      <node id="objectBeginDate-1919" label="1919">
+        <viz:size value="10.0"></viz:size>
+        <viz:position x="-220.41951" y="-141.85612"></viz:position>
+      </node>
+      <node id="title-Water Lilies" label="Water Lilies">
+        <viz:size value="10.0"></viz:size>
+        <viz:position x="111.08986" y="-142.2487"></viz:position>
+      </node>
+      <node id="title-The Manneporte (Étretat)" label="The Manneporte (Étretat)">
+        <viz:size value="10.0"></viz:size>
+        <viz:position x="248.59773" y="-48.87061"></viz:position>
+      </node>
+      <node id="title-The Stroller (Suzanne Hoschedé, later Mrs. Theodore Earl Butler, 1868–1899)" label="The Stroller (Suzanne Hoschedé, later Mrs. Theodore Earl Butler, 1868–1899)">
+        <viz:size value="10.0"></viz:size>
+        <viz:position x="8.073" y="-128.49586"></viz:position>
+      </node>
+      <node id="title-Poppy Fields near Argenteuil" label="Poppy Fields near Argenteuil">
+        <viz:size value="10.0"></viz:size>
+        <viz:position x="179.3572" y="-182.89192"></viz:position>
+      </node>
+      <node id="title-The Reprimand" label="The Reprimand">
+        <viz:size value="10.0"></viz:size>
+        <viz:position x="-468.01605" y="81.6434"></viz:position>
+      </node>
+      <node id="title-The Missionary's Adventures" label="The Missionary's Adventures">
+        <viz:size value="10.0"></viz:size>
+        <viz:position x="174.69518" y="136.7551"></viz:position>
+      </node>
+      <node id="title-Alsace" label="Alsace">
+        <viz:size value="10.0"></viz:size>
+        <viz:position x="-263.08813" y="221.84671"></viz:position>
+      </node>
+      <node id="title-Marie Depage- Edith Cavell" label="Marie Depage">
+        <viz:size value="10.0"></viz:size>
+        <viz:position x="107.64298" y="-104.31555"></viz:position>
+      </node>
+      <node id="title-A Footman Sleeping" label="A Footman Sleeping">
+        <viz:size value="10.0"></viz:size>
+        <viz:position x="21.6569" y="-179.73795"></viz:position>
+      </node>
+      <node id="title-A Bashi-Bazouk" label="A Bashi">
+        <viz:size value="10.0"></viz:size>
+        <viz:position x="138.47076" y="-36.78587"></viz:position>
+      </node>
+      <node id="title-The Artist's Wife (Périe, 1849–1887) Reading" label="The Artist's Wife (Périe, 1849–1887) Reading">
+        <viz:size value="10.0"></viz:size>
+        <viz:position x="-286.3308" y="66.96285"></viz:position>
+      </node>
+      <node id="artistNationality-France" label="France">
+        <viz:size value="10.0"></viz:size>
+        <viz:position x="-98.16947" y="178.37651"></viz:position>
+      </node>
+    </nodes>
+    <edges>
+      <edge id="72" source="title-Water Lilies" target="artistDisplayName-Claude Monet" weight="2.0"></edge>
+      <edge id="73" source="title-Water Lilies" target="artistBeginDate-1840" weight="2.0"></edge>
+      <edge id="74" source="title-Water Lilies" target="artistEndDate-1926" weight="2.0"></edge>
+      <edge id="77" source="artistDisplayName-Claude Monet" target="title-The Manneporte (Étretat)"></edge>
+      <edge id="78" source="artistDisplayName-Claude Monet" target="title-The Stroller (Suzanne Hoschedé, later Mrs. Theodore Earl Butler, 1868–1899)"></edge>
+      <edge id="79" source="artistDisplayName-Claude Monet" target="title-Poppy Fields near Argenteuil"></edge>
+      <edge id="81" source="artistBeginDate-1840" target="title-The Manneporte (Étretat)"></edge>
+      <edge id="82" source="artistBeginDate-1840" target="title-The Reprimand"></edge>
+      <edge id="83" source="artistBeginDate-1840" target="title-The Missionary's Adventures"></edge>
+      <edge id="85" source="artistEndDate-1926" target="title-The Manneporte (Étretat)"></edge>
+      <edge id="86" source="artistEndDate-1926" target="title-The Stroller (Suzanne Hoschedé, later Mrs. Theodore Earl Butler, 1868–1899)"></edge>
+      <edge id="87" source="artistEndDate-1926" target="title-Poppy Fields near Argenteuil"></edge>
+      <edge id="89" source="objectBeginDate-1919" target="title-Water Lilies" weight="3.0"></edge>
+      <edge id="90" source="objectBeginDate-1919" target="title-Alsace"></edge>
+      <edge id="91" source="objectBeginDate-1919" target="title-Marie Depage- Edith Cavell"></edge>
+      <edge id="92" source="artistNationality-France" target="title-Water Lilies"></edge>
+      <edge id="93" source="artistNationality-France" target="title-A Footman Sleeping"></edge>
+      <edge id="94" source="artistNationality-France" target="title-A Bashi-Bazouk"></edge>
+      <edge id="95" source="artistNationality-France" target="title-The Artist's Wife (Périe, 1849–1887) Reading"></edge>
+    </edges>
+  </graph>
+</gexf>

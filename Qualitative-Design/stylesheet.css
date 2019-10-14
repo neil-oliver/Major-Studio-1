@@ -43,11 +43,10 @@ body {
     display:block;
     margin-top:14rem;
     overflow:scroll;
-    min-height : 500px;
+    min-height : 60vh;
     font-size: 3.5em;
     padding-left: 15%;
     padding-right: 15%;
-    
     text-align: justify;
     font-weight: 400;
     font-style: normal;
@@ -59,6 +58,12 @@ h1 {
     color : rgb(70,70,70);
     font-size: 3em;
     margin-bottom: 0;
+}
+h2 {
+  font-family: "TheMetSans-MediumTheMet";
+  color : rgb(70,70,70);
+  font-size: 2em;
+  margin-bottom: 0;
 }
 h3 {
     font-family: "The Met Serif Web-Italic";
@@ -193,8 +198,12 @@ padding-right: 15%;
 }
 
 #explanation {
-    padding-top : 10%;
+    padding-top : 7%;
     padding-left: 15%;
     padding-right: 15%;
     padding-bottom: 5%;
+
 }
+#explanation h1, h2 {
+  color : rgb(100,100,100);
+  }
