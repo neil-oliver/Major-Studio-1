@@ -54,3 +54,4 @@ explanation styling
 'speaking english' section
 tweak output in story
 change loading animation
+fix no assigned class to span (created by) as it turns the hyperlink clear!

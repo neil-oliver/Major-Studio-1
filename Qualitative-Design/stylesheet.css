@@ -79,7 +79,7 @@ h3 {
     line-height: 1.5;
     letter-spacing: 0.03em;
 }
-img {
+#logo img {
   margin-bottom: 20px;
   margin-top: 40px;
   padding: 0;
@@ -138,7 +138,13 @@ a {
   background-color : #235ba4;
   color: #eee;
 }
-#highlighted a:link {
+#highlighted.date a:link {
+  color: #eee;
+}
+#highlighted.content a:link {
+  color: #eee;
+}
+#highlighted.geography a:link {
   color: #eee;
 }
 
@@ -196,10 +202,14 @@ padding-right: 15%;
 #explanation h1, h2 {
   color : rgb(100,100,100);
   }
-  .loadingclass {
-    display: block;
-    margin-left: 0;
-    margin-right: 0;
-    text-align: center;
-    width : 50%
-  }
+
+.loadingclass {
+  display: block;
+  margin-left: 0;
+  margin-right: 0;
+  text-align: center;
+  width : 50%
+}
+
+
+
