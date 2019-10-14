@@ -43,7 +43,7 @@ body {
     display:block;
     margin-top:14rem;
     overflow:scroll;
-    min-height : 60vh;
+    min-height : 50vh;
     max-height: 70vh;
     font-size: 3.5em;
     padding-left: 15%;
