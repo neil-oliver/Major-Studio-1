@@ -43,8 +43,8 @@ body {
     display:block;
     margin-top:14rem;
     overflow:scroll;
-    min-height : 50vh;
-    max-height: 70vh;
+    min-height : 55vh;
+    max-height: 65vh;
     font-size: 3.5em;
     padding-left: 15%;
     padding-right: 15%;
@@ -195,4 +195,11 @@ padding-right: 15%;
 }
 #explanation h1, h2 {
   color : rgb(100,100,100);
+  }
+  .loadingclass {
+    display: block;
+    margin-left: 0;
+    margin-right: 0;
+    text-align: center;
+    width : 50%
   }

@@ -48,3 +48,9 @@ cant just pick the link with the most links - creates the same story each time
 turn negative into B.C.
 
 
+## things to work on 10-13-19
+'back to top' button
+explanation styling
+'speaking english' section
+tweak output in story
+change loading animation
