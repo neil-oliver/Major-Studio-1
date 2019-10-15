@@ -24,7 +24,11 @@ function draw(){
                 addToDOM[0][1] = addToDOM[0][1].substr(1);
                 rnd = round(random(1,10))
             } else {
-                if (addToDOM[0][2]){addToDOM[0][0].html(addToDOM[0][2],false)};
+                if (addToDOM[0][2]){
+                    addToDOM[0][0].html(addToDOM[0][2],false)
+                    let div = document.getElementById('mini-story')
+                    createSpan(addToDOM[0][2]).parent(div)
+                };
                 addToDOM.shift();
                 rnd = 60;
             }
@@ -33,8 +37,10 @@ function draw(){
 
     document.getElementById('more').onclick = function() {
         console.log('lets start again')
-        var wipe = select('#story')
-        wipe.html('',false)
+        var wipeStory = select('#story')
+        wipeStory.html('',false)
+        var wipeMiniStory = select('#mini-story')
+        wipeMiniStory.html('',false)
         addToDOM = [];
         lastKey = 'start';
         tellStory();

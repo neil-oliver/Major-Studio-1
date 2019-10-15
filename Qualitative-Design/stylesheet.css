@@ -36,6 +36,12 @@ header {
   padding-right: 2%;
 
 }
+#top {
+  display: block;
+  position: relative;
+  top: -14rem;
+  visibility: hidden;
+}
 
 body {
     background-color: #eee;
@@ -199,11 +205,11 @@ font-size: 1.2em;
 }
 
 #explanation-top {
-  padding-top : 10%;
+  padding-top : 7%;
 }
 
 #explanation-bottom {
-  padding-top : 10%;
+  padding-bottom : 7%;
 }
 
 .explanation {
@@ -240,5 +246,33 @@ font-size: 1.2em;
   margin-left: auto;
   margin-right: auto;
   width: 60%;
+}
+
+#mini-story {
+  display:block;
+  min-height:10vh;
+  text-align: justify;
+  background-color: white;
+  margin-left: 10%;
+  margin-right: 10%;
+  padding: 2%;
+  border-style: solid;
+  border-width: 1px;
+}
+#top-link{
+display:block;
+padding-top: 5%;
+color:  rgb(100,100,100);
+text-decoration: none;
+cursor: pointer;
+font-family: "The Met Serif Web-Italic";
+font-weight: 400;
+font-style: normal;
+font-stretch: normal;
+letter-spacing: 0.05em;
+font-size: 1em;
+line-height: 1.5;
+letter-spacing: 0.03em;
+text-align: center;
 }
 

@@ -50,8 +50,8 @@ turn negative into B.C.
 
 ## things to work on 10-13-19
 'back to top' button
-explanation styling
+explanation styling - done
 'speaking english' section
 tweak output in story
-change loading animation
-fix no assigned class to span (created by) as it turns the hyperlink clear!
+change loading animation - done
+fix no assigned class to span (created by) as it turns the hyperlink clear! - done?
