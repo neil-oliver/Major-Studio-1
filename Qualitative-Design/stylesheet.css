@@ -11,6 +11,10 @@
     src: url("fonts/TheMetSerifWeb-Italic.ttf");
 }
 @font-face {
+  font-family: "The Met Serif Web";
+  src: url("fonts/TheMetSerifWeb-Roman.woff2");
+}
+@font-face {
     font-family: "TheMetSans-BoldTheMet";
     src: url("fonts/TheMetSans-BoldTheMet.woff");
 }
@@ -178,7 +182,7 @@ font-style: normal;
 font-stretch: normal;
 letter-spacing: 0.05em;
 font-size: inherit;
-font-size: 21px;
+font-size: 1.5em;
 line-height: 1.5;
 letter-spacing: 0.03em;
 }
@@ -190,17 +194,34 @@ letter-spacing: 0.03em;
 padding-top: 2%;
 padding-left: 15%;
 padding-right: 15%;
-}
-
-#explanation {
-    padding-top : 7%;
-    padding-left: 15%;
-    padding-right: 15%;
-    padding-bottom: 5%;
+font-size: 1.2em;
 
 }
-#explanation h1, h2 {
-  color : rgb(100,100,100);
+
+.block {
+  display: block;
+  height : 7vh;
+}
+
+.explanation {
+    padding-left: 30%;
+    padding-right: 30%;
+    padding-bottom: 2%;
+    padding-top: 2%;
+    font-size: 1.2em;
+
+
+}
+.explanation h1 {
+  font-family: "The Met Serif Web";
+  font-weight: 200;
+  line-height: 1.166;
+  color : rgb(30,30,30);
+  font-size: 3em;
+  }
+
+  .explanation h3 {
+    font-size: 1.5em;
   }
 
 .loadingclass {
@@ -211,5 +232,10 @@ padding-right: 15%;
   width : 50%
 }
 
-
+.network {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 60%;
+}
 

@@ -1,72 +1,131 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- Generator: Adobe Illustrator 23.0.6, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
 <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-	 viewBox="0 0 668 505" style="enable-background:new 0 0 668 505;" xml:space="preserve">
+	 viewBox="0 0 717 500" style="enable-background:new 0 0 717 500;" xml:space="preserve">
 <style type="text/css">
-	.st0{fill:none;stroke:#646464;}
-	.st1{fill:none;stroke:#646464;stroke-dasharray:9.9838,3.9935;}
-	.st2{fill:#646464;}
-	.st3{fill:none;stroke:#d8d8d8;}
-	.st4{fill:none;stroke:#000000;}
-	.st5{fill:#CCCCCC;stroke:#808080;}
-	.st6{fill:#F0F0F0;stroke:#DCDCDC;}
-	.st7{font-family:'HelveticaNeue';}
-	.st8{font-size:8.5861px;}
+	.st0{fill:none;stroke:#878787;stroke-miterlimit:10;}
+	.st1{fill:none;stroke:#878787;stroke-miterlimit:10;stroke-dasharray:4.1299,2.0649;}
+	.st2{fill:none;stroke:#969696;stroke-miterlimit:10;}
+	.st3{fill:none;stroke:#969696;stroke-miterlimit:10;stroke-dasharray:3.9273,1.9636;}
+	.st4{fill:none;stroke:#646464;}
+	.st5{fill:none;stroke:#646464;stroke-dasharray:9.9838,3.9935;}
+	.st6{fill:#646464;}
+	.st7{fill:none;stroke:#D8D8D8;}
+	.st8{fill:none;stroke:#000000;}
+	.st9{fill:#CCCCCC;stroke:#808080;}
+	.st10{fill:#EC012A;stroke:#808080;}
+	.st11{fill:#F0F0F0;stroke:#DCDCDC;}
+	.st12{fill:#235BA4;stroke:#808080;}
+	.st13{font-family:'HelveticaNeue';}
+	.st14{font-size:8.5861px;}
+	.st15{clip-path:url(#SVGID_4_);}
+	.st16{fill:none;stroke:#FFFFFF;stroke-width:5;stroke-miterlimit:10;}
+	.st17{clip-path:url(#SVGID_6_);}
 </style>
 <g>
 	<g>
-		<path class="st0" d="M111.3,461.3c0.8-1.4,1.6-2.9,2.4-4.4"/>
-		<path class="st1" d="M115.5,453.4c32.4-68.1-9.4-160.4-71.7-166.9"/>
-		<path class="st0" d="M41.8,286.2c-1.7-0.1-3.3-0.2-5-0.2"/>
+		<path class="st0" d="M108.7,263.3c0,0.6-0.1,1.3-0.3,2"/>
+		<path class="st1" d="M107.6,267.2c-7.8,14.3-52.1,33.9-39-33"/>
+		<path class="st0" d="M68.7,233.1c0.1-0.6,0.3-1.3,0.4-2"/>
+	</g>
+</g>
+<g>
+	<g>
+		<path class="st2" d="M491.2,440.5c-0.3,0.6-0.7,1.2-0.9,1.8"/>
+		<path class="st3" d="M489.5,444.1c-10.9,27.9,43.9,53.8,104,23.6"/>
+		<path class="st2" d="M594.3,467.2c0.6-0.3,1.2-0.6,1.8-0.9"/>
+	</g>
+</g>
+<g>
+	<g>
+		<path class="st4" d="M188.3,433.3c0.8-1.4,1.6-2.9,2.4-4.4"/>
+		<path class="st5" d="M192.5,425.4c32.4-68.1-9.4-160.4-71.7-166.9"/>
+		<path class="st4" d="M118.8,258.2c-1.7-0.1-3.3-0.2-5-0.2"/>
 		<g>
-			<path class="st2" d="M108.1,466.4c2.4-1.9,5.7-4,8.5-4.8l-5-1l-3.2-3.9C109,459.5,108.7,463.5,108.1,466.4z"/>
+			<path class="st6" d="M185.1,438.4c2.4-1.9,5.7-4,8.5-4.8l-5-1l-3.2-3.9C186,431.5,185.7,435.5,185.1,438.4z"/>
 		</g>
 	</g>
 </g>
 <g id="edges">
-	<path class="st3" d="M414.2,463.3c-29.7-84.5,52.5-255.8,137-285.5"/>
-	<path class="st3" d="M593.6,343.9c-14-9.5-20.9-44.7-11.4-58.7"/>
-	<path class="st3" d="M593.6,343.9c-76.9,37.8-248.8-20.9-286.5-97.8"/>
-	<path class="st3" d="M593.6,343.9c1.9,26.9-35.7,70-62.5,71.9"/>
-	<path class="st3" d="M378.7,110.6c75.6-5.7,197.7,99.1,203.4,174.7"/>
-	<path class="st3" d="M378.7,110.6c23.5-18.6,86.6-11.4,105.3,12.1"/>
-	<path class="st3" d="M551.3,177.9c27.6,15.3,46.1,79.7,30.8,107.4"/>
-	<path class="st3" d="M551.3,177.9c-35.2,62.5-181.7,103.5-244.3,68.3"/>
-	<path class="st3" d="M551.3,177.9c43.5,51.6,31.4,194.4-20.3,238"/>
-	<path class="st3" d="M144.7,361.8c74.2-33.6,235.9,27.3,269.5,101.5"/>
-	<path class="st3" d="M144.7,361.8C75,306.7,53,119.4,108.1,49.6"/>
-	<path class="st3" d="M144.7,361.8c51-67.1,228.2-91.3,295.4-40.3"/>
-	<path class="st3" d="M249.7,86.9c108.2,42.4,206.9,268.3,164.5,376.4"/>
-	<path class="st3" d="M249.7,86.9c71.9,45.3,111.9,221.1,66.6,293"/>
-	<path class="st3" d="M249.7,86.9c77.6-3.7,199.5,107.2,203.2,184.7"/>
-	<path class="st3" d="M249.7,86.9c-13.2,51.4-110.1,108.8-161.6,95.7"/>
-	<path class="st4" d="M414.2,463.3c12-59.7,119.6-131.4,179.3-119.4"/>
-	<path class="st4" d="M414.2,463.3c-77.7-63.5-99-275.1-35.5-352.8"/>
-	<path class="st4" d="M378.7,110.6c-34.3,104.5-242.5,209.8-347,175.5"/>
+	<path class="st7" d="M491.2,435.3c-29.7-84.5,52.5-255.8,137-285.5"/>
+	<path class="st7" d="M670.6,315.9c-14-9.5-20.9-44.7-11.4-58.7"/>
+	<path class="st7" d="M670.6,315.9c-76.9,37.8-248.8-20.9-286.5-97.8"/>
+	<path class="st7" d="M670.6,315.9c1.9,26.9-35.7,70-62.5,71.9"/>
+	<path class="st7" d="M455.7,82.6c75.6-5.7,197.7,99.1,203.4,174.7"/>
+	<path class="st7" d="M455.7,82.6C479.2,64,542.3,71.2,561,94.7"/>
+	<path class="st7" d="M628.3,149.9c27.6,15.3,46.1,79.7,30.8,107.4"/>
+	<path class="st7" d="M628.3,149.9c-35.2,62.5-181.7,103.5-244.3,68.3"/>
+	<path class="st7" d="M628.3,149.9c43.5,51.6,31.4,194.4-20.3,238"/>
+	<path class="st7" d="M221.7,333.8c74.2-33.6,235.9,27.3,269.5,101.5"/>
+	<path class="st7" d="M221.7,333.8C152,278.7,130,91.4,185.1,21.6"/>
+	<path class="st7" d="M221.7,333.8c51-67.1,228.2-91.3,295.4-40.3"/>
+	<path class="st7" d="M326.7,58.9c108.2,42.4,206.9,268.3,164.5,376.4"/>
+	<path class="st7" d="M326.7,58.9c71.9,45.3,111.9,221.1,66.6,293"/>
+	<path class="st7" d="M326.7,58.9c77.6-3.7,199.5,107.2,203.2,184.7"/>
+	<path class="st7" d="M326.7,58.9c-13.2,51.4-110.1,108.8-161.6,95.7"/>
+	<path class="st8" d="M491.2,435.3c12-59.7,119.6-131.4,179.3-119.4"/>
+	<path class="st8" d="M491.2,435.3c-77.7-63.5-99-275.1-35.5-352.8"/>
+	<path class="st8" d="M455.7,82.6c-34.3,104.5-242.5,209.8-347,175.5"/>
 </g>
 <g id="nodes">
-	<circle class="st5" cx="593.6" cy="343.9" r="5.2"/>
-	<circle class="st5" cx="378.7" cy="110.6" r="5.2"/>
-	<circle class="st6" cx="551.3" cy="177.9" r="5.2"/>
-	<circle class="st6" cx="144.7" cy="361.8" r="5.2"/>
-	<circle class="st5" cx="414.2" cy="463.3" r="5.2"/>
-	<circle class="st6" cx="582.1" cy="285.2" r="5.2"/>
-	<circle class="st6" cx="307" cy="246.2" r="5.2"/>
-	<circle class="st6" cx="531" cy="415.9" r="5.2"/>
-	<circle class="st5" cx="31.7" cy="286.1" r="5.2"/>
-	<circle class="st6" cx="484" cy="122.6" r="5.2"/>
-	<circle class="st6" cx="108.1" cy="49.6" r="5.2"/>
-	<circle class="st6" cx="440.1" cy="321.6" r="5.2"/>
-	<circle class="st6" cx="316.3" cy="379.9" r="5.2"/>
-	<circle class="st6" cx="452.9" cy="271.6" r="5.2"/>
-	<circle class="st6" cx="88.2" cy="182.6" r="5.2"/>
-	<circle class="st6" cx="249.7" cy="86.9" r="5.2"/>
+	<circle class="st9" cx="670.6" cy="315.9" r="5.2"/>
+	<circle class="st10" cx="455.7" cy="82.6" r="5.2"/>
+	<circle class="st11" cx="628.3" cy="149.9" r="5.2"/>
+	<circle class="st11" cx="221.7" cy="333.8" r="5.2"/>
+	<circle class="st12" cx="491.2" cy="435.3" r="5.2"/>
+	<circle class="st11" cx="659.1" cy="257.2" r="5.2"/>
+	<circle class="st11" cx="384" cy="218.2" r="5.2"/>
+	<circle class="st11" cx="608" cy="387.9" r="5.2"/>
+	<circle class="st9" cx="108.7" cy="258.1" r="5.2"/>
+	<circle class="st11" cx="561" cy="94.6" r="5.2"/>
+	<circle class="st11" cx="185.1" cy="21.6" r="5.2"/>
+	<circle class="st11" cx="517.1" cy="293.6" r="5.2"/>
+	<circle class="st11" cx="393.3" cy="351.9" r="5.2"/>
+	<circle class="st11" cx="529.9" cy="243.6" r="5.2"/>
+	<circle class="st11" cx="165.2" cy="154.6" r="5.2"/>
+	<circle class="st11" cx="326.7" cy="58.9" r="5.2"/>
 </g>
 <g id="node-labels">
-	<text transform="matrix(1 0 0 1 566.5127 336.5469)" class="st7 st8">Claude Monet</text>
-	<text transform="matrix(1 0 0 1 369.1733 102.6118)" class="st7 st8">1840</text>
-	<text transform="matrix(1 0 0 1 392.1387 475.3999)" class="st7 st8">Water Lilies</text>
-	<text transform="matrix(1 0 0 1 2.2715 277.5151)" class="st7 st8">The Reprimand</text>
+	<text transform="matrix(1 0 0 1 643.5127 308.5469)" class="st13 st14">Claude Monet</text>
+	<text transform="matrix(1 0 0 1 446.1733 74.6118)" class="st13 st14">1840</text>
+	<text transform="matrix(1 0 0 1 469.1387 447.3999)" class="st13 st14">Water Lilies</text>
+	<text transform="matrix(1 0 0 1 79.2715 249.5151)" class="st13 st14">The Reprimand</text>
 </g>
-<text transform="matrix(1 0 0 1 68.5736 477.9244)" class="st2 st7 st8">Jean-Georges Vibert </text>
+<text transform="matrix(1 0 0 1 145.5736 449.9244)" class="st6 st13 st14">Jean-Georges Vibert </text>
+<g>
+	<g>
+		<defs>
+			<rect id="SVGID_2_" x="12.4" y="169.8" width="124.4" height="61.7"/>
+		</defs>
+		<clipPath id="SVGID_4_">
+			<use xlink:href="#SVGID_2_"  style="overflow:visible;"/>
+		</clipPath>
+		<g transform="matrix(1 0 0 1 0 0)" class="st15">
+			
+				<image style="overflow:visible;enable-background:new    ;" width="1120" height="564" xlink:href="315624EB586DD680.jpg"  transform="matrix(0.1108 0 0 0.1108 12.5621 169.4604)">
+			</image>
+		</g>
+	</g>
+	<g>
+		<rect id="SVGID_1_" x="12.4" y="169.8" class="st16" width="124.4" height="61.7"/>
+	</g>
+</g>
+<g>
+	<g>
+		<defs>
+			<rect id="SVGID_5_" x="527.3" y="400.3" width="137.5" height="66"/>
+		</defs>
+		<clipPath id="SVGID_6_">
+			<use xlink:href="#SVGID_5_"  style="overflow:visible;"/>
+		</clipPath>
+		<g class="st17">
+			
+				<image style="overflow:visible;enable-background:new    ;" width="575" height="279" xlink:href="315624EB586DD683.jpg"  transform="matrix(0.2387 0 0 0.2387 527.4921 400.0054)">
+			</image>
+		</g>
+	</g>
+	<g>
+		<rect id="SVGID_3_" x="527.3" y="400.3" class="st16" width="137.5" height="66"/>
+	</g>
+</g>
 </svg>

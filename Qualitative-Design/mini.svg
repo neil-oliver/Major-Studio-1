@@ -1,230 +1,73 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
-    "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd" >
-<svg contentScriptType="text/ecmascript" width="668.0"
-     xmlns:xlink="http://www.w3.org/1999/xlink" zoomAndPan="magnify"
-     contentStyleType="text/css"
-     viewBox="-389.000000 -238.000000 778.000000 505.000000" height="505.0"
-     preserveAspectRatio="xMidYMid meet" xmlns="http://www.w3.org/2000/svg"
-     version="1.1">
-    <g id="edges">
-        <path fill="none" stroke-width="1.0"
-              d="M 93.452171,260.063354 C 107.407425,190.483307 232.710373,107.046135 302.290405,121.001396"
-              class="id_title-Water_Lilies id_artistDisplayName-Claude_Monet"
-              stroke-opacity="1.0" stroke="#cccccc"/>
-        <path fill="none" stroke-width="1.0"
-              d="M 93.452171,260.063354 C 3.005035,186.162781 -21.814812,-60.358803 52.085754,-150.805939"
-              class="id_title-Water_Lilies id_artistBeginDate-1840"
-              stroke-opacity="1.0" stroke="#cccccc"/>
-        <path fill="none" stroke-width="1.0"
-              d="M 93.452171,260.063354 C 58.879028,161.650360 154.638794,-37.828804 253.051788,-72.401947"
-              class="id_title-Water_Lilies id_artistEndDate-1926"
-              stroke-opacity="1.0" stroke="#cccccc"/>
-        <path fill="none" stroke-width="1.0"
-              d="M 302.290405,121.001396 C 285.952698,109.989197 277.964478,68.964371 288.976685,52.626686"
-              class="id_artistDisplayName-Claude_Monet id_title-The_Manneporte_(Étretat)"
-              stroke-opacity="1.0" stroke="#cccccc"/>
-        <path fill="none" stroke-width="1.0"
-              d="M 302.290405,121.001396 C 212.775711,164.977051 12.540232,96.668495 -31.435419,7.153801"
-              class="id_artistDisplayName-Claude_Monet id_title-The_Stroller_(Suzanne_Hoschedé,_later_Mrs._Theodore_Earl_Butler,_1868–1899)"
-              stroke-opacity="1.0" stroke="#cccccc"/>
-        <path fill="none" stroke-width="1.0"
-              d="M 302.290405,121.001396 C 304.474060,152.321899 260.768738,202.578094 229.448227,204.761719"
-              class="id_artistDisplayName-Claude_Monet id_title-Poppy_Fields_near_Argenteuil"
-              stroke-opacity="1.0" stroke="#cccccc"/>
-        <path fill="none" stroke-width="1.0"
-              d="M 52.085754,-150.805939 C 140.150467,-157.497604 282.285004,-35.438019 288.976685,52.626686"
-              class="id_artistBeginDate-1840 id_title-The_Manneporte_(Étretat)"
-              stroke-opacity="1.0" stroke="#cccccc"/>
-        <path fill="none" stroke-width="1.0"
-              d="M 52.085754,-150.805939 C 12.130039,-29.093475 -230.372238,93.541656 -352.084717,53.585938"
-              class="id_artistBeginDate-1840 id_title-The_Reprimand"
-              stroke-opacity="1.0" stroke="#cccccc"/>
-        <path fill="none" stroke-width="1.0"
-              d="M 52.085754,-150.805939 C 79.417801,-172.517654 152.983459,-164.087143 174.695175,-136.755096"
-              class="id_artistBeginDate-1840 id_title-The_Missionary&apos;s_Adventures"
-              stroke-opacity="1.0" stroke="#cccccc"/>
-        <path fill="none" stroke-width="1.0"
-              d="M 253.051788,-72.401947 C 285.242493,-54.581196 306.797455,20.435978 288.976685,52.626686"
-              class="id_artistEndDate-1926 id_title-The_Manneporte_(Étretat)"
-              stroke-opacity="1.0" stroke="#cccccc"/>
-        <path fill="none" stroke-width="1.0"
-              d="M 253.051788,-72.401947 C 212.065491,0.406651 41.373177,48.140095 -31.435419,7.153801"
-              class="id_artistEndDate-1926 id_title-The_Stroller_(Suzanne_Hoschedé,_later_Mrs._Theodore_Earl_Butler,_1868–1899)"
-              stroke-opacity="1.0" stroke="#cccccc"/>
-        <path fill="none" stroke-width="1.0"
-              d="M 253.051788,-72.401947 C 303.763794,-12.248503 289.601685,154.049698 229.448227,204.761719"
-              class="id_artistEndDate-1926 id_title-Poppy_Fields_near_Argenteuil"
-              stroke-opacity="1.0" stroke="#cccccc"/>
-        <path fill="none" stroke-width="1.0"
-              d="M -220.419510,141.856125 C -134.003723,102.723236 54.319283,173.647568 93.452171,260.063354"
-              class="id_objectBeginDate-1919 id_title-Water_Lilies"
-              stroke-opacity="1.0" stroke="#cccccc"/>
-        <path fill="none" stroke-width="1.0"
-              d="M -220.419510,141.856125 C -301.693787,77.649277 -327.294983,-140.572418 -263.088135,-221.846710"
-              class="id_objectBeginDate-1919 id_title-Alsace"
-              stroke-opacity="1.0" stroke="#cccccc"/>
-        <path fill="none" stroke-width="1.0"
-              d="M -220.419510,141.856125 C -161.000412,63.664711 45.415348,35.506264 123.606758,94.925369"
-              class="id_objectBeginDate-1919 id_title-Marie_Depage-_Edith_Cavell"
-              stroke-opacity="1.0" stroke="#cccccc"/>
-        <path fill="none" stroke-width="1.0"
-              d="M -98.169472,-178.376511 C 27.842838,-129.012863 142.815826,134.051041 93.452171,260.063354"
-              class="id_artistNationality-France id_title-Water_Lilies"
-              stroke-opacity="1.0" stroke="#cccccc"/>
-        <path fill="none" stroke-width="1.0"
-              d="M -98.169472,-178.376511 C -14.413177,-125.647942 32.128410,79.079323 -20.600157,162.835617"
-              class="id_artistNationality-France id_title-A_Footman_Sleeping"
-              stroke-opacity="1.0" stroke="#cccccc"/>
-        <path fill="none" stroke-width="1.0"
-              d="M -98.169472,-178.376511 C -7.808952,-182.672089 134.175186,-53.574650 138.470764,36.785870"
-              class="id_artistNationality-France id_title-A_Bashi-Bazouk"
-              stroke-opacity="1.0" stroke="#cccccc"/>
-        <path fill="none" stroke-width="1.0"
-              d="M -98.169472,-178.376511 C -113.519012,-118.461510 -226.415817,-51.613312 -286.330811,-66.962852"
-              class="id_artistNationality-France id_title-The_Artist&apos;s_Wife_(Périe,_1849–1887)_Reading"
-              stroke-opacity="1.0" stroke="#cccccc"/>
-    </g>
-    <g id="nodes">
-        <circle fill-opacity="1.0" fill="#cccccc" r="6.0" cx="302.2904"
-                class="id_artistDisplayName-Claude_Monet" cy="121.001396"
-                stroke="#808080" stroke-opacity="1.0" stroke-width="1.0"/>
-        <circle fill-opacity="1.0" fill="#cccccc" r="6.0" cx="52.085754"
-                class="id_artistBeginDate-1840" cy="-150.80594" stroke="#808080"
-                stroke-opacity="1.0" stroke-width="1.0"/>
-        <circle fill-opacity="1.0" fill="#cccccc" r="6.0" cx="253.05179"
-                class="id_artistEndDate-1926" cy="-72.40195" stroke="#808080"
-                stroke-opacity="1.0" stroke-width="1.0"/>
-        <circle fill-opacity="1.0" fill="#cccccc" r="6.0" cx="-220.41951"
-                class="id_objectBeginDate-1919" cy="141.85612" stroke="#808080"
-                stroke-opacity="1.0" stroke-width="1.0"/>
-        <circle fill-opacity="1.0" fill="#cccccc" r="6.0" cx="93.45217"
-                class="id_title-Water_Lilies" cy="260.06335" stroke="#808080"
-                stroke-opacity="1.0" stroke-width="1.0"/>
-        <circle fill-opacity="1.0" fill="#cccccc" r="6.0" cx="288.97668"
-                class="id_title-The_Manneporte_(Étretat)" cy="52.626686"
-                stroke="#808080" stroke-opacity="1.0" stroke-width="1.0"/>
-        <circle fill-opacity="1.0" fill="#cccccc" r="6.0" cx="-31.43542"
-                class="id_title-The_Stroller_(Suzanne_Hoschedé,_later_Mrs._Theodore_Earl_Butler,_1868–1899)"
-                cy="7.153801" stroke="#808080" stroke-opacity="1.0"
-                stroke-width="1.0"/>
-        <circle fill-opacity="1.0" fill="#cccccc" r="6.0" cx="229.44823"
-                class="id_title-Poppy_Fields_near_Argenteuil" cy="204.76172"
-                stroke="#808080" stroke-opacity="1.0" stroke-width="1.0"/>
-        <circle fill-opacity="1.0" fill="#cccccc" r="6.0" cx="-352.08472"
-                class="id_title-The_Reprimand" cy="53.585938" stroke="#808080"
-                stroke-opacity="1.0" stroke-width="1.0"/>
-        <circle fill-opacity="1.0" fill="#cccccc" r="6.0" cx="174.69518"
-                class="id_title-The_Missionary&apos;s_Adventures" cy="-136.7551"
-                stroke="#808080" stroke-opacity="1.0" stroke-width="1.0"/>
-        <circle fill-opacity="1.0" fill="#cccccc" r="6.0" cx="-263.08813"
-                class="id_title-Alsace" cy="-221.84671" stroke="#808080"
-                stroke-opacity="1.0" stroke-width="1.0"/>
-        <circle fill-opacity="1.0" fill="#cccccc" r="6.0" cx="123.60676"
-                class="id_title-Marie_Depage-_Edith_Cavell" cy="94.92537"
-                stroke="#808080" stroke-opacity="1.0" stroke-width="1.0"/>
-        <circle fill-opacity="1.0" fill="#cccccc" r="6.0" cx="-20.600157"
-                class="id_title-A_Footman_Sleeping" cy="162.83562"
-                stroke="#808080" stroke-opacity="1.0" stroke-width="1.0"/>
-        <circle fill-opacity="1.0" fill="#cccccc" r="6.0" cx="138.47076"
-                class="id_title-A_Bashi-Bazouk" cy="36.78587" stroke="#808080"
-                stroke-opacity="1.0" stroke-width="1.0"/>
-        <circle fill-opacity="1.0" fill="#cccccc" r="6.0" cx="-286.3308"
-                class="id_title-The_Artist&apos;s_Wife_(Périe,_1849–1887)_Reading"
-                cy="-66.96285" stroke="#808080" stroke-opacity="1.0"
-                stroke-width="1.0"/>
-        <circle fill-opacity="1.0" fill="#cccccc" r="6.0" cx="-98.16947"
-                class="id_artistNationality-France" cy="-178.37651"
-                stroke="#808080" stroke-opacity="1.0" stroke-width="1.0"/>
-    </g>
-    <g id="node-labels">
-        <text font-size="10" x="302.2904" y="122.8689" fill="#000000"
-              style="text-anchor: middle; dominant-baseline: central;"
-              font-family="Helvetica Neue"
-              class="id_artistDisplayName-Claude_Monet">
-            Claude Monet
-        </text>
-        <text font-size="10" x="52.085754" y="-149.00594" fill="#000000"
-              style="text-anchor: middle; dominant-baseline: central;"
-              font-family="Helvetica Neue" class="id_artistBeginDate-1840">
-            1840
-        </text>
-        <text font-size="10" x="253.05179" y="-70.601944" fill="#000000"
-              style="text-anchor: middle; dominant-baseline: central;"
-              font-family="Helvetica Neue" class="id_artistEndDate-1926">
-            1926
-        </text>
-        <text font-size="10" x="-220.41951" y="143.65613" fill="#000000"
-              style="text-anchor: middle; dominant-baseline: central;"
-              font-family="Helvetica Neue" class="id_objectBeginDate-1919">
-            1919
-        </text>
-        <text font-size="10" x="93.45217" y="261.87585" fill="#000000"
-              style="text-anchor: middle; dominant-baseline: central;"
-              font-family="Helvetica Neue" class="id_title-Water_Lilies">
-            Water Lilies
-        </text>
-        <text font-size="10" x="288.97668" y="55.436687" fill="#000000"
-              style="text-anchor: middle; dominant-baseline: central;"
-              font-family="Helvetica Neue"
-              class="id_title-The_Manneporte_(Étretat)">
-            The Manneporte (Étretat)
-        </text>
-        <text font-size="10" x="-31.43542" y="9.5713005" fill="#000000"
-              style="text-anchor: middle; dominant-baseline: central;"
-              font-family="Helvetica Neue"
-              class="id_title-The_Stroller_(Suzanne_Hoschedé,_later_Mrs._Theodore_Earl_Butler,_1868–1899)">
-            The Stroller (Suzanne Hoschedé, later Mrs. Theodore Earl Butler,
-            1868–1899)
-        </text>
-        <text font-size="10" x="229.44823" y="207.06921" fill="#000000"
-              style="text-anchor: middle; dominant-baseline: central;"
-              font-family="Helvetica Neue"
-              class="id_title-Poppy_Fields_near_Argenteuil">
-            Poppy Fields near Argenteuil
-        </text>
-        <text font-size="10" x="-352.08472" y="55.863438" fill="#000000"
-              style="text-anchor: middle; dominant-baseline: central;"
-              font-family="Helvetica Neue" class="id_title-The_Reprimand">
-            The Reprimand
-        </text>
-        <text font-size="10" x="174.69518" y="-134.45259" fill="#000000"
-              style="text-anchor: middle; dominant-baseline: central;"
-              font-family="Helvetica Neue"
-              class="id_title-The_Missionary&apos;s_Adventures">
-            The Missionary&apos;s Adventures
-        </text>
-        <text font-size="10" x="-263.08813" y="-220.03421" fill="#000000"
-              style="text-anchor: middle; dominant-baseline: central;"
-              font-family="Helvetica Neue" class="id_title-Alsace">
-            Alsace
-        </text>
-        <text font-size="10" x="123.60676" y="97.232864" fill="#000000"
-              style="text-anchor: middle; dominant-baseline: central;"
-              font-family="Helvetica Neue"
-              class="id_title-Marie_Depage-_Edith_Cavell">
-            Marie Depage
-        </text>
-        <text font-size="10" x="-20.600157" y="165.18561" fill="#000000"
-              style="text-anchor: middle; dominant-baseline: central;"
-              font-family="Helvetica Neue" class="id_title-A_Footman_Sleeping">
-            A Footman Sleeping
-        </text>
-        <text font-size="10" x="138.47076" y="38.59837" fill="#000000"
-              style="text-anchor: middle; dominant-baseline: central;"
-              font-family="Helvetica Neue" class="id_title-A_Bashi-Bazouk">
-            A Bashi
-        </text>
-        <text font-size="10" x="-286.3308" y="-64.51535" fill="#000000"
-              style="text-anchor: middle; dominant-baseline: central;"
-              font-family="Helvetica Neue"
-              class="id_title-The_Artist&apos;s_Wife_(Périe,_1849–1887)_Reading">
-            The Artist&apos;s Wife (Périe, 1849–1887) Reading
-        </text>
-        <text font-size="10" x="-98.16947" y="-176.56401" fill="#000000"
-              style="text-anchor: middle; dominant-baseline: central;"
-              font-family="Helvetica Neue" class="id_artistNationality-France">
-            France
-        </text>
-    </g>
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 23.0.6, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 viewBox="0 0 636 458" style="enable-background:new 0 0 636 458;" xml:space="preserve">
+<style type="text/css">
+	.st0{fill:none;stroke:#CCCCCC;}
+	.st1{fill:#CCCCCC;stroke:#808080;}
+	.st2{fill:#EC012A;stroke:#808080;}
+	.st3{fill:#A98B19;stroke:#808080;}
+	.st4{fill:#235BA4;stroke:#808080;}
+	.st5{font-family:'HelveticaNeue';}
+	.st6{font-size:8.5861px;}
+</style>
+<g id="edges">
+	<path class="st0" d="M414.2,430.3c12-59.7,119.6-131.4,179.3-119.4"/>
+	<path class="st0" d="M414.2,430.3c-77.7-63.5-99-275.1-35.5-352.8"/>
+	<path class="st0" d="M414.2,430.3c-29.7-84.5,52.5-255.8,137-285.5"/>
+	<path class="st0" d="M593.6,310.9c-14-9.5-20.9-44.7-11.4-58.7"/>
+	<path class="st0" d="M593.6,310.9c-76.9,37.8-248.8-20.9-286.5-97.8"/>
+	<path class="st0" d="M593.6,310.9c1.9,26.9-35.7,70-62.5,71.9"/>
+	<path class="st0" d="M378.7,77.6c75.6-5.7,197.7,99.1,203.4,174.7"/>
+	<path class="st0" d="M378.7,77.6c-34.3,104.5-242.5,209.8-347,175.5"/>
+	<path class="st0" d="M378.7,77.6C402.2,59,465.3,66.2,484,89.7"/>
+	<path class="st0" d="M551.3,144.9c27.6,15.3,46.1,79.7,30.8,107.4"/>
+	<path class="st0" d="M551.3,144.9c-35.2,62.5-181.7,103.5-244.3,68.3"/>
+	<path class="st0" d="M551.3,144.9c43.5,51.6,31.4,194.4-20.3,238"/>
+	<path class="st0" d="M144.7,328.8c74.2-33.6,235.9,27.3,269.5,101.5"/>
+	<path class="st0" d="M144.7,328.8C75,273.7,53,86.4,108.1,16.6"/>
+	<path class="st0" d="M144.7,328.8c51-67.1,228.2-91.3,295.4-40.3"/>
+	<path class="st0" d="M249.7,53.9c108.2,42.4,206.9,268.3,164.5,376.4"/>
+	<path class="st0" d="M249.7,53.9c71.9,45.3,111.9,221.1,66.6,293"/>
+	<path class="st0" d="M249.7,53.9c77.6-3.7,199.5,107.2,203.2,184.7"/>
+	<path class="st0" d="M249.7,53.9c-13.2,51.4-110.1,108.8-161.6,95.7"/>
+</g>
+<g id="nodes">
+	<circle class="st1" cx="593.6" cy="310.9" r="5.2"/>
+	<g>
+		<circle class="st2" cx="378.7" cy="77.6" r="5.2"/>
+		<circle class="st2" cx="551.3" cy="144.9" r="5.2"/>
+		<circle class="st2" cx="144.7" cy="328.8" r="5.2"/>
+	</g>
+	<circle class="st3" cx="414.2" cy="430.3" r="5.2"/>
+	<circle class="st1" cx="582.1" cy="252.2" r="5.2"/>
+	<circle class="st1" cx="307" cy="213.2" r="5.2"/>
+	<circle class="st1" cx="531" cy="382.9" r="5.2"/>
+	<circle class="st1" cx="31.7" cy="253.1" r="5.2"/>
+	<circle class="st1" cx="484" cy="89.6" r="5.2"/>
+	<circle class="st1" cx="108.1" cy="16.6" r="5.2"/>
+	<circle class="st1" cx="440.1" cy="288.6" r="5.2"/>
+	<circle class="st1" cx="316.3" cy="346.9" r="5.2"/>
+	<circle class="st1" cx="452.9" cy="238.6" r="5.2"/>
+	<circle class="st1" cx="88.2" cy="149.6" r="5.2"/>
+	<circle class="st4" cx="249.7" cy="53.9" r="5.2"/>
+</g>
+<g id="node-labels">
+	<text transform="matrix(1 0 0 1 566.5127 324.5469)" class="st5 st6">Claude Monet</text>
+	<text transform="matrix(1 0 0 1 369.1733 91.1118)" class="st5 st6">1840</text>
+	<text transform="matrix(1 0 0 1 541.7251 158.4307)" class="st5 st6">1926</text>
+	<text transform="matrix(1 0 0 1 135.1973 342.395)" class="st5 st6">1919</text>
+	<text transform="matrix(1 0 0 1 392.1387 443.8999)" class="st5 st6">Water Lilies</text>
+	<text transform="matrix(1 0 0 1 534.4883 266.6489)" class="st5 st6">The Manneporte (Étretat)</text>
+	<text transform="matrix(1 0 0 1 160.0684 227.2681)" class="st5 st6">The Stroller (Suzanne Hoschedé, later Mrs. Theodore Earl Butler, 1868–1899)</text>
+	<text transform="matrix(1 0 0 1 475.9492 396.8423)" class="st5 st6">Poppy Fields near Argenteuil</text>
+	<text transform="matrix(1 0 0 1 2.2715 267.0151)" class="st5 st6">The Reprimand</text>
+	<text transform="matrix(1 0 0 1 428.7314 103.6074)" class="st5 st6">The Missionary&apos;s Adventures</text>
+	<text transform="matrix(1 0 0 1 95.312 30.126)" class="st5 st6">Alsace</text>
+	<text transform="matrix(1 0 0 1 413.2559 302.5356)" class="st5 st6">Marie Depage</text>
+	<text transform="matrix(1 0 0 1 277.3491 360.8804)" class="st5 st6">A Footman Sleeping</text>
+	<text transform="matrix(1 0 0 1 438.1846 252.1909)" class="st5 st6">A Bashi</text>
+	<text transform="matrix(1 0 0 1 2.8335 163.6562)" class="st5 st6">The Artist&apos;s Wife (Périe, 1849–1887) Reading</text>
+	<text transform="matrix(1 0 0 1 236.5137 67.4502)" class="st5 st6">France</text>
+</g>
 </svg>
