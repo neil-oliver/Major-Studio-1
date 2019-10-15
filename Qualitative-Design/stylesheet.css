@@ -58,7 +58,6 @@ body {
     font-size: 3.5em;
     padding-left: 15%;
     padding-right: 15%;
-    text-align: justify;
     font-weight: 400;
     font-style: normal;
     letter-spacing: 0.02em;
@@ -329,3 +328,4 @@ text-align: center;
   display: table;
   clear: both;
 }
+

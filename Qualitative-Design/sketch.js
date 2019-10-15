@@ -1,5 +1,10 @@
 var cnv;
 const objectBaseUrl = 'https://collectionapi.metmuseum.org/public/collection/v1/objects/';
+//addToDOM[0][0] is the span
+//addToDOM[0][1] is the text
+//addToDOM[0][2] is the html
+
+
 var addToDOM = [];
 function preload() {
     data = loadJSON('AJList.json');
@@ -18,6 +23,8 @@ var sentenceExamples = [
     [["Water Lilies","Artwork"],["contains","Connector"],["Frogs","Made you look..."],"content"]
 ]
 var sentenceIndex = 0;
+var storyIndex = 0;
+var isTag;
 
 function draw(){
     if (frameCount % 270 == 0){
@@ -25,18 +32,29 @@ function draw(){
     }
     if (frameCount % rnd == 0){
         if (addToDOM.length > 0){
-            addToDOM[0][0].html(addToDOM[0][1].charAt(0),true);
-            if (addToDOM[0][1].length > 1) {
-                addToDOM[0][1] = addToDOM[0][1].substr(1);
-                rnd = round(random(1,10))
+            
+            var part = addToDOM[0][1].slice(0,storyIndex);
+
+            if( part.slice(-1) === '<' ) isTag = true;
+            if( part.slice(-1) === '>' ) isTag = false;
+            
+            if (isTag) {
+                storyIndex += 1
             } else {
-                if (addToDOM[0][2]){
-                    addToDOM[0][0].html(addToDOM[0][2],false)
-                    let div = document.getElementById('mini-story')
-                    createSpan(addToDOM[0][2]).parent(div)
-                };
+                addToDOM[0][0].html(part);
+                storyIndex += 1
+                rnd = round(random(1,10))
+            }
+
+            if (storyIndex == addToDOM[0][1].length) {
+                addToDOM[0][0].html(addToDOM[0][1]);
+                // add to mini story
+                let div = document.getElementById('mini-story')
+                createSpan(addToDOM[0][1]).parent(div)
                 addToDOM.shift();
                 rnd = 60;
+                storyIndex = 0;
+                isTag = false;
             }
         }
     }
@@ -275,15 +293,15 @@ async function makeSense(from,to){
             medium: [metObject.title + ' was created using ' + metObject.medium + '.']
         };
         
-        list.artistDisplayName = {objectID : [' ' + from.split('-')[1] + ' created ' + metObject.title + '. ',' ' + from.split('-')[1] + ' created <b><a href="' + metObject.objectURL + '" target="_blank">' + metObject.title + '. </a></b>']};
-        list.artistBeginDate = {objectID : [' ' + from.split('-')[1] + ' is the same year that ' + metObject.artistDisplayName + ' was born, who created ' + metObject.title + '. ',' ' + from.split('-')[1] + ' is the same year that ' + metObject.artistDisplayName + ' was born, who created <b><a href="' + metObject.objectURL + '" target="_blank">' + metObject.title + '. </a></b>']};
-        list.artistEndDate = {objectID : [' ' + from.split('-')[1] + ' is the same year that ' + metObject.artistDisplayName + ' died, who created ' + metObject.title + '. ',' ' + from.split('-')[1] + ' is the same year that ' + metObject.artistDisplayName + ' died, who created <b><a href="' + metObject.objectURL + '" target="_blank">' + metObject.title + '. </a></b>']};
-        list.objectBeginDate = {objectID : [' ' + from.split('-')[1] + ' was also when ' + metObject.title + ' was created. ',' ' + from.split('-')[1] + ' was also when <b><a href="' + metObject.objectURL + '" target="_blank">' + metObject.title + '</a></b> was created. ']};
-        list.tags = {objectID : [' ' + from.split('-')[1] + ' features in ' + metObject.title + '. ',' ' + from.split('-')[1] + ' features in <b><a href="' + metObject.objectURL + '" target="_blank">' + metObject.title + '. </a></b>']};
-        list.artistNationality = {objectID : [' ' + from.split('-')[1] + ' is where ' + metObject.artistDisplayName + ' was born, who created ' + metObject.title + '. ',' ' + from.split('-')[1] + ' is where ' + metObject.artistDisplayName + ' was born, who created <b><a href="' + metObject.objectURL + '" target="_blank">' + metObject.title + '. </a></b>']};        
-        list.excavation = {objectID : [' ' + from.split('-')[1] + ' is the same year that ' + metObject.title + ' was excavated. ',' ' + from.split('-')[1] + ' is the same year that <b><a href="' + metObject.objectURL + '" target="_blank">' + metObject.title + ' </a></b> was excavated. ']};       
-        list.city = {objectID : [' ' + from.split('-')[1] + ' is where ' + metObject.title + ' was created. ',' ' + from.split('-')[1] + ' is where <b><a href="' + metObject.objectURL + '" target="_blank">' + metObject.title + '</a></b> was created. ']};     
-        list.medium = {objectID : [' ' + from.split('-')[1] + ' was the same medium ' + metObject.artistDisplayName + ' used to create ' + metObject.title + '. ',' ' + from.split('-')[1] + ' was the same medium ' + metObject.artistDisplayName + ' used to create <b><a href="' + metObject.objectURL + '" target="_blank">' + metObject.title + '. </a></b>']};
+        list.artistDisplayName = {objectID : [' ' + from.split('-')[1] + ' created <b><a href="' + metObject.objectURL + '" target="_blank">' + metObject.title + '. </a></b>']};
+        list.artistBeginDate = {objectID : [' ' + from.split('-')[1] + ' is the same year that ' + metObject.artistDisplayName + ' was born, who created <b><a href="' + metObject.objectURL + '" target="_blank">' + metObject.title + '. </a></b>']};
+        list.artistEndDate = {objectID : [' ' + from.split('-')[1] + ' is the same year that ' + metObject.artistDisplayName + ' died, who created <b><a href="' + metObject.objectURL + '" target="_blank">' + metObject.title + '. </a></b>']};
+        list.objectBeginDate = {objectID : [' ' + from.split('-')[1] + ' was also when <b><a href="' + metObject.objectURL + '" target="_blank">' + metObject.title + '</a></b> was created. ']};
+        list.tags = {objectID : [' ' + from.split('-')[1] + ' features in <b><a href="' + metObject.objectURL + '" target="_blank">' + metObject.title + '. </a></b>']};
+        list.artistNationality = {objectID : [' ' + from.split('-')[1] + ' is where ' + metObject.artistDisplayName + ' was born, who created <b><a href="' + metObject.objectURL + '" target="_blank">' + metObject.title + '. </a></b>']};        
+        list.excavation = {objectID : [' ' + from.split('-')[1] + ' is the same year that <b><a href="' + metObject.objectURL + '" target="_blank">' + metObject.title + ' </a></b> was excavated. ']};       
+        list.city = {objectID : [' ' + from.split('-')[1] + ' is where <b><a href="' + metObject.objectURL + '" target="_blank">' + metObject.title + '</a></b> was created. ']};     
+        list.medium = {objectID : [' ' + from.split('-')[1] + ' was the same medium ' + metObject.artistDisplayName + ' used to create <b><a href="' + metObject.objectURL + '" target="_blank">' + metObject.title + '. </a></b>']};
         
         // object senstences dont have links by default but need one if it is the first sentence so add one.
         if (first == true){
@@ -292,13 +310,11 @@ async function makeSense(from,to){
             x = x[0].substr(metObject.title.length);
             x = '<b><a href="' + metObject.objectURL + '" target="_blank">' + metObject.title + ' </a></b>' + x;
 
-            list[from.split('-',1)[0]][to.split('-',1)[0]].push(x);
+            list[from.split('-',1)[0]][to.split('-',1)[0]][0] = x;
 
             // delete the word 'also' or 'same' from the first sentence
             list[from.split('-',1)[0]][to.split('-',1)[0]][0] = list[from.split('-',1)[0]][to.split('-',1)[0]][0].replace('same ', '');
             list[from.split('-',1)[0]][to.split('-',1)[0]][0] = list[from.split('-',1)[0]][to.split('-',1)[0]][0].replace('also ', '');
-            list[from.split('-',1)[0]][to.split('-',1)[0]][1] = list[from.split('-',1)[0]][to.split('-',1)[0]][1].replace('same ', '');
-            list[from.split('-',1)[0]][to.split('-',1)[0]][1] = list[from.split('-',1)[0]][to.split('-',1)[0]][1].replace('also ', '');
         }
 
         connectingString = list[from.split('-',1)[0]][to.split('-',1)[0]];
