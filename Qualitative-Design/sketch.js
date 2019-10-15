@@ -12,6 +12,12 @@ function setup() {
 }
 
 var rnd = 1;
+var sentenceExamples = [
+    [["La Grenouillère","Artwork"],["was painted in","Connector"],["1869","Date"],"date"],
+    [["Claude Monet","Artist"],["was born in","Connector"],["France","Place"],"geography"],
+    [["Water Lilies","Artwork"],["contains","Connector"],["Frogs","Made you look..."],"content"]
+]
+var sentenceIndex = 0;
 
 function draw(){
     if (frameCount % 270 == 0){
@@ -33,6 +39,27 @@ function draw(){
                 rnd = 60;
             }
         }
+    }
+
+    if (frameCount % 300 == 0){
+        var sentenceFrom = select('#from')
+        var sentenceConnect = select('#connect')
+        var sentenceTo = select('#to')
+
+        sentenceFrom.html('<h2>' + sentenceExamples[sentenceIndex][0][0] + '</h2><p>' + sentenceExamples[sentenceIndex][0][1] + '</p>').addClass(sentenceExamples[sentenceIndex][3])
+        sentenceConnect.html('<h2>' + sentenceExamples[sentenceIndex][1][0] + '</h2><p>' + sentenceExamples[sentenceIndex][1][1] + '</p>').addClass(sentenceExamples[sentenceIndex][3])
+        sentenceTo.html('<h2>' + sentenceExamples[sentenceIndex][2][0] + '</h2><p>' + sentenceExamples[sentenceIndex][2][1] + '</p>').addClass(sentenceExamples[sentenceIndex][3])
+
+
+        if (sentenceIndex == sentenceExamples.length-1){
+            sentenceIndex = 0;
+        } else {
+            sentenceIndex += 1;
+        }
+
+
+
+
     }
 
     document.getElementById('more').onclick = function() {

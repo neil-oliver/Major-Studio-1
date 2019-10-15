@@ -12,7 +12,7 @@
 }
 @font-face {
   font-family: "The Met Serif Web";
-  src: url("fonts/TheMetSerifWeb-Roman.woff2");
+  src: url("fonts/The Met Serif Web-Roman.woff2");
 }
 @font-face {
     font-family: "TheMetSans-BoldTheMet";
@@ -213,8 +213,8 @@ font-size: 1.2em;
 }
 
 .explanation {
-    padding-left: 30%;
-    padding-right: 30%;
+    padding-left: 27%;
+    padding-right: 27%;
     padding-bottom: 2%;
     padding-top: 2%;
     font-size: 1.2em;
@@ -252,12 +252,13 @@ font-size: 1.2em;
   display:block;
   min-height:10vh;
   text-align: justify;
-  background-color: white;
+  background-color: #f5f5f5;
   margin-left: 10%;
   margin-right: 10%;
   padding: 2%;
   border-style: solid;
   border-width: 1px;
+  border-color : rgb(200,200,200)
 }
 #top-link{
 display:block;
@@ -275,4 +276,43 @@ line-height: 1.5;
 letter-spacing: 0.03em;
 text-align: center;
 }
+.column {
+  height : 15vh;
+  text-align: center;
+  transition: .5s ease-in-out;
 
+}
+.sentence-example {
+  text-align: center;
+  padding-bottom: 3%;
+}
+
+#from {
+  width: 30%;
+  float: left;
+}
+#connect {
+  width: 30%;
+  display:inline-block;
+
+}
+#to {
+  width: 30%;
+  float: right;
+}
+
+#connect h2{
+  padding-top:1em;
+  margin-top: 0;
+  color:  rgb(100,100,100);
+  font-family: "The Met Serif Web-Italic";
+
+}
+
+
+/* Clear floats after the columns */
+.sentence-example:after {
+  content: "";
+  display: table;
+  clear: both;
+}
