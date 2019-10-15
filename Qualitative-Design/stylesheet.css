@@ -198,9 +198,12 @@ font-size: 1.2em;
 
 }
 
-.block {
-  display: block;
-  height : 7vh;
+#explanation-top {
+  padding-top : 10%;
+}
+
+#explanation-bottom {
+  padding-top : 10%;
 }
 
 .explanation {
