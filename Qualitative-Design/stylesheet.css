@@ -277,7 +277,6 @@ letter-spacing: 0.03em;
 text-align: center;
 }
 .column {
-  height : 15vh;
   text-align: center;
   transition: .5s ease-in-out;
 
@@ -288,17 +287,17 @@ text-align: center;
 }
 
 #from {
-  width: 30%;
+  width: 35%;
   float: left;
 }
 #connect {
-  width: 30%;
+  width: 28%;
   display:inline-block;
   
 }
 
 #to {
-  width: 30%;
+  width: 35%;
   float: right;
 }
 
@@ -311,12 +310,15 @@ text-align: center;
 }
 
 .date.highlighted h2 {
+  transition: .5s ease-in-out;
   color:#EC012A
 }    
 .content.highlighted h2{
+  transition: .5s ease-in-out;
   color:#a98b19;
 }
 .geography.highlighted h2{
+  transition: .5s ease-in-out;
   color:#235ba4;
 }
 
