@@ -45,10 +45,13 @@ function draw(){
         var sentenceFrom = select('#from')
         var sentenceConnect = select('#connect')
         var sentenceTo = select('#to')
-
+        sentenceTo.removeClass('date')
+        sentenceTo.removeClass('geography')
+        sentenceTo.removeClass('content')
         sentenceFrom.html('<h2>' + sentenceExamples[sentenceIndex][0][0] + '</h2><p>' + sentenceExamples[sentenceIndex][0][1] + '</p>').addClass(sentenceExamples[sentenceIndex][3])
         sentenceConnect.html('<h2>' + sentenceExamples[sentenceIndex][1][0] + '</h2><p>' + sentenceExamples[sentenceIndex][1][1] + '</p>').addClass(sentenceExamples[sentenceIndex][3])
         sentenceTo.html('<h2>' + sentenceExamples[sentenceIndex][2][0] + '</h2><p>' + sentenceExamples[sentenceIndex][2][1] + '</p>').addClass(sentenceExamples[sentenceIndex][3])
+        sentenceTo.addClass('highlighted')
 
 
         if (sentenceIndex == sentenceExamples.length-1){
