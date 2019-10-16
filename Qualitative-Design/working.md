@@ -61,7 +61,7 @@ tweak output in story
 unknown in medium
 Co. in artist name?
 network gif?
-fix timing!!!
+fix timing!!! - fixed
 fix the length of the story (comment in the code) - fixed
-fix the replacement link in first sentence
+fix the replacement link in first sentence - fixed
 

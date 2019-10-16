@@ -12,7 +12,9 @@ var nameExclusions = [
         "unknown",
         "Unknown",
         "group",
-        "Group"
+        "Group",
+        "Co.",
+        "Company"
     ];
     
 function makeAJList(){
@@ -117,7 +119,7 @@ function makeAJList(){
                                             
                                             // use the count of the different mediums to exclude the most popular (i.e watercolor) mediums.
                                             if (value.medium){
-                                                if (mediumCount[value.medium] >49) {
+                                                if (mediumCount[value.medium] >49 && value.medium != 'Unknown') {
                                                 } else {
                                                     if (!(value.title.includes(value.medium))) {
                                                         AJList['objectID-'+value.objectID].push('medium-'+value.medium);
