@@ -24,38 +24,45 @@ var sentenceExamples = [
 ]
 var sentenceIndex = 0;
 var storyIndex = 0;
-var isTag;
+var isTag = false;
+var story = '';
 
 function draw(){
     if (frameCount % 270 == 0){
         highlight()
     }
-    if (frameCount % rnd == 0){
-        if (addToDOM.length > 0){
-            
-            var part = addToDOM[0][1].slice(0,storyIndex);
 
+    if (addToDOM.length > 0){
+        var part = addToDOM[0][1].slice(0,storyIndex);
+
+        if( part.slice(-1) === '<' ) isTag = true;
+        if( part.slice(-1) === '>' ) isTag = false;
+        
+        while (isTag){ 
+            storyIndex += 1
+            part = addToDOM[0][1].slice(0,storyIndex);
             if( part.slice(-1) === '<' ) isTag = true;
             if( part.slice(-1) === '>' ) isTag = false;
+        }
+
+        if (frameCount % rnd == 0){
             
-            if (isTag) {
-                storyIndex += 1
-            } else {
+            if(!isTag) {
                 addToDOM[0][0].html(part);
                 storyIndex += 1
                 rnd = round(random(1,10))
             }
+        }
 
-            if (storyIndex == addToDOM[0][1].length) {
-                addToDOM[0][0].html(addToDOM[0][1]);
-                // add to mini story
-                let div = document.getElementById('mini-story')
-                createSpan(addToDOM[0][1]).parent(div)
-                addToDOM.shift();
-                rnd = 60;
-                storyIndex = 0;
-                isTag = false;
-            }
+        if (storyIndex == addToDOM[0][1].length) {
+            addToDOM[0][0].html(addToDOM[0][1]);
+            // add to mini story
+            let div = document.getElementById('mini-story')
+            createSpan(addToDOM[0][1]).parent(div)
+            addToDOM.shift();
+            rnd = 60;
+            storyIndex = 0;
+            isTag = false;
         }
     }
 
@@ -77,10 +84,6 @@ function draw(){
         } else {
             sentenceIndex += 1;
         }
-
-
-
-
     }
 
     document.getElementById('more').onclick = function() {
@@ -91,6 +94,9 @@ function draw(){
         wipeMiniStory.html('',false)
         addToDOM = [];
         lastKey = 'start';
+        story = '';
+        storyIndex = 0;
+        isTag = false;
         tellStory();
     }
 }
@@ -134,9 +140,12 @@ function tellStory(){
                 toAdd.unshift(span)
 
                 //check the length before adding it and story running the story
-                var storyLen = document.getElementById('story').innerHTML.length;
-                if ((storyLen + toAdd[1].length) < 350){
+                var tmp = document.createElement("div");
+                tmp.innerHTML = toAdd[1];
+
+                if ((story.length + tmp.innerText.length) < 500){ // how do you just get the text?
                     addToDOM.push(toAdd)
+                    story += tmp.innerText
                     runStory = true;
                 } else {
                     runStory = false;
@@ -306,11 +315,12 @@ async function makeSense(from,to){
         // object senstences dont have links by default but need one if it is the first sentence so add one.
         if (first == true){
             var x = list[from.split('-',1)[0]][to.split('-',1)[0]];
+            if (from.split('-',1)[0] == 'objectID') {
+                x = x[0].substr(metObject.title.length);
+                x = '<b><a href="' + metObject.objectURL + '" target="_blank">' + metObject.title + ' </a></b>' + x;
 
-            x = x[0].substr(metObject.title.length);
-            x = '<b><a href="' + metObject.objectURL + '" target="_blank">' + metObject.title + ' </a></b>' + x;
-
-            list[from.split('-',1)[0]][to.split('-',1)[0]][0] = x;
+                list[from.split('-',1)[0]][to.split('-',1)[0]][0] = x;
+            }
 
             // delete the word 'also' or 'same' from the first sentence
             list[from.split('-',1)[0]][to.split('-',1)[0]][0] = list[from.split('-',1)[0]][to.split('-',1)[0]][0].replace('same ', '');

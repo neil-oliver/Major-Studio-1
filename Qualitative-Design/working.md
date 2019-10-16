@@ -49,9 +49,19 @@ turn negative into B.C.
 
 
 ## things to work on 10-13-19
-'back to top' button
+'back to top' button - done
 explanation styling - done
-'speaking english' section
-tweak output in story
+'speaking english' section - done
 change loading animation - done
 fix no assigned class to span (created by) as it turns the hyperlink clear! - done?
+fix typing spacing - done
+
+## things to work on 10-16-19
+tweak output in story
+unknown in medium
+Co. in artist name?
+network gif?
+fix timing!!!
+fix the length of the story (comment in the code) - fixed
+fix the replacement link in first sentence
+
