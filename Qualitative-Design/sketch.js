@@ -26,10 +26,20 @@ var sentenceIndex = 0;
 var storyIndex = 0;
 var isTag = false;
 var story = '';
+var gifIndex = 1;
 
 function draw(){
     if (frameCount % 270 == 0){
         highlight()
+    }
+    if (frameCount % 60 == 0){
+        var gif = select('#mini-path')
+        gif.attribute('src','mini-path-gif/mini-path' + gifIndex + '.png')
+        if (gifIndex == 7){
+            gifIndex = 1
+        } else {
+            gifIndex +=1
+        }
     }
 
     if (addToDOM.length > 0){
