@@ -303,11 +303,11 @@ async function makeSense(from,to){
         };
         
         list.artistDisplayName = {objectID : [' ' + from.split('-')[1] + ' created <b><a href="' + metObject.objectURL + '" target="_blank">' + metObject.title + '. </a></b>']};
-        list.artistBeginDate = {objectID : [' ' + from.split('-')[1] + ' is the same year that ' + metObject.artistDisplayName + ' was born, who created <b><a href="' + metObject.objectURL + '" target="_blank">' + metObject.title + '. </a></b>']};
-        list.artistEndDate = {objectID : [' ' + from.split('-')[1] + ' is the same year that ' + metObject.artistDisplayName + ' died, who created <b><a href="' + metObject.objectURL + '" target="_blank">' + metObject.title + '. </a></b>']};
+        list.artistBeginDate = {objectID : [' ' + from.split('-')[1] + ' is also the birth year of ' + metObject.artistDisplayName + ', who created <b><a href="' + metObject.objectURL + '" target="_blank">' + metObject.title + '. </a></b>']};
+        list.artistEndDate = {objectID : [' ' + from.split('-')[1] + ' is also the year of death of ' + metObject.artistDisplayName + ', who created <b><a href="' + metObject.objectURL + '" target="_blank">' + metObject.title + '. </a></b>']};
         list.objectBeginDate = {objectID : [' ' + from.split('-')[1] + ' was also when <b><a href="' + metObject.objectURL + '" target="_blank">' + metObject.title + '</a></b> was created. ']};
         list.tags = {objectID : [' ' + from.split('-')[1] + ' features in <b><a href="' + metObject.objectURL + '" target="_blank">' + metObject.title + '. </a></b>']};
-        list.artistNationality = {objectID : [' ' + from.split('-')[1] + ' is where ' + metObject.artistDisplayName + ' was born, who created <b><a href="' + metObject.objectURL + '" target="_blank">' + metObject.title + '. </a></b>']};        
+        list.artistNationality = {objectID : [' ' + from.split('-')[1] + ' is the birthplace of ' + metObject.artistDisplayName + ', who created <b><a href="' + metObject.objectURL + '" target="_blank">' + metObject.title + '. </a></b>']};        
         list.excavation = {objectID : [' ' + from.split('-')[1] + ' is the same year that <b><a href="' + metObject.objectURL + '" target="_blank">' + metObject.title + ' </a></b> was excavated. ']};       
         list.city = {objectID : [' ' + from.split('-')[1] + ' is where <b><a href="' + metObject.objectURL + '" target="_blank">' + metObject.title + '</a></b> was created. ']};     
         list.medium = {objectID : [' ' + from.split('-')[1] + ' was the same medium ' + metObject.artistDisplayName + ' used to create <b><a href="' + metObject.objectURL + '" target="_blank">' + metObject.title + '. </a></b>']};

@@ -57,9 +57,9 @@ fix no assigned class to span (created by) as it turns the hyperlink clear! - do
 fix typing spacing - done
 
 ## things to work on 10-16-19
-tweak output in story
-unknown in medium
-Co. in artist name?
+tweak output in story - fixed
+unknown in medium - fixed
+Co. in artist name? - fixed
 network gif?
 fix timing!!! - fixed
 fix the length of the story (comment in the code) - fixed
