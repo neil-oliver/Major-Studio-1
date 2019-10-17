@@ -147,13 +147,13 @@ a {
   background-color : #235ba4;
   color: #eee;
 }
-#highlighted.date a:link {
+#highlighted.date a:link, a:hover{
   color: #eee;
 }
-#highlighted.content a:link {
+#highlighted.content a:link, a:hover{
   color: #eee;
 }
-#highlighted.geography a:link {
+#highlighted.geography a:link, a:hover {
   color: #eee;
 }
 

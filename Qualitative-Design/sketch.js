@@ -279,7 +279,7 @@ async function makeSense(from,to){
         var getID;
 
         // work out if the 'from' or 'to' value is the objectID
-        if (from.split('-')[0] == 'objectID') {
+        if (from.split('-',1)[0] == 'objectID') {
             getID = from.split('-')[1]
         } else {
             getID = to.split('-')[1]

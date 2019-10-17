@@ -15,7 +15,9 @@ var nameExclusions = [
         "group",
         "Group",
         "Co.",
-        "Company"
+        "Company",
+        "Manufactory",
+        "Manufactoring"
     ];
     
 function makeAJList(){
