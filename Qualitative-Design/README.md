@@ -33,7 +33,8 @@ Sometimes there are errors on more commonly, information is missing or unknown a
 - Fragments of items
 Due to the high number of variations in the ways the issues above present themselves, different exclusion lists were created and each object is referenced against the list before adding it to the adjacency list.
 
-Once you have done all of that and let it process for a *very* long time, you end up with [this](https://github.com/neil-oliver/Major-Studio-1/blob/master/Qualitative-Design/Node/AJList.json), a file so big that GitHub can't display it!
+Once you have done all of that and let it process for a *very* long time, you end up with [this](https://github.com/neil-oliver/Major-Studio-1/blob/master/Qualitative-Design/Node/AJList.json), a file so big that GitHub can't display it! To give you an idea, here is a **tiny** section of the adjacency matrix visualized using [Gephi](https://gephi.org).
+![](https://github.com/neil-oliver/Major-Studio-1/blob/master/Qualitative-Design/mini.svg)
 
 ## So its all linked together, now what?
 ### Telling the Story
@@ -52,6 +53,7 @@ In reality *some links are more interesting than others*. In order to stop the h
 
 **Zero Score**
 We want to avoid (where we can) making similar links within the story, so if the same item has been used before, or it was the same kind of link (for expample from place of birth to place of birth), we give it a zero score.
+![](https://github.com/neil-oliver/Major-Studio-1/blob/master/Qualitative-Design/mini-path.png)
 
 ### Speaking English
 We now have a start and end point, usually an artwork and a place, time or tag. We need to create a sentence for our story. Many things have generic names so hyperlinks were also added in to allow the user to visit the correct page of the MET website.
