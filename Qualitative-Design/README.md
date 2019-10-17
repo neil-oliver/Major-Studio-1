@@ -246,3 +246,8 @@ if (frameCount % 270 == 0){
     selectedSpan.attribute('id', 'highlighted');
 }
 ```
+
+### Project Iterations
+The end project is very close in nature to the original sketch and plan. Careful planning of the process meant that there was no point in which a large rewrite of code happened (apart from a minor change from working with Node & Express to using P5 for visuals). 
+
+The project did however go over many stages of reflection, testing, feedback and refinement. A small selection of dated screenshots and the initial plan can be seen in the [Process Folder](https://github.com/neil-oliver/Major-Studio-1/tree/master/Qualitative-Design/Process).
