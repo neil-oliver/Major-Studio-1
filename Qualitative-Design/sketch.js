@@ -289,14 +289,6 @@ async function makeSense(from,to){
         const response = await fetch(objectBaseUrl + getID);
         var metObject = await response.json();
 
-        // remove any square brackets surround the title
-        metObject.title = metObject.title.replace(/[\[\]']+/g,'');
-        // get rid of contents in brackets to shorten the title
-        metObject.title = metObject.title.replace(/ *\([^)]*\) */g, "");
-        if (String(metObject.objectBeginDate).substring(1) == '-'){
-            metObject.objectBeginDate = String(metObject.objectBeginDate).substring(1,str.length) + 'BC';
-        }
-
         //object to hold all of the correct sentences, either from the starting point of an object or a linking detail (for instance city or medium)
         var list = {};
         list.objectID = {
@@ -335,6 +327,27 @@ async function makeSense(from,to){
             // delete the word 'also' or 'same' from the first sentence
             list[from.split('-',1)[0]][to.split('-',1)[0]][0] = list[from.split('-',1)[0]][to.split('-',1)[0]][0].replace('same ', '');
             list[from.split('-',1)[0]][to.split('-',1)[0]][0] = list[from.split('-',1)[0]][to.split('-',1)[0]][0].replace('also ', '');
+        }
+
+        // remove any square brackets surround the title
+        list[from.split('-',1)[0]][to.split('-',1)[0]][0] = list[from.split('-',1)[0]][to.split('-',1)[0]][0].replace(metObject.title, metObject.title.replace(/[\[\]']+/g,''));
+        // get rid of contents in brackets to shorten the title
+        //check if the brackets are at the end of the sentence before adding a space
+        if (metObject.title[metObject.title.length-1] == ')') {
+            list[from.split('-',1)[0]][to.split('-',1)[0]][0] = list[from.split('-',1)[0]][to.split('-',1)[0]][0].replace(metObject.title, metObject.title.replace(/\s*\(.*?\)\s*/g, ''));
+        } else {
+            list[from.split('-',1)[0]][to.split('-',1)[0]][0] = list[from.split('-',1)[0]][to.split('-',1)[0]][0].replace(metObject.title, metObject.title.replace(/\s*\(.*?\)\s*/g, ' '));
+        }
+
+        //do the same for the artist
+        if (metObject.artistDisplayName[metObject.artistDisplayName.length-1] == ')') {
+            list[from.split('-',1)[0]][to.split('-',1)[0]][0] = list[from.split('-',1)[0]][to.split('-',1)[0]][0].replace(metObject.artistDisplayName, metObject.artistDisplayName.replace(/\s*\(.*?\)\s*/g, ''));
+        } else {
+            list[from.split('-',1)[0]][to.split('-',1)[0]][0] = list[from.split('-',1)[0]][to.split('-',1)[0]][0].replace(metObject.artistDisplayName, metObject.artistDisplayName.replace(/\s*\(.*?\)\s*/g, ' '));
+        }
+
+        if (String(metObject.objectBeginDate).substring(1) == '-'){
+            list[from.split('-',1)[0]][to.split('-',1)[0]][0] = list[from.split('-',1)[0]][to.split('-',1)[0]][0].replace(metObject.objectBeginDate, String(metObject.objectBeginDate).substring(1,str.length) + 'BC');
         }
 
         connectingString = list[from.split('-',1)[0]][to.split('-',1)[0]];

@@ -134,6 +134,34 @@ list.medium = {objectID : [' ' + from.split('-')[1] + ' was the same medium ' + 
 
 ```
 
+### Cleaning the data
+Most of the inconsistencies in the data has been removed during the process of creating the adjacency list, however some data items are fine to be stored, but could be presented in a better way.  
+A few examples of this are titles that are surrounded by square brackets and additional information such as dates or alternative names being presented in parentheses in both the title and ther artist name. 
+Before the sentence is added to the DOM, these items are searched for and removed (they can still be seen by the user if they click on the link to the item on the MET's website.)
+```javascript
+// remove any square brackets surround the title
+list[from.split('-',1)[0]][to.split('-',1)[0]][0] = list[from.split('-',1)[0]][to.split('-',1)[0]][0].replace(metObject.title, metObject.title.replace(/[\[\]']+/g,''));
+
+// get rid of contents in brackets to shorten the title
+//check if the brackets are at the end of the sentence before adding a space
+if (metObject.title[metObject.title.length-1] == ')') {
+    list[from.split('-',1)[0]][to.split('-',1)[0]][0] = list[from.split('-',1)[0]][to.split('-',1)[0]][0].replace(metObject.title, metObject.title.replace(/\s*\(.*?\)\s*/g, ''));
+} else {
+    list[from.split('-',1)[0]][to.split('-',1)[0]][0] = list[from.split('-',1)[0]][to.split('-',1)[0]][0].replace(metObject.title, metObject.title.replace(/\s*\(.*?\)\s*/g, ' '));
+}
+
+//do the same for the artist
+if (metObject.artistDisplayName[metObject.artistDisplayName.length-1] == ')') {
+    list[from.split('-',1)[0]][to.split('-',1)[0]][0] = list[from.split('-',1)[0]][to.split('-',1)[0]][0].replace(metObject.artistDisplayName, metObject.artistDisplayName.replace(/\s*\(.*?\)\s*/g, ''));
+} else {
+    list[from.split('-',1)[0]][to.split('-',1)[0]][0] = list[from.split('-',1)[0]][to.split('-',1)[0]][0].replace(metObject.artistDisplayName, metObject.artistDisplayName.replace(/\s*\(.*?\)\s*/g, ' '));
+}
+
+if (String(metObject.objectBeginDate).substring(1) == '-'){
+    list[from.split('-',1)[0]][to.split('-',1)[0]][0] = list[from.split('-',1)[0]][to.split('-',1)[0]][0].replace(metObject.objectBeginDate, String(metObject.objectBeginDate).substring(1,str.length) + 'BC');
+}
+```
+
 ### An Endless loop
 Adding similar links in the story isnt ideal, but its not the end a totally rubbish story. Repeating the same sentence isnt negotiable, it would be better to stop talking. Therefore each time a sentence is produced, the link is removed from the adjacency list. 
 

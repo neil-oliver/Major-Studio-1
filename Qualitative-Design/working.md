@@ -65,3 +65,7 @@ fix timing!!! - fixed
 fix the length of the story (comment in the code) - fixed
 fix the replacement link in first sentence - fixed
 
+## final details 10-17-19
+fix hover color being the same as highlight color
+fix spacing after replace
+Manufactory - add to exclusion list
