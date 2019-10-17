@@ -5,7 +5,7 @@ This is just one example of many decisions of what to include (or exclude) in th
 
 ## How does it work? - The technical stuff
 We need to create an [adjacency list](https://en.wikipedia.org/wiki/Adjacency_list) using Node.js. 
-This involves looping through the whole of the MET data, adding each item to the list and then adding a reference to any other item it links to. Its not just artworks that get added to the list, but actually anything that is linked. That mean **every date, tag, place, medium and person** has their own link in the adjacency list. 
+This involves looping through the whole of the MET data, adding each item to the list and then adding a reference to any other item it links to. Its not just artworks that get added to the list, but actually anything that is linked. That mean **every date, tag, place, medium and person** has their own link in the adjacency list. Its quite a long process and efficiency is key, instead of explaining it here, you can check out the [code](https://github.com/neil-oliver/Major-Studio-1/blob/master/Qualitative-Design/Node/story.js) with detailed comments.
 
 ### Not everything is interesting.
 First we have to decide what would make an interesting link. We chose:
@@ -13,7 +13,7 @@ First we have to decide what would make an interesting link. We chose:
 - Artist year of death
 - The year the piece was created (sometimes this is an approximation)
 - The artist
-- Artist place of birth
+- Artist place of birth (this has to be converted from a nationality).
 - The contents (tags) of the artwork (i.e. does it contain dogs?) - *they all have to be separated and linked separately*.
 - The medium of the artwork (what is itr made of?)
 - Where the art was made
@@ -33,11 +33,13 @@ Sometimes there are errors on more commonly, information is missing or unknown a
 - Fragments of items
 Due to the high number of variations in the ways the issues above present themselves, different exclusion lists were created and each object is referenced against the list before adding it to the adjacency list.
 
+Once you have done all of that and let it process for a *very* long time, you end up with [this](https://github.com/neil-oliver/Major-Studio-1/blob/master/Qualitative-Design/Node/AJList.json), a file so big that GitHub can't display it!
+
 ## So its all linked together, now what?
 ### Telling the Story
 After everything is linked we now need to follow a path from one item to another.
 ### Random is easy, but not perfect
-The first itteration of the project chose each link at random, as this is intended to be a *random* story, so that makes sense. The problem is that for each artwork, it potentially has links to 4 dates (the artist year of birth, artist year of death, creation date and date when it was excavated). Not every artwork receives every link so in many cases, dates make up over 50% of the possible links. This doesnt cause a problem, its just **not that interesting**.
+The first iteration of the project chose each link at random, as this is intended to be a *random* story, so that makes sense. The problem is that for each artwork, it potentially has links to 4 dates (the artist year of birth, artist year of death, creation date and date when it was excavated). Not every artwork receives every link so in many cases, dates make up over 50% of the possible links. This doesnt cause a problem, its just **not that interesting**.
 
 ### Rarity is interesting.
 In reality *some links are more interesting than others*. In order to stop the high number of date realted links, and to pick out some of the rarer links that are hidden behind the scenes (the user only sees <1% of all of the possibilities), we created a ranking system by giving each link a score, with **some element of randomness** to pick the more interestings links where possible.
