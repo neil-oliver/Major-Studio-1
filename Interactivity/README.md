@@ -10,8 +10,8 @@ A timeline of the whole MET collection.
 - Could color be used to represent another variable?
 - Searchable for artists or even keywords
 #### Inspiration / references
-![If the Moon Were Only 1 Pixel](http://joshworth.com/dev/pixelspace/pixelspace_solarsystem.html)
-![Gun Killings in the US](https://guns.periscopic.com/?year=2010)
+[If the Moon Were Only 1 Pixel](http://joshworth.com/dev/pixelspace/pixelspace_solarsystem.html)
+[Gun Killings in the US](https://guns.periscopic.com/?year=2010)
 
 
 ### Design 2 - Nomenclature of Colour - MET Edition
@@ -30,4 +30,4 @@ A graphical representation of the qualitative project [A Story of The MET collec
 #### Considerations
 Could the automatically generarted story be edited / modified by the user?
 #### Inspiration / references
-![Sigma JS](http://sigmajs.org)
+[Sigma JS](http://sigmajs.org)
