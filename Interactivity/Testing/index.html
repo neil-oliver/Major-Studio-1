@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8" />
+	<title>D3 Dateline</title>
+    <style type="text/css">
+          .chart {
+		    font-family: Arial, sans-serif;
+		    font-size: 10px;
+		    border: 1px solid black;
+			float:left;
+			width:600px;
+			height:210px;
+			overflow:auto;
+			white-space: nowrap;
+		  }
+		  .axis path, .axis line {
+		    fill: none;
+		    stroke: #000;
+		    shape-rendering: crispEdges;
+		  }
+		  .letter {
+		  	fill: #ffffd0;
+	    	stroke-width: 2
+		  }
+		  .precise {
+			stroke: #000000;
+			}
+		  .notprecise {
+			stroke: #ff2c00;
+		  }
+		  .link {
+		  	fill:none; 
+		  	stroke:grey; 
+		  	stroke-width:1 
+		  }
+		  .arrowhead {
+		  	stroke: grey;
+		  	fill: grey;
+		  	stroke-width:1 
+		  }
+		  .bar {
+		    fill: steelblue;
+		  }
+		  .fromR {
+		  	fill: #dca2ea;
+		  }
+		  .fromF {
+		    fill: #d7faaa;
+		  }
+		  .monthaxis {
+		  	font-size: 300%;
+		  }
+		  text.shadow {
+		  	stroke: #fff;
+		  	stroke-width: 3px;
+		  	stroke-opacity: .8;
+		  }
+
+     </style>
+
+	<script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
+	<script src="d3dateline.js"></script>
+	<script>
+		function itemclick(d) {
+			// this function will be called when a node is clicked
+			alert(d.id);
+		}
+		window.onload = function() {
+			loadchart("svgContent", "demodata.json");
+		}
+	</script>
+</head>
+<body>
+
+	<div id="svgContent" class="chart"></div>
+  
+</body>
+</html>
