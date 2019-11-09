@@ -24,7 +24,10 @@ async function go(searchTerm,data,list){
         }
 
     } else {
+        console.log('no results found')
         document.getElementById("myInput").placeholder = 'Oops, we didnt find any stories, try again!';
+        document.getElementById("myInput").value = '';
+
     }
 }
 
@@ -148,7 +151,7 @@ async function dataLoad() {
         selectedVal = tags[searchTerm]
     }
     document.getElementById("myInput").placeholder = 'Search for something like... ' + searchTerm + '!';
-    console.log("Let me tell you a story about", searchTerm)
+    console.log("Can i recommend searching for ", searchTerm)
   }
 
   search = function() {

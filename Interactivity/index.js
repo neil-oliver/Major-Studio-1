@@ -25,7 +25,7 @@ async function draw(data, metObjects) {
   d3.select('svg')
     .style("height", (data.nodes.length*spacing)+(spacing*2));
   
-  height = (data.nodes.length*spacing)+(spacing*2);
+  height = (data.nodes.length*spacing)+spacing;
 
   // List of node names
   var allNodes = data.nodes.map(function(d){return d.id})
@@ -40,7 +40,7 @@ async function draw(data, metObjects) {
     .selectAll(".nodes")
     .data(data.nodes)
     .join("circle")
-      .attr("cy", function(d){ return(x(d.id))})
+      .attr("cy", function(d){ return(x(d.id))+(spacing/2)})
       .attr("cx", width/2)
       .attr('r', (d) => d.size*10)
       .style('fill', (d) => colorScale[d.size-1])
@@ -49,13 +49,23 @@ async function draw(data, metObjects) {
       .attr('stroke-width', 1)
       .attr('class', 'nodes');
 
+  var images = svg
+    .selectAll('.artworkImages')
+    .data(data.nodes)
+    .join('image')
+      .attr('width', 200)
+      .attr('height', 200)
+      .attr("y", function(d){ return(x(d.id))+(spacing/2)})
+      .attr("x", (width/2)+300)
+      .attr('class', 'artworkImages');
+
 
   // And give them a label
-  var labels = svg
+  var titles = svg
     .selectAll(".titles")
     .data(data.nodes)
     .join("text")
-      .attr("y", function(d){ return(x(d.id))})
+      .attr("y", function(d){ return(x(d.id))+(spacing/2)})
       .attr("x", (width/2)+100)
       .text((d) => metObjects[d.id.split('-')[1]].title)
       .attr('class', 'titles');
@@ -66,7 +76,7 @@ async function draw(data, metObjects) {
     .data(data.nodes)
     .join('text')
       .attr('x', (width/2)-500)
-      .attr("y", function(d){ return(x(d.id))})
+      .attr("y", function(d){ return(x(d.id))+(spacing/2)})
       .text(function (d) {
         if (d.value.date != previousYear){
           previousYear = d.value.date
@@ -92,8 +102,8 @@ async function draw(data, metObjects) {
     .data(data.links)
     .join('path')
     .attr('d', function (d) {
-      start = x(idToNode[d.source].id)    // X position of start node on the X axis
-      end = x(idToNode[d.target].id)      // X position of end node
+      start = x(idToNode[d.source].id)+(spacing/2)    // X position of start node on the X axis
+      end = x(idToNode[d.target].id)+(spacing/2)     // X position of end node
       return ['M', width/2, start,
     // the arc starts at the coordinate x=start, y=height-30 (where the starting node is)
         'A',                            // This means we're gonna build an elliptical arc
@@ -118,7 +128,7 @@ async function draw(data, metObjects) {
           .style('stroke-width', function (link_d) { return link_d.source === d.id || link_d.target === d.id ? 4 : 1;})
       })
       .on('mouseout', function (d) {
-        nodes.style('fill', "#69b3a2")
+        nodes.style('fill', (d) => colorScale[d.size-1])
         links
           .style('stroke', 'black')
           .style('stroke-width', '1')
