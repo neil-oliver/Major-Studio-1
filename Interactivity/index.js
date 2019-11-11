@@ -3,7 +3,7 @@
 // SVG setup
 var margin = {top: 10, right: 60, bottom: 30, left: 60},
 width = window.innerWidth - margin.left - margin.right,
-height = 500
+height = 0
 
 var colorScale = ['orange', '#abdda4', '#74add1'];
 var previousYear = 0;
@@ -16,16 +16,14 @@ var svg = d3.select("#content")
 .append("g")
 .attr("transform","translate(" + margin.left + "," + margin.top + ")")
 
-async function draw(data, metObjects) {
+function draw(data, metObjects) {
 
-  console.log(data)
-
-  var spacing = 200
+  var spacing = 100
   
   d3.select('svg')
     .style("height", (data.nodes.length*spacing)+(spacing*2));
   
-  height = (data.nodes.length*spacing)+spacing;
+  height = (data.nodes.length-1)*spacing;
 
   // List of node names
   var allNodes = data.nodes.map(function(d){return d.id})
@@ -35,29 +33,28 @@ async function draw(data, metObjects) {
     .range([0, height])
     .domain(allNodes)
 
-  // Add the circle for the nodes
-  var nodes = svg
-    .selectAll(".nodes")
-    .data(data.nodes)
-    .join("circle")
-      .attr("cy", function(d){ return(x(d.id))+(spacing/2)})
-      .attr("cx", width/2)
-      .attr('r', (d) => d.size*10)
-      .style('fill', (d) => colorScale[d.size-1])
-      .on("click", (d) => window.open("https://www.metmuseum.org/art/collection/search/" + d.id.split('-')[1], "_blank"))
-      .attr('stroke', 'grey')
-      .attr('stroke-width', 1)
-      .attr('class', 'nodes');
+  // not working
+  // var images = svg
+  //   .selectAll('.artworkImages')
+  //   .data(data.nodes)
+  //   .join('image')
+  //     .attr('xlink:href', (d) => metObjects[d.id.split('-')[1]].primaryImageSmall)
+  //     .attr('width', 200)
+  //     .attr("y", function(d){ return(x(d.id))+(spacing/2)})
+  //     .attr("x", (width/2)+300)
+  //     .attr('class', 'artworkImages');
 
-  var images = svg
-    .selectAll('.artworkImages')
+  var timeline = svg
+    .selectAll(".lines")
     .data(data.nodes)
-    .join('image')
-      .attr('width', 200)
-      .attr('height', 200)
-      .attr("y", function(d){ return(x(d.id))+(spacing/2)})
-      .attr("x", (width/2)+300)
-      .attr('class', 'artworkImages');
+    .join("line")
+      .style("stroke", "grey")
+      .style("stroke-width", 0.5)
+      .attr("x1", width/2)
+      .attr("y1", spacing/2)
+      .attr("x2", width/2)
+      .attr("y2", height+(spacing/2))
+      .attr('class', 'lines');
 
 
   // And give them a label
@@ -68,7 +65,59 @@ async function draw(data, metObjects) {
       .attr("y", function(d){ return(x(d.id))+(spacing/2)})
       .attr("x", (width/2)+100)
       .text((d) => metObjects[d.id.split('-')[1]].title)
-      .attr('class', 'titles');
+      .attr('class', 'titles')
+
+        // rect for year
+  var yearsLine = svg
+    .selectAll('.titleLines')
+    .data(data.nodes)
+    .join('line')
+      .style("stroke-width", 1)
+      .attr('x1', width/2)
+      .attr("x2", (width/2)+(spacing/2))
+      .attr("y1", function(d){ return(x(d.id))+(spacing/2)})
+      .attr("y2", function(d){ return(x(d.id))+(spacing/2)})
+      .attr('stroke', 'grey')
+      .attr('class', 'titleLines');
+
+  // rect for year
+  var yearsRect = svg
+    .selectAll('.yearsRect')
+    .data(data.nodes)
+    .join('rect')
+      .attr("width", 40)
+      .attr("height", 20)
+      .attr('x', (width/2)-500)
+      .attr("y", function(d){ return(x(d.id))+(spacing/2)-15})
+      .attr('fill', function (d) {
+        if (d.value.date != previousYear){
+          previousYear = d.value.date
+          return 'grey'
+        } else {
+          return 'white'
+        }
+      })
+      .attr('class', 'yearsRect');
+  
+  // rect for year
+  var yearsLine = svg
+    .selectAll('.yearLines')
+    .data(data.nodes)
+    .join('line')
+      .style("stroke-width", 1)
+      .attr('x1', (width/2)-500)
+      .attr("x2", width/2)
+      .attr("y1", function(d){ return(x(d.id))+(spacing/2)})
+      .attr("y2", function(d){ return(x(d.id))+(spacing/2)})
+      .attr('stroke', function (d) {
+        if (d.value.date != previousYear){
+          previousYear = d.value.date
+          return 'grey'
+        } else {
+          return 'white'
+        }
+      })
+      .attr('class', 'yearLines');
 
   // print the year
   var years = svg
@@ -85,16 +134,13 @@ async function draw(data, metObjects) {
           return ''
         }
       })
-      .attr('class', 'years');
+      .attr('class', 'years')
+      .attr('fill', 'white')
 
-  // Add links between nodes. Here is the tricky part.
-  // In my input data, links are provided between nodes -id-, NOT between node names.
-  // So I have to do a link between this id and the name
   var idToNode = {};
   data.nodes.forEach(function (n) {
     idToNode[n.id] = n;
   });
-  // Cool, now if I do idToNode["2"].name I've got the name of the node with id 2
 
   // Add the links
   var links = svg
@@ -114,75 +160,117 @@ async function draw(data, metObjects) {
     })
     .style("fill", "none")
     .attr("stroke", "black")
+    .attr("stroke-width",1)
     .attr('class', 'links');
 
-    // Add the highlighting functionality
-    nodes
-      .on('mouseover', function (d) {
-        // Highlight the nodes: every node is green except of him
-        nodes.style('fill', "#B8B8B8")
-        d3.select(this).style('fill', '#69b3b2')
-        // Highlight the connections
-        links
-          .style('stroke', function (link_d) { return link_d.source === d.id || link_d.target === d.id ? '#69b3b2' : '#b8b8b8';})
-          .style('stroke-width', function (link_d) { return link_d.source === d.id || link_d.target === d.id ? 4 : 1;})
-      })
-      .on('mouseout', function (d) {
-        nodes.style('fill', (d) => colorScale[d.size-1])
-        links
-          .style('stroke', 'black')
-          .style('stroke-width', '1')
-      })
+  // Link story
+  var linkDesc = svg
+  .selectAll(".linkDesc")
+  .data(data.links)
+  .join("text")
+    .attr("y", function(d){ return(x(idToNode[d.source].id)+(spacing*1.25))})
+    .attr("x", (width/2)+(spacing*1.5))
+    .text((d) => d.desc)
+    .attr('class', 'linkDesc');
 
+  // Add the circle for the nodes
+  var nodes = svg
+  .selectAll(".nodes")
+  .data(data.nodes)
+  .join("circle")
+    .attr("cy", function(d){ return(x(d.id))+(spacing/2)})
+    .attr("cx", width/2)
+    .attr('r', (d) => d.size*10)
+    .style('fill', (d) => colorScale[d.size-1])
+    .on("click", (d) => window.open("https://www.metmuseum.org/art/collection/search/" + d.id.split('-')[1], "_blank"))
+    .attr('stroke', 'grey')
+    .attr('stroke-width', 1)
+    .attr('class', 'nodes');
 
-  // d3.select("svg g")
-  //   .selectAll("circle")
-  //   .data(data.nodes)
-  //   .join("circle")
-  //   .attr('r', (d) => d.size*10)
-  //   .style('fill', (d) => colorScale[d.size-1])
-  //   .attr('cx', width/2)
-  //   .attr('cy', (d,i) => spacing*(i+1))
-  //   .attr('stroke', 'grey')
-  //   .attr('stroke-width', 1)
-  //   .on("click", (d) => window.open("https://www.metmuseum.org/art/collection/search/" + d.id.split('-')[1], "_blank"))
-  //   .on('mouseover', function(d,i) {
-  //     d3.select(this).transition()
-  //       .ease(d3.easeCubic)
-  //       .duration(200)
-  //       .attr('r', (d) => d.size*15)
-  //   })
-  //   .on('mouseout', function(d,i) {
-  //     d3.select(this).transition()
-  //       .ease(d3.easeCubic)
-  //       .duration(200)
-  //       .attr('r', (d) => d.size*10)
-  //   });
+  // Add the highlighting functionality
+  nodes
+    .on('mouseover', function (d) {
+      // Highlight the nodes: every node is green except of him
+      nodes
+        .style('fill', "#B8B8B8")
+        .style('stroke', 'grey')
+        .style('stroke-width', '4')
+      d3.select(this).style('fill', '#69b3b2')
+      // Highlight the connections
+      links
+        .style('stroke', function (link_d) { return link_d.source === d.id || link_d.target === d.id ? '#69b3b2' : '#b8b8b8';})
+        .style('stroke-width', function (link_d) { return link_d.source === d.id || link_d.target === d.id ? 4 : 1;})
+    })
+    .on('mouseout', function (d) {
+      nodes
+        .style('fill', (d) => colorScale[d.size-1])
+        .style('stroke', 'grey')
+        .style('stroke-width', 1)
+      links
+        .style('stroke', 'black')
+        .style('stroke-width', 1)
+    })
 
-  // d3.select('svg g')
-  //   .selectAll('.years')
-  //   .data(data.nodes)
-  //   .join('text')
-  //   .attr('x', (width/2)-500)
-  //   .attr('y', (d,i) => spacing*(i+1))
-  //   .text(function (d) {
-  //     if (d.value.date != previousYear){
-  //       previousYear = d.value.date
-  //       return d.value.date
-  //     } else {
-  //       return ''
-  //     }
-  //   })
-  //   .attr('class', 'years');
-
-  // d3.select('svg g')
-  //   .selectAll('.titles')
-  //   .data(data.nodes)
-  //   .join('text')
-  //   .attr('x', (width/2)+100)
-  //   .attr('y', (d,i) => spacing*(i+1))
-  //   .text((d) => metObjects[d.id.split('-')[1]].title)
-  //   .attr('class', 'titles');
-
-  return Promise.resolve()
+  //put the nodes above the lines
+  d3.selectAll(".nodes").raise();
 }
+
+//autoscroll feature
+function pageScroll() {
+  window.scrollBy(0,1);
+  scrolldelay = setTimeout(pageScroll,30);
+}
+
+//setTimeout(pageScroll,20000);
+
+//web worker testing 
+var w;
+
+function startWorker(searchTerm,data,list) {
+  if (typeof(Worker) !== "undefined") {
+    if (typeof(w) == "undefined") {
+      w = new Worker("search.js");
+    }
+    w.postMessage([searchTerm,data,list])
+
+    w.onmessage = function(event) {
+      draw(event.data[0],event.data[1]);
+    };
+  } else {
+    console.log("Sorry! No Web Worker support.");
+  }
+}
+
+async function dataLoad() {
+  // we can set up our layout before we have data
+  data = await fetch("./Node/reducedMETobjects.json");
+  data = await data.json()
+  list = await fetch("./Node/AJList-update.json");
+  list = await list.json()
+  tags = await fetch("./Node/MetTagListandCounts.json");
+  tags = await tags.json()
+  /*initiate the autocomplete function on the "myInput" element, and pass along the countries array as possible autocomplete values:*/
+  autocomplete(document.getElementById("myInput"), Object.keys(tags));
+
+  var selectedVal = Infinity
+  while(selectedVal > 500){
+      var keys = Object.keys(tags)
+      var rndm = Math.floor(Math.random() * keys.length)
+      searchTerm = keys[rndm]
+      selectedVal = tags[searchTerm]
+  }
+  document.getElementById("myInput").placeholder = 'Search for something like... ' + searchTerm + '!';
+  document.getElementById("mySubmit").disabled = false
+  console.log("Can i recommend searching for ", searchTerm)
+}
+
+search = function() {
+  searchTerm = document.getElementById("myInput").value;
+  console.log('searching for ' + searchTerm)
+  pathArray = {'nodes': [], 'links' : []}
+  startWorker(searchTerm,data,list)
+}
+
+document.getElementById("mySubmit").disabled = true
+dataLoad()
+

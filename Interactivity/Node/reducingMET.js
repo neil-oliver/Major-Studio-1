@@ -30,6 +30,7 @@ function makeMetObjects(){
                             if (value.objectBeginDate){
                                 objects[value.objectID] = {
                                     'objectID' : value.objectID,
+                                    'primaryImageSmall' : value.primaryImageSmall,
                                     'artistDisplayName' : value.artistDisplayName,
                                     'title' : value.title,
                                     'artistBeginDate' : value.artistBeginDate,

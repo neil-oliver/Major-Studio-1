@@ -73,29 +73,29 @@ function makeAJList(){
                                                     AJList['ID-'+value.objectID].push(['artist-'+value.artistDisplayName,'artistDisplayName',value.artistDisplayName,weight]);
                                                     // check if the artist name is already in the adjacency list, if not then add it and link to the object (artwork) it came from
                                                     if (AJList.hasOwnProperty('artist-'+value.artistDisplayName)) {
-                                                        AJList['artist-'+value.artistDisplayName].push(['ID-'+value.objectID,'objectID',value.objectID,weight]);
+                                                        AJList['artist-'+value.artistDisplayName].push(['ID-'+value.objectID,'artistDisplayName',value.objectID,weight]);
                                                     }else{
-                                                        AJList['artist-'+value.artistDisplayName] = [['ID-'+value.objectID,'objectID',value.objectID,weight]];
+                                                        AJList['artist-'+value.artistDisplayName] = [['ID-'+value.objectID,'artistDisplayName',value.objectID,weight]];
                                                     }
 
                                                     // continue to add artist details
                                                     if (value.artistBeginDate){
                                                         AJList['artist-'+value.artistDisplayName].push(['date-'+value.artistBeginDate,'artistBeginDate',value.artistBeginDate,weight]);
                                                         if (AJList.hasOwnProperty('date-'+value.artistBeginDate)) {
-                                                            AJList['date-'+value.artistBeginDate].push(['artist-'+value.artistDisplayName,'artistDisplayName',value.artistDisplayName,weight]);
+                                                            AJList['date-'+value.artistBeginDate].push(['artist-'+value.artistDisplayName,'artistBeginDate',value.artistDisplayName,weight]);
                                                         }else{
-                                                            AJList['date-'+value.artistBeginDate] = [['artist-'+value.artistDisplayName,'artistDisplayName',value.artistDisplayName,weight]];
+                                                            AJList['date-'+value.artistBeginDate] = [['artist-'+value.artistDisplayName,'artistBeginDate',value.artistDisplayName,weight]];
                                                         }
                                                     }
                                             
                                                     if (value.artistEndDate){
                                                         // additional check that the date is not set to 9999 or 1000 years after begin date i.e. an unknown date
                                                         if (value.artistEndDate != '9999' || value.artistEndDate != value.artistBeginDate + 1000){
-                                                            AJList['artist-'+value.artistDisplayName].push(['date-'+value.artistEndDate,'artistBeginDate',value.artistEndDate,weight]);
+                                                            AJList['artist-'+value.artistDisplayName].push(['date-'+value.artistEndDate,'artistEndDate',value.artistEndDate,weight]);
                                                             if (AJList.hasOwnProperty('date-'+value.artistEndDate)) {
-                                                                AJList['date-'+value.artistEndDate].push(['artist-'+value.artistDisplayName,'artistDisplayName',value.artistDisplayName,weight]);
+                                                                AJList['date-'+value.artistEndDate].push(['artist-'+value.artistDisplayName,'artistEndDate',value.artistDisplayName,weight]);
                                                             }else{
-                                                                AJList['date-'+value.artistEndDate] = [['artist-'+value.artistDisplayName,'artistDisplayName',value.artistDisplayName,weight]];
+                                                                AJList['date-'+value.artistEndDate] = [['artist-'+value.artistDisplayName,'artistEndDate',value.artistDisplayName,weight]];
                                                             }
                                                         }
                                                     }
@@ -105,9 +105,9 @@ function makeAJList(){
                                                         if (natCountry[value.artistNationality]){
                                                             AJList['ID-'+value.objectID].push(['location-'+natCountry[value.artistNationality],'artistNationality',natCountry[value.artistNationality],weight]);
                                                             if (AJList.hasOwnProperty('location'+natCountry[value.artistNationality])) {
-                                                                AJList['location-'+natCountry[value.artistNationality]].push(['artist-'+value.artistDisplayName,'artistDisplayName',value.artistDisplayName,weight]);
+                                                                AJList['location-'+natCountry[value.artistNationality]].push(['artist-'+value.artistDisplayName,'artistNationality',value.artistDisplayName,weight]);
                                                             }else{
-                                                                AJList['location-'+natCountry[value.artistNationality]] = [['artist-'+value.artistDisplayName,'artistDisplayName',value.artistDisplayName,weight]];
+                                                                AJList['location-'+natCountry[value.artistNationality]] = [['artist-'+value.artistDisplayName,'artistNationality',value.artistDisplayName,weight]];
                                                             }
                                                         }
                                                     }
@@ -117,27 +117,27 @@ function makeAJList(){
                                             if (value.objectBeginDate){
                                                 AJList['ID-'+value.objectID].push(['date-'+value.objectBeginDate,'objectBeginDate',value.objectBeginDate,weight]);
                                                 if (AJList.hasOwnProperty('date-'+value.objectBeginDate)) {
-                                                    AJList['date-'+value.objectBeginDate].push(['ID-'+value.objectID,'objectID',value.objectID,weight]);
+                                                    AJList['date-'+value.objectBeginDate].push(['ID-'+value.objectID,'objectBeginDate',value.objectID,weight]);
                                                 }else{
-                                                    AJList['date-'+value.objectBeginDate] = [['ID-'+value.objectID,'objectID',value.objectID,weight]];
+                                                    AJList['date-'+value.objectBeginDate] = [['ID-'+value.objectID,'objectBeginDate',value.objectID,weight]];
                                                 }
                                             }
                                             
                                             if (value.city){
                                                 AJList['ID-'+value.objectID].push(['location-'+value.city,'city',value.city,weight]);
                                                 if (AJList.hasOwnProperty('location-'+value.city)) {
-                                                    AJList['location-'+value.city].push(['ID-'+value.objectID,'objectID',value.objectID,weight]);
+                                                    AJList['location-'+value.city].push(['ID-'+value.objectID,'city',value.objectID,weight]);
                                                 }else{
-                                                    AJList['location-'+value.city] = [['ID-'+value.objectID,'objectID',value.objectID,weight]];
+                                                    AJList['location-'+value.city] = [['ID-'+value.objectID,'city',value.objectID,weight]];
                                                 }
                                             }
                                             
                                             if (value.excavation){
                                                 AJList['ID-'+value.objectID].push(['location-'+value.excavation,'excavation',value.excavation,weight]);
                                                 if (AJList.hasOwnProperty('location-'+value.excavation)) {
-                                                    AJList['location-'+value.excavation].push(['ID-'+value.objectID,'objectID',value.objectID,weight]);
+                                                    AJList['location-'+value.excavation].push(['ID-'+value.objectID,'excavation',value.objectID,weight]);
                                                 }else{
-                                                    AJList['location-'+value.excavation] = [['ID-'+value.objectID,'objectID',value.objectID,weight]];
+                                                    AJList['location-'+value.excavation] = [['ID-'+value.objectID,'excavation',value.objectID,weight]];
                                                 }
                                             }
                                             
@@ -149,9 +149,9 @@ function makeAJList(){
                                                     if (!(value.title.includes(value.medium))) {
                                                         AJList['ID-'+value.objectID].push(['description-'+value.medium,'medium',value.medium,weight]);
                                                         if (AJList.hasOwnProperty('description-'+value.medium)) {
-                                                            AJList['description-'+value.medium].push(['ID-'+value.objectID,'objectID',value.objectID,weight]);
+                                                            AJList['description-'+value.medium].push(['ID-'+value.objectID,'medium',value.objectID,weight]);
                                                         } else{
-                                                            AJList['description-'+value.medium] = [['ID-'+value.objectID,'objectID',value.objectID,weight]];
+                                                            AJList['description-'+value.medium] = [['ID-'+value.objectID,'medium',value.objectID,weight]];
                                                         }
                                                     }
                                                 }
@@ -166,9 +166,9 @@ function makeAJList(){
                                                         if (!(value.title.includes(value.tags[i]))) {
                                                             AJList['ID-'+value.objectID].push(['description-'+value.tags[i],'tags',value.tags[i],weight]);
                                                             if (AJList.hasOwnProperty('description-'+value.tags[i])) {
-                                                                AJList['description-'+value.tags[i]].push(['ID-'+value.objectID,'objectID',value.objectID,weight]);
+                                                                AJList['description-'+value.tags[i]].push(['ID-'+value.objectID,'tags',value.objectID,weight]);
                                                             } else {
-                                                                AJList['description-'+value.tags[i]] = [['ID-'+value.objectID,'objectID',value.objectID,weight]];
+                                                                AJList['description-'+value.tags[i]] = [['ID-'+value.objectID,'tags',value.objectID,weight]];
                                                             }
                                                         }
                                                     }
