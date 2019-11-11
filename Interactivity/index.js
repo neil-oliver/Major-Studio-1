@@ -33,22 +33,11 @@ function draw(data, metObjects) {
     .range([0, height])
     .domain(allNodes)
 
-  // not working
-  // var images = svg
-  //   .selectAll('.artworkImages')
-  //   .data(data.nodes)
-  //   .join('image')
-  //     .attr('xlink:href', (d) => metObjects[d.id.split('-')[1]].primaryImageSmall)
-  //     .attr('width', 200)
-  //     .attr("y", function(d){ return(x(d.id))+(spacing/2)})
-  //     .attr("x", (width/2)+300)
-  //     .attr('class', 'artworkImages');
-
   var timeline = svg
     .selectAll(".lines")
     .data(data.nodes)
     .join("line")
-      .style("stroke", "grey")
+      .style("stroke", "lightgray")
       .style("stroke-width", 0.5)
       .attr("x1", width/2)
       .attr("y1", spacing/2)
@@ -137,6 +126,19 @@ function draw(data, metObjects) {
       .attr('class', 'years')
       .attr('fill', 'white')
 
+  // images
+  var images = svg
+    .selectAll('.artworkImages')
+    .data(data.nodes)
+    .join('image')
+      .attr('xlink:href', (d) => metObjects[d.id.split('-')[1]].primaryImageSmall)
+      .attr('width', spacing)
+      .attr('height', spacing)
+      .attr("y", function(d){ return(x(d.id))})
+      .attr("x", (width/2)-(spacing*2))
+      .attr('class', 'artworkImages')
+      .on("click", (d) => window.open("https://www.metmuseum.org/art/collection/search/" + d.id.split('-')[1], "_blank"));
+
   var idToNode = {};
   data.nodes.forEach(function (n) {
     idToNode[n.id] = n;
@@ -194,8 +196,8 @@ function draw(data, metObjects) {
       nodes
         .style('fill', "#B8B8B8")
         .style('stroke', 'grey')
-        .style('stroke-width', '4')
-      d3.select(this).style('fill', '#69b3b2')
+        d3.select(this).style('stroke-width', '4')
+        d3.select(this).style('fill', '#69b3b2')
       // Highlight the connections
       links
         .style('stroke', function (link_d) { return link_d.source === d.id || link_d.target === d.id ? '#69b3b2' : '#b8b8b8';})
@@ -213,6 +215,7 @@ function draw(data, metObjects) {
 
   //put the nodes above the lines
   d3.selectAll(".nodes").raise();
+
 }
 
 //autoscroll feature
@@ -223,7 +226,7 @@ function pageScroll() {
 
 //setTimeout(pageScroll,20000);
 
-//web worker testing 
+///////////////////////////////////////////////////
 var w;
 
 function startWorker(searchTerm,data,list) {

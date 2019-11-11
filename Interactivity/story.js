@@ -1,8 +1,10 @@
 var first = false;
 
-async function makeSense(from,to){
+async function makeSense(linkatt, metObjects){
         
     var connectingString;
+        // from, how, to
+        // date-1992 -> artistBeginDate -> artist-Monet
 
         //object to hold all of the correct sentences, either from the starting point of an object or a linking detail (for instance city or medium)
         var list = {};
@@ -31,3 +33,17 @@ async function makeSense(from,to){
         
     return connectingString;
 }
+
+//ID
+    //artistDisplayName
+    //objectBeginDate
+    //tags
+    //city
+    //excavation
+    //medium
+
+//artist
+    //artistBeginDate
+    //artistEndDate
+    //nationality
+
