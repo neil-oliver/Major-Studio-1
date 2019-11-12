@@ -138,12 +138,12 @@ async function findPath(list,data,start,end){
                 desc = []
                 // change start node for link
                 linkstart = foundPath[i].id
-                console.log('---')
+                //console.log('---')
             } else {
                 // loop each possible link for the node
                 for (var x =0; x < foundPath[i].links.length; x++){
                     if (foundPath[i].links[x].toId == foundPath[i+1].id){        
-                        console.log(foundPath[i].id + ' -> ' + foundPath[i].links[x].data.linkatt + ' -> ' + foundPath[i+1].id)
+                        //console.log(foundPath[i].id + ' -> ' + foundPath[i].links[x].data.linkatt + ' -> ' + foundPath[i+1].id)
                         desc.push([foundPath[i].id, foundPath[i].links[x].data.linkatt, foundPath[i+1].id])
                         break
                     }
@@ -154,7 +154,7 @@ async function findPath(list,data,start,end){
     // add the link
     pathArray['links'].push({'source' : linkstart, 'target' : foundPath[foundPath.length-1].id,'desc' : desc})
 
-    console.log('-------')
+    //console.log('-------')
 
     postMessage([pathArray, data])
     return Promise.resolve()

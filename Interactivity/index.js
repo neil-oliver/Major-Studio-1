@@ -16,8 +16,10 @@ var svg = d3.select("#content")
 .append("g")
 .attr("transform","translate(" + margin.left + "," + margin.top + ")")
 
-function draw(data, metObjects) {
+data = [];
+metObjects = {};
 
+function draw(data, metObjects) {
   var spacing = 100
   
   d3.select('svg')
@@ -32,6 +34,10 @@ function draw(data, metObjects) {
   var x = d3.scalePoint()
     .range([0, height])
     .domain(allNodes)
+    
+
+  const t = svg.transition()
+  .duration(750);
 
   var timeline = svg
     .selectAll(".lines")
@@ -54,19 +60,21 @@ function draw(data, metObjects) {
       .attr("y", function(d){ return(x(d.id))+(spacing/2)})
       .attr("x", (width/2)+100)
       .text((d) => metObjects[d.id.split('-')[1]].title)
+      .attr("dominant-baseline", "middle")
       .attr('class', 'titles')
 
         // rect for year
-  var yearsLine = svg
+  var titleLine = svg
     .selectAll('.titleLines')
     .data(data.nodes)
     .join('line')
       .style("stroke-width", 1)
       .attr('x1', width/2)
-      .attr("x2", (width/2)+(spacing/2))
+      .attr("x2", (width/2)+(spacing*0.75))
       .attr("y1", function(d){ return(x(d.id))+(spacing/2)})
       .attr("y2", function(d){ return(x(d.id))+(spacing/2)})
-      .attr('stroke', 'grey')
+      .attr('stroke', 'lightgray')
+      .attr("dominant-baseline", "middle")
       .attr('class', 'titleLines');
 
   // rect for year
@@ -77,15 +85,8 @@ function draw(data, metObjects) {
       .attr("width", 40)
       .attr("height", 20)
       .attr('x', (width/2)-500)
-      .attr("y", function(d){ return(x(d.id))+(spacing/2)-15})
-      .attr('fill', function (d) {
-        if (d.value.date != previousYear){
-          previousYear = d.value.date
-          return 'grey'
-        } else {
-          return 'white'
-        }
-      })
+      .attr("y", function(d){ return(x(d.id))+(spacing/2)-10})
+      .attr('fill', 'gray')
       .attr('class', 'yearsRect');
   
   // rect for year
@@ -94,18 +95,11 @@ function draw(data, metObjects) {
     .data(data.nodes)
     .join('line')
       .style("stroke-width", 1)
-      .attr('x1', (width/2)-500)
+      .attr('x1', (width/2)-460)
       .attr("x2", width/2)
       .attr("y1", function(d){ return(x(d.id))+(spacing/2)})
       .attr("y2", function(d){ return(x(d.id))+(spacing/2)})
-      .attr('stroke', function (d) {
-        if (d.value.date != previousYear){
-          previousYear = d.value.date
-          return 'grey'
-        } else {
-          return 'white'
-        }
-      })
+      .attr('stroke', 'lightgray')
       .attr('class', 'yearLines');
 
   // print the year
@@ -115,15 +109,9 @@ function draw(data, metObjects) {
     .join('text')
       .attr('x', (width/2)-500)
       .attr("y", function(d){ return(x(d.id))+(spacing/2)})
-      .text(function (d) {
-        if (d.value.date != previousYear){
-          previousYear = d.value.date
-          return d.value.date
-        } else {
-          return ''
-        }
-      })
+      .text((d) => d.value.date)
       .attr('class', 'years')
+      .attr("dominant-baseline", "middle")
       .attr('fill', 'white')
 
   // images
@@ -134,7 +122,7 @@ function draw(data, metObjects) {
       .attr('xlink:href', (d) => metObjects[d.id.split('-')[1]].primaryImageSmall)
       .attr('width', spacing)
       .attr('height', spacing)
-      .attr("y", function(d){ return(x(d.id))})
+      .attr("y", (d) => x(d.id))
       .attr("x", (width/2)-(spacing*2))
       .attr('class', 'artworkImages')
       .on("click", (d) => window.open("https://www.metmuseum.org/art/collection/search/" + d.id.split('-')[1], "_blank"));
@@ -170,9 +158,10 @@ function draw(data, metObjects) {
   .selectAll(".linkDesc")
   .data(data.links)
   .join("text")
-    .attr("y", function(d){ return(x(idToNode[d.source].id)+(spacing*1.25))})
+    .attr("y", function(d){ return(x(idToNode[d.source].id)+(spacing*1.5))})
     .attr("x", (width/2)+(spacing*1.5))
-    .text((d) => d.desc)
+    .text((d) => makeSense(d.desc,metObjects,d.source, d.target))
+    .attr("dominant-baseline", "middle")
     .attr('class', 'linkDesc');
 
   // Add the circle for the nodes
@@ -185,9 +174,9 @@ function draw(data, metObjects) {
     .attr('r', (d) => d.size*10)
     .style('fill', (d) => colorScale[d.size-1])
     .on("click", (d) => window.open("https://www.metmuseum.org/art/collection/search/" + d.id.split('-')[1], "_blank"))
-    .attr('stroke', 'grey')
+    .attr('stroke', 'black')
     .attr('stroke-width', 1)
-    .attr('class', 'nodes');
+    .attr('class', 'nodes')
 
   // Add the highlighting functionality
   nodes
@@ -206,7 +195,7 @@ function draw(data, metObjects) {
     .on('mouseout', function (d) {
       nodes
         .style('fill', (d) => colorScale[d.size-1])
-        .style('stroke', 'grey')
+        .style('stroke', 'black')
         .style('stroke-width', 1)
       links
         .style('stroke', 'black')

@@ -1,36 +1,56 @@
 var first = false;
 
-async function makeSense(linkatt, metObjects){
+function makeSense(linkatt, metObjects,start, end){
         
-    var connectingString;
-        // from, how, to
-        // date-1992 -> artistBeginDate -> artist-Monet
+    var connectingString = '';
 
-        //object to hold all of the correct sentences, either from the starting point of an object or a linking detail (for instance city or medium)
-        var list = {};
-        list.objectID = {
-            objectID : '',
-            artistDisplayName : [metObject.title + ' was created by ' + metObject.artistDisplayName + '.'],
-            artistBeginDate : [metObject.title + ' was created by ' + metObject.artistDisplayName + ' who was born in ' + metObject.artistBeginDate + '.'],
-            artistEndDate : [metObject.title + ' was created by ' + metObject.artistDisplayName + ' who died in ' + metObject.artistEndDate + '.'],
-            objectBeginDate : [metObject.title + ' was created in ' + metObject.objectBeginDate + '.'],
-            tags : [metObject.title + ' contains ' + to.split('-')[1] + '.'],
-            artistNationality : [metObject.title + ' was created by ' + metObject.artistDisplayName + ' who was born in ' + to.split('-')[1] + '.'],
-            excavation : [metObject.title + ' was excavated in ' + metObject.excavation + '.'],
-            city : [metObject.title + ' was created in ' + metObject.city + '.'],
-            medium: [metObject.title + ' was created using ' + metObject.medium + '.']
-        };
-        
-        list.artistDisplayName = {objectID : [' ' + from.split('-')[1] + ' created <b><a href="' + metObject.objectURL + '" target="_blank">' + metObject.title + '</a></b>. ']};
-        list.artistBeginDate = {objectID : [' ' + from.split('-')[1] + ' is also the birth year of ' + metObject.artistDisplayName + ', who created <b><a href="' + metObject.objectURL + '" target="_blank">' + metObject.title + '</a></b>. ']};
-        list.artistEndDate = {objectID : [' ' + from.split('-')[1] + ' is also the year of death of ' + metObject.artistDisplayName + ', who created <b><a href="' + metObject.objectURL + '" target="_blank">' + metObject.title + '</a></b>. ']};
-        list.objectBeginDate = {objectID : [' ' + from.split('-')[1] + ' was also when <b><a href="' + metObject.objectURL + '" target="_blank">' + metObject.title + '</a></b> was created. ']};
-        list.tags = {objectID : [' ' + from.split('-')[1] + ' features in <b><a href="' + metObject.objectURL + '" target="_blank">' + metObject.title + '</a></b>. ']};
-        list.artistNationality = {objectID : [' ' + from.split('-')[1] + ' is the birthplace of ' + metObject.artistDisplayName + ', who created <b><a href="' + metObject.objectURL + '" target="_blank">' + metObject.title + '</a></b>. ']};        
-        list.excavation = {objectID : [' ' + from.split('-')[1] + ' is the same year that <b><a href="' + metObject.objectURL + '" target="_blank">' + metObject.title + ' </a></b> was excavated. ']};       
-        list.city = {objectID : [' ' + from.split('-')[1] + ' is where <b><a href="' + metObject.objectURL + '" target="_blank">' + metObject.title + '</a></b> was created. ']};     
-        list.medium = {objectID : [' ' + from.split('-')[1] + ' was the same medium ' + metObject.artistDisplayName + ' used to create <b><a href="' + metObject.objectURL + '" target="_blank">' + metObject.title + '</a></b>. ']};
-        
+    for (i in linkatt){
+        itemOne = linkatt[i][0].split('-')[0]
+        itemTwo = linkatt[i][1]
+
+        var list = {}
+        list.ID = {}
+        list.ID.description = ' contains '
+        list.ID.artist = ' was created by '
+        list.ID.date = ' was created in '
+        list.ID.location = ' was created in ' 
+
+
+        list.artist = {}
+        list.artist.artistDisplayName = ' created ';
+        list.artist.artistBeginDate = 'was born in';
+        list.artist.artistEndDate = 'died in';
+        list.artist.nationality = 'was born in';
+
+        list.date = {}
+        list.date.objectBeginDate = ' is the year that ' + metObjects[end.split('-')[1]].title + ' was created. ';
+        list.date.artistEndDate = ' is the year that ' + linkatt[i][2].split('-')[1] + ' died. ';
+        list.date.artistBeginDate = ' is the year that ' + linkatt[i][2].split('-')[1] + ' was born. ';
+
+        list.description = {}
+        list.description.tags = ' features in ';
+        list.description.medium = ' features in ';
+
+        // list.location?
+
+        if (i == 0){
+            connectingString += metObjects[start.split('-')[1]].title += list.ID[itemOne] + linkatt[i][0].split('-')[1] + '. '
+        } else {
+
+            if (itemOne == 'date') {
+
+                connectingString += linkatt[i][0].split('-')[1] + list[itemOne][itemTwo];
+
+            } else {
+                connectingString += linkatt[i][0].split('-')[1] + ' ' + list[itemOne][itemTwo]  + ' ' + linkatt[i][2].split('-')[1] + '. ';
+            }
+        }
+
+        if (i == linkatt.length-1){
+            connectingString += linkatt[i][0].split('-')[1] + list[itemOne][itemTwo] + metObjects[end.split('-')[1]].title + '. '
+        }
+    }
+
     return connectingString;
 }
 
