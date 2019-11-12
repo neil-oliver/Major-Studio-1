@@ -31,10 +31,11 @@ function draw(data, metObjects) {
   var allNodes = data.nodes.map(function(d){return d.id})
 
   // A linear scale to position the nodes on the X axis
-  var x = d3.scalePoint()
+  var y = d3.scalePoint()
     .range([0, height])
     .domain(allNodes)
     
+  var timelineX = width*0.5
 
   const t = svg.transition()
   .duration(750);
@@ -45,9 +46,9 @@ function draw(data, metObjects) {
     .join("line")
       .style("stroke", "lightgray")
       .style("stroke-width", 0.5)
-      .attr("x1", width/2)
+      .attr("x1", timelineX)
       .attr("y1", spacing/2)
-      .attr("x2", width/2)
+      .attr("x2", timelineX)
       .attr("y2", height+(spacing/2))
       .attr('class', 'lines');
 
@@ -57,8 +58,8 @@ function draw(data, metObjects) {
     .selectAll(".titles")
     .data(data.nodes)
     .join("text")
-      .attr("y", function(d){ return(x(d.id))+(spacing/2)})
-      .attr("x", (width/2)+100)
+      .attr("y", function(d){ return(y(d.id))+(spacing/2)})
+      .attr("x", (timelineX)+100)
       .text((d) => metObjects[d.id.split('-')[1]].title)
       .attr("dominant-baseline", "middle")
       .attr('class', 'titles')
@@ -69,10 +70,10 @@ function draw(data, metObjects) {
     .data(data.nodes)
     .join('line')
       .style("stroke-width", 1)
-      .attr('x1', width/2)
-      .attr("x2", (width/2)+(spacing*0.75))
-      .attr("y1", function(d){ return(x(d.id))+(spacing/2)})
-      .attr("y2", function(d){ return(x(d.id))+(spacing/2)})
+      .attr('x1', timelineX)
+      .attr("x2", (timelineX)+(spacing*0.75))
+      .attr("y1", function(d){ return(y(d.id))+(spacing/2)})
+      .attr("y2", function(d){ return(y(d.id))+(spacing/2)})
       .attr('stroke', 'lightgray')
       .attr("dominant-baseline", "middle")
       .attr('class', 'titleLines');
@@ -84,8 +85,8 @@ function draw(data, metObjects) {
     .join('rect')
       .attr("width", 40)
       .attr("height", 20)
-      .attr('x', (width/2)-500)
-      .attr("y", function(d){ return(x(d.id))+(spacing/2)-10})
+      .attr('x', (timelineX)-500)
+      .attr("y", function(d){ return(y(d.id))+(spacing/2)-10})
       .attr('fill', 'gray')
       .attr('class', 'yearsRect');
   
@@ -95,10 +96,10 @@ function draw(data, metObjects) {
     .data(data.nodes)
     .join('line')
       .style("stroke-width", 1)
-      .attr('x1', (width/2)-460)
-      .attr("x2", width/2)
-      .attr("y1", function(d){ return(x(d.id))+(spacing/2)})
-      .attr("y2", function(d){ return(x(d.id))+(spacing/2)})
+      .attr('x1', (timelineX)-460)
+      .attr("x2", timelineX)
+      .attr("y1", function(d){ return(y(d.id))+(spacing/2)})
+      .attr("y2", function(d){ return(y(d.id))+(spacing/2)})
       .attr('stroke', 'lightgray')
       .attr('class', 'yearLines');
 
@@ -107,8 +108,8 @@ function draw(data, metObjects) {
     .selectAll('.years')
     .data(data.nodes)
     .join('text')
-      .attr('x', (width/2)-500)
-      .attr("y", function(d){ return(x(d.id))+(spacing/2)})
+      .attr('x', (timelineX)-500)
+      .attr("y", function(d){ return(y(d.id))+(spacing/2)})
       .text((d) => d.value.date)
       .attr('class', 'years')
       .attr("dominant-baseline", "middle")
@@ -122,8 +123,8 @@ function draw(data, metObjects) {
       .attr('xlink:href', (d) => metObjects[d.id.split('-')[1]].primaryImageSmall)
       .attr('width', spacing)
       .attr('height', spacing)
-      .attr("y", (d) => x(d.id))
-      .attr("x", (width/2)-(spacing*2))
+      .attr("y", (d) => y(d.id))
+      .attr("x", (timelineX)-(spacing*2))
       .attr('class', 'artworkImages')
       .on("click", (d) => window.open("https://www.metmuseum.org/art/collection/search/" + d.id.split('-')[1], "_blank"));
 
@@ -138,14 +139,14 @@ function draw(data, metObjects) {
     .data(data.links)
     .join('path')
     .attr('d', function (d) {
-      start = x(idToNode[d.source].id)+(spacing/2)    // X position of start node on the X axis
-      end = x(idToNode[d.target].id)+(spacing/2)     // X position of end node
-      return ['M', width/2, start,
+      start = y(idToNode[d.source].id)+(spacing/2)    // X position of start node on the X axis
+      end = y(idToNode[d.target].id)+(spacing/2)     // X position of end node
+      return ['M', timelineX, start,
     // the arc starts at the coordinate x=start, y=height-30 (where the starting node is)
         'A',                            // This means we're gonna build an elliptical arc
         (start - end)/2, ',',    // Next 2 lines are the coordinates of the inflexion point. Height of this point is proportional with start - end distance
         (start - end)/2, 0, 0, ',',
-        start < end ? 1 : 0, width/2, ',', end] // We always want the arc on top. So if end is before start, putting 0 here turn the arc upside down.
+        start < end ? 1 : 0, timelineX, ',', end] // We always want the arc on top. So if end is before start, putting 0 here turn the arc upside down.
         .join(' ');
     })
     .style("fill", "none")
@@ -158,8 +159,8 @@ function draw(data, metObjects) {
   .selectAll(".linkDesc")
   .data(data.links)
   .join("text")
-    .attr("y", function(d){ return(x(idToNode[d.source].id)+(spacing*1.5))})
-    .attr("x", (width/2)+(spacing*1.5))
+    .attr("y", function(d){ return(y(idToNode[d.source].id)+(spacing*1.5))})
+    .attr("x", (timelineX)+(spacing*1.5))
     .text((d) => makeSense(d.desc,metObjects,d.source, d.target))
     .attr("dominant-baseline", "middle")
     .attr('class', 'linkDesc');
@@ -169,8 +170,8 @@ function draw(data, metObjects) {
   .selectAll(".nodes")
   .data(data.nodes)
   .join("circle")
-    .attr("cy", function(d){ return(x(d.id))+(spacing/2)})
-    .attr("cx", width/2)
+    .attr("cy", function(d){ return(y(d.id))+(spacing/2)})
+    .attr("cx", timelineX)
     .attr('r', (d) => d.size*10)
     .style('fill', (d) => colorScale[d.size-1])
     .on("click", (d) => window.open("https://www.metmuseum.org/art/collection/search/" + d.id.split('-')[1], "_blank"))
