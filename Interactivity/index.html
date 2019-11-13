@@ -23,18 +23,25 @@
 		  	stroke:grey; 
 		  	stroke-width:1 
       }
+  header {
+    position:fixed;
+    width: 100%;
+    height:20%;
+  }
   #title {
+
     font-family: "The Met Serif Web";
     font-size: 2em;
     padding-top: 5%;
     text-align: center;
+    background-color: white;
   }
   #searchform {
     text-align: center;
   }
 
   .titles {
-    font-size: 1.5em;
+    font-size: 0.5em;
     font-weight: 800;
 
   }
@@ -110,9 +117,22 @@ input[type=submit] {
   color: #ffffff; 
 }
 
+#content {
+  padding-top: 20%;
+}
+#linkDesc{
+  text-align: center;
+  position:fixed;
+  font-size: 1em;
+  padding-left: 20%;
+  padding-right: 20%;
+
+}
+
 </style>
 
 <body>
+  <header>
   <div id="title"><h1>Let me tell you a story about...</h1></div>
   <div id='searchform'>
     <form autocomplete="off" onsubmit="return false;" method="post" name="myForm">
@@ -122,7 +142,9 @@ input[type=submit] {
       <input type="submit" id="mySubmit" name="submit" onclick="search()" />
     </form>
   </div>
+</header>
   <div id="content"></div>
+  <div id='linkDesc'></div>
   <script src="https://d3js.org/d3.v5.js"></script>
   <script src="autocomplete.js"></script>
   <script src="story.js"></script>

@@ -1,7 +1,6 @@
 importScripts('https://unpkg.com/ngraph.graph@0.0.17/dist/ngraph.graph.min.js', 'https://unpkg.com/ngraph.path@1.1.0/dist/ngraph.path.min.js');
 
 var searchTerm;
-let pathArray = {'nodes': [], 'links' : []}
 
 async function go(searchTerm,data,list){
 
@@ -70,6 +69,7 @@ async function filterAJList(data,arr,results,list){
             }
         }
     }
+
     await findPath(newList,data,arr[results[0]][0],arr[results[1]][0])
     return Promise.resolve()
 
@@ -123,7 +123,7 @@ async function findPath(list,data,start,end){
             size = 3
             pathArray['nodes'].push({'id' : foundPath[i].id, 'value' : foundPath[i].data, 'size' : size})
         } else {
-            size = 1
+            size = 2
         }
         // loop each node except the last one
         if (i < foundPath.length-1){
@@ -153,6 +153,22 @@ async function findPath(list,data,start,end){
     // add the link
     pathArray['links'].push({'source' : linkstart, 'target' : foundPath[foundPath.length-1].id,'desc' : desc})
 
+    // add extra nodes
+    var count = 0
+    for (id in list){
+        if (id.split('-')[0] == 'ID'){
+            for (x=0;x<list[id].length;x++){
+                if (list[id][x][1] == 'objectBeginDate'){
+                    if (count<20){
+                        pathArray['nodes'].push({'id' : id, 'value' : {'date': list[id][x][0].split('-')[1]}, 'size' : 1})
+                        count +=1
+                    } else {
+                        break
+                    }
+                }
+            }
+        }
+    }
     //console.log('-------')
 
     postMessage(pathArray)
@@ -161,5 +177,6 @@ async function findPath(list,data,start,end){
 
 /////////////////////////////////////////////////////////////////////
 onmessage = function(e) {
+    pathArray = {'nodes': [], 'links' : []}
     go(e.data[0],e.data[1],e.data[2]);
   }
