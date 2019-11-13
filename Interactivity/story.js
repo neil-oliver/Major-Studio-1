@@ -5,15 +5,17 @@ function makeSense(linkatt, metObjects,start, end){
     var connectingString = '';
 
     for (i in linkatt){
+        //console.log(linkatt[i])
         itemOne = linkatt[i][0].split('-')[0]
         itemTwo = linkatt[i][1]
 
         var list = {}
         list.ID = {}
-        list.ID.description = ' contains '
-        list.ID.artist = ' was created by '
+        list.ID.tags = ' contains '
+        list.ID.artistDisplayName = ' was created by '
         list.ID.date = ' was created in '
         list.ID.location = ' was created in ' 
+        list.ID.objectBeginDate = ' was created in '
 
 
         list.artist = {}
@@ -34,13 +36,19 @@ function makeSense(linkatt, metObjects,start, end){
         // list.location?
 
         if (i == 0){
-            connectingString += metObjects[start.split('-')[1]].title += list.ID[itemOne] + linkatt[i][0].split('-')[1] + '. '
-        } else {
+            if (itemOne == 'ID'){
+                connectingString += metObjects[start.split('-')[1]].title + list.ID[itemTwo] + linkatt[i][2].split('-')[1] + '. '
+            } else {
+                connectingString += metObjects[start.split('-')[1]].title + list.ID[itemTwo] + linkatt[i][0].split('-')[1] + '. '
+            }
+        } else  if (i < linkatt.length-1){
 
             if (itemOne == 'date') {
 
                 connectingString += linkatt[i][0].split('-')[1] + list[itemOne][itemTwo];
 
+            } else if (itemOne == 'description'){
+                connectingString += linkatt[i][0].split('-')[1] + ' ' + list[itemOne][itemTwo]  + ' ' + metObjects[linkatt[i][2].split('-')[1]].title + '. ';
             } else {
                 connectingString += linkatt[i][0].split('-')[1] + ' ' + list[itemOne][itemTwo]  + ' ' + linkatt[i][2].split('-')[1] + '. ';
             }

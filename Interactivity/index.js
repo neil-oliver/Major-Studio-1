@@ -16,11 +16,13 @@ var svg = d3.select("#content")
 .append("g")
 .attr("transform","translate(" + margin.left + "," + margin.top + ")")
 
-data = [];
-metObjects = {};
+var data = {'nodes': [], 'links' : []};
 
-function draw(data, metObjects) {
-  var spacing = 100
+//////////////////////////////////////////////
+
+function draw(data) {
+  console.log(data)
+  var spacing = 200
   
   d3.select('svg')
     .style("height", (data.nodes.length*spacing)+(spacing*2));
@@ -37,8 +39,13 @@ function draw(data, metObjects) {
     
   var timelineX = width*0.5
 
-  const t = svg.transition()
-  .duration(750);
+  var idToNode = {};
+  data.nodes.forEach(function (n) {
+    idToNode[n.id] = n;
+  });
+
+
+  ////////////////
 
   var timeline = svg
     .selectAll(".lines")
@@ -52,135 +59,129 @@ function draw(data, metObjects) {
       .attr("y2", height+(spacing/2))
       .attr('class', 'lines');
 
+    // rect for year
+    var titleLine = svg
+      .selectAll('.titleLines')
+      .data(data.nodes)
+      .join('line')
+        .style("stroke-width", 1)
+        .attr('x1', timelineX)
+        .attr("x2", (timelineX)+(spacing*0.5))
+        .attr("y1", function(d){ return(y(d.id))+(spacing/2)})
+        .attr("y2", function(d){ return(y(d.id))+(spacing/2)})
+        .attr('stroke', 'lightgray')
+        .attr("dominant-baseline", "middle")
+        .attr('class', 'titleLines');
 
-  // And give them a label
-  var titles = svg
-    .selectAll(".titles")
-    .data(data.nodes)
-    .join("text")
-      .attr("y", function(d){ return(y(d.id))+(spacing/2)})
-      .attr("x", (timelineX)+100)
-      .text((d) => metObjects[d.id.split('-')[1]].title)
-      .attr("dominant-baseline", "middle")
-      .attr('class', 'titles')
+    // And give them a label
+    var titles = svg
+      .selectAll(".titles")
+      .data(data.nodes)
+      .join("text")
+        .attr("y", function(d){ return(y(d.id))+(spacing/2)})
+        .attr("x", (timelineX)+100)
+        .text((d) => metObjects[d.id.split('-')[1]].title)
+        .attr("dominant-baseline", "middle")
+        .attr('class', 'titles')
 
-        // rect for year
-  var titleLine = svg
-    .selectAll('.titleLines')
-    .data(data.nodes)
-    .join('line')
-      .style("stroke-width", 1)
-      .attr('x1', timelineX)
-      .attr("x2", (timelineX)+(spacing*0.75))
-      .attr("y1", function(d){ return(y(d.id))+(spacing/2)})
-      .attr("y2", function(d){ return(y(d.id))+(spacing/2)})
-      .attr('stroke', 'lightgray')
-      .attr("dominant-baseline", "middle")
-      .attr('class', 'titleLines');
+    // Link story
+    var linkDesc = svg
+      .selectAll(".linkDesc")
+      .data(data.links)
+      .join("text")
+        .attr("y", function(d){ return(y(idToNode[d.source].id)+(spacing))})
+        .attr("x", (timelineX)+(spacing))
+        .text((d) => makeSense(d.desc,metObjects,d.source, d.target))
+        .attr("dominant-baseline", "middle")
+        .attr('class', 'linkDesc');
 
-  // rect for year
-  var yearsRect = svg
-    .selectAll('.yearsRect')
-    .data(data.nodes)
-    .join('rect')
-      .attr("width", 40)
-      .attr("height", 20)
-      .attr('x', (timelineX)-500)
-      .attr("y", function(d){ return(y(d.id))+(spacing/2)-10})
-      .attr('fill', 'gray')
-      .attr('class', 'yearsRect');
+    // rect for year
+    var yearsRect = svg
+      .selectAll('.yearsRect')
+      .data(data.nodes)
+      .join('rect')
+        .attr("width", 40)
+        .attr("height", 20)
+        .attr('x', (timelineX)-500)
+        .attr("y", function(d){ return(y(d.id))+(spacing/2)-10})
+        .attr('fill', 'gray')
+        .attr('class', 'yearsRect');
   
-  // rect for year
-  var yearsLine = svg
-    .selectAll('.yearLines')
+    // rect for year
+    var yearsLine = svg
+      .selectAll('.yearLines')
+      .data(data.nodes)
+      .join('line')
+        .style("stroke-width", 1)
+        .attr('x1', (timelineX)-460)
+        .attr("x2", timelineX)
+        .attr("y1", function(d){ return(y(d.id))+(spacing/2)})
+        .attr("y2", function(d){ return(y(d.id))+(spacing/2)})
+        .attr('stroke', 'lightgray')
+        .attr('class', 'yearLines');
+
+    // print the year
+    var years = svg
+      .selectAll('.years')
+      .data(data.nodes)
+      .join('text')
+        .attr('x', (timelineX)-500)
+        .attr("y", function(d){ return(y(d.id))+(spacing/2)})
+        .text((d) => d.value.date)
+        .attr('class', 'years')
+        .attr("dominant-baseline", "middle")
+        .attr('fill', 'white')
+
+    // images
+    var images = svg
+      .selectAll('.artworkImages')
+      .data(data.nodes)
+      .join('image')
+        .attr('xlink:href', (d) => metObjects[d.id.split('-')[1]].primaryImageSmall)
+        .attr('width', (spacing*0.5))
+        .attr('height', (spacing*0.5))
+        .attr("y", (d) => y(d.id)+(spacing*0.25))
+        .attr("x", (timelineX)-(spacing*2))
+        .attr('class', 'artworkImages')
+        .on("click", (d) => window.open("https://www.metmuseum.org/art/collection/search/" + d.id.split('-')[1], "_blank"));
+
+    // Add the links
+    var links = svg
+      .selectAll('.links')
+      .data(data.links)
+      .join('path')
+      .attr('d', function (d) {
+        start = y(idToNode[d.source].id)+(spacing/2)    // X position of start node on the X axis
+        end = y(idToNode[d.target].id)+(spacing/2)     // X position of end node
+        return ['M', timelineX, start,
+      // the arc starts at the coordinate x=start, y=height-30 (where the starting node is)
+          'A',                            // This means we're gonna build an elliptical arc
+          (start - end)/2, ',',    // Next 2 lines are the coordinates of the inflexion point. Height of this point is proportional with start - end distance
+          (start - end)/2, 0, 0, ',',
+          start < end ? 1 : 0, timelineX, ',', end] // We always want the arc on top. So if end is before start, putting 0 here turn the arc upside down.
+          .join(' ');
+      })
+      .style("fill", "none")
+      .attr("stroke", "black")
+      .attr("stroke-width",1)
+      .attr('class', 'links');
+
+    // Add the circle for the nodes
+    var nodes = svg
+    .selectAll(".nodes")
     .data(data.nodes)
-    .join('line')
-      .style("stroke-width", 1)
-      .attr('x1', (timelineX)-460)
-      .attr("x2", timelineX)
-      .attr("y1", function(d){ return(y(d.id))+(spacing/2)})
-      .attr("y2", function(d){ return(y(d.id))+(spacing/2)})
-      .attr('stroke', 'lightgray')
-      .attr('class', 'yearLines');
+    .join("circle")
+      .attr("cy", (d) => (y(d.id)+(spacing/2)))
+      .attr("cx", timelineX)
+      .attr('r', (d) => d.size*10)
+      .style('fill', (d) => colorScale[d.size-1])
+      .on("click", (d) => window.open("https://www.metmuseum.org/art/collection/search/" + d.id.split('-')[1], "_blank"))
+      .attr('stroke', 'black')
+      .attr('stroke-width', 1)
+      .attr('class', 'nodes')
 
-  // print the year
-  var years = svg
-    .selectAll('.years')
-    .data(data.nodes)
-    .join('text')
-      .attr('x', (timelineX)-500)
-      .attr("y", function(d){ return(y(d.id))+(spacing/2)})
-      .text((d) => d.value.date)
-      .attr('class', 'years')
-      .attr("dominant-baseline", "middle")
-      .attr('fill', 'white')
-
-  // images
-  var images = svg
-    .selectAll('.artworkImages')
-    .data(data.nodes)
-    .join('image')
-      .attr('xlink:href', (d) => metObjects[d.id.split('-')[1]].primaryImageSmall)
-      .attr('width', spacing)
-      .attr('height', spacing)
-      .attr("y", (d) => y(d.id))
-      .attr("x", (timelineX)-(spacing*2))
-      .attr('class', 'artworkImages')
-      .on("click", (d) => window.open("https://www.metmuseum.org/art/collection/search/" + d.id.split('-')[1], "_blank"));
-
-  var idToNode = {};
-  data.nodes.forEach(function (n) {
-    idToNode[n.id] = n;
-  });
-
-  // Add the links
-  var links = svg
-    .selectAll('.links')
-    .data(data.links)
-    .join('path')
-    .attr('d', function (d) {
-      start = y(idToNode[d.source].id)+(spacing/2)    // X position of start node on the X axis
-      end = y(idToNode[d.target].id)+(spacing/2)     // X position of end node
-      return ['M', timelineX, start,
-    // the arc starts at the coordinate x=start, y=height-30 (where the starting node is)
-        'A',                            // This means we're gonna build an elliptical arc
-        (start - end)/2, ',',    // Next 2 lines are the coordinates of the inflexion point. Height of this point is proportional with start - end distance
-        (start - end)/2, 0, 0, ',',
-        start < end ? 1 : 0, timelineX, ',', end] // We always want the arc on top. So if end is before start, putting 0 here turn the arc upside down.
-        .join(' ');
-    })
-    .style("fill", "none")
-    .attr("stroke", "black")
-    .attr("stroke-width",1)
-    .attr('class', 'links');
-
-  // Link story
-  var linkDesc = svg
-  .selectAll(".linkDesc")
-  .data(data.links)
-  .join("text")
-    .attr("y", function(d){ return(y(idToNode[d.source].id)+(spacing*1.5))})
-    .attr("x", (timelineX)+(spacing*1.5))
-    .text((d) => makeSense(d.desc,metObjects,d.source, d.target))
-    .attr("dominant-baseline", "middle")
-    .attr('class', 'linkDesc');
-
-  // Add the circle for the nodes
-  var nodes = svg
-  .selectAll(".nodes")
-  .data(data.nodes)
-  .join("circle")
-    .attr("cy", function(d){ return(y(d.id))+(spacing/2)})
-    .attr("cx", timelineX)
-    .attr('r', (d) => d.size*10)
-    .style('fill', (d) => colorScale[d.size-1])
-    .on("click", (d) => window.open("https://www.metmuseum.org/art/collection/search/" + d.id.split('-')[1], "_blank"))
-    .attr('stroke', 'black')
-    .attr('stroke-width', 1)
-    .attr('class', 'nodes')
-
-  // Add the highlighting functionality
-  nodes
+    // Add the highlighting functionality
+    nodes
     .on('mouseover', function (d) {
       // Highlight the nodes: every node is green except of him
       nodes
@@ -202,11 +203,13 @@ function draw(data, metObjects) {
         .style('stroke', 'black')
         .style('stroke-width', 1)
     })
-
+  
   //put the nodes above the lines
   d3.selectAll(".nodes").raise();
 
 }
+
+////////////////////////////////////////////////////
 
 //autoscroll feature
 function pageScroll() {
@@ -219,15 +222,16 @@ function pageScroll() {
 ///////////////////////////////////////////////////
 var w;
 
-function startWorker(searchTerm,data,list) {
+function startWorker(searchTerm,metObjects,list) {
   if (typeof(Worker) !== "undefined") {
     if (typeof(w) == "undefined") {
       w = new Worker("search.js");
     }
-    w.postMessage([searchTerm,data,list])
+    w.postMessage([searchTerm,metObjects,list])
 
     w.onmessage = function(event) {
-      draw(event.data[0],event.data[1]);
+
+      draw(event.data);
     };
   } else {
     console.log("Sorry! No Web Worker support.");
@@ -236,8 +240,8 @@ function startWorker(searchTerm,data,list) {
 
 async function dataLoad() {
   // we can set up our layout before we have data
-  data = await fetch("./Node/reducedMETobjects.json");
-  data = await data.json()
+  metObjects = await fetch("./Node/reducedMETobjects.json");
+  metObjects = await metObjects.json()
   list = await fetch("./Node/AJList-update.json");
   list = await list.json()
   tags = await fetch("./Node/MetTagListandCounts.json");
@@ -261,7 +265,7 @@ search = function() {
   searchTerm = document.getElementById("myInput").value;
   console.log('searching for ' + searchTerm)
   pathArray = {'nodes': [], 'links' : []}
-  startWorker(searchTerm,data,list)
+  startWorker(searchTerm,metObjects,list)
 }
 
 document.getElementById("mySubmit").disabled = true

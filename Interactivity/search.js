@@ -2,9 +2,6 @@ importScripts('https://unpkg.com/ngraph.graph@0.0.17/dist/ngraph.graph.min.js', 
 
 var searchTerm;
 let pathArray = {'nodes': [], 'links' : []}
-let data;
-let list;
-let tags;
 
 async function go(searchTerm,data,list){
 
@@ -73,13 +70,13 @@ async function filterAJList(data,arr,results,list){
             }
         }
     }
-    await findPath(newList,data,arr[results[1]][0],arr[results[0]][0])
+    await findPath(newList,data,arr[results[0]][0],arr[results[1]][0])
     return Promise.resolve()
 
 }
 
 async function findPath(list,data,start,end){
-    //console.log(list)
+    console.log('start end', start, end)
 
     if (pathArray.nodes.length > 0){
         pathArray.nodes.pop()
@@ -113,8 +110,9 @@ async function findPath(list,data,start,end){
         }
     });
 
-    let foundPath = pathFinder.find("ID-"+start, "ID-"+end);
-    
+    let foundPath = pathFinder.find("ID-"+end, "ID-"+start);
+    console.log(foundPath)
+
     let size = 3
     var desc = [];
     var linkstart = foundPath[0].id;
@@ -130,7 +128,8 @@ async function findPath(list,data,start,end){
         // loop each node except the last one
         if (i < foundPath.length-1){
             // check to see if it is an id but NOT the starting id
-            if (foundPath[i].id.split('-')[0] == 'ID' && foundPath[i].id != "ID-"+start ) {
+            if (foundPath[i].id.split('-')[0] == 'ID' && foundPath[i].id != ("ID-"+start) ) {
+                console.log(foundPath[i].id.split('-')[0], foundPath[i].id)
                 //push to pathArray
                 pathArray['nodes'].push({'id' : foundPath[i].id, 'value' : foundPath[i].data, 'size' : size})
                 pathArray['links'].push({'source' : linkstart, 'target' : foundPath[i].id,'desc' : desc})
@@ -156,7 +155,7 @@ async function findPath(list,data,start,end){
 
     //console.log('-------')
 
-    postMessage([pathArray, data])
+    postMessage(pathArray)
     return Promise.resolve()
 }
 
