@@ -16,16 +16,15 @@ var svg = d3.select("#content")
 .append("g")
 .attr("transform","translate(" + margin.left + "," + margin.top + ")")
 
-var data = {'nodes': [], 'links' : []};
+//var data = {'nodes': [], 'links' : []};
 
 //////////////////////////////////////////////
 
 function draw(data) {
-  console.log(data)
   var spacing = 200
     
   // List of node names
-  var allNodes = data.nodes.map(function(d){return d.id})
+  //var allNodes = data.nodes.map(function(d){return d.id})
 
   var scaleMax = d3.max(data.nodes, function(d) { return +d.value.date} );
   var scaleMin = d3.min(data.nodes, function(d) { return +d.value.date} );
@@ -45,7 +44,7 @@ function draw(data) {
   });
 
   // set initialcy position before force layout 
-  data.nodes.forEach(function(d) { d.x = xScale(d.value.date); d.y = timelineY; });
+  //data.nodes.forEach(function(d) { d.x = xScale(d.value.date); d.y = timelineY; });
 
   ///////////////////////////////////////////
 
@@ -107,10 +106,7 @@ function draw(data) {
       .data(data.links)
       .join("span")
         .text((d) => makeSense(d.desc,metObjects,d.source, d.target))
-
-
-  function ticked() {
-
+        
     // images
     var images = svg
     .selectAll('.artworkImages')
@@ -121,9 +117,11 @@ function draw(data) {
       .attr('width', (spacing))
       .attr('height', (spacing))
       .attr("x", (d) => xScale(d.value.date)+(spacing*0.25))
-      .attr("y", (timelineY)-(spacing*2))
+      .attr("y", (timelineY)-(spacing*1.5))
       .attr('class', 'artworkImages')
       .on("click", (d) => window.open("https://www.metmuseum.org/art/collection/search/" + d.id.split('-')[1], "_blank"))
+
+  function ticked() {
 
     // Add the links
     var links = svg
@@ -233,8 +231,13 @@ function startWorker(searchTerm,metObjects,list) {
     w.postMessage([searchTerm,metObjects,list])
 
     w.onmessage = function(event) {
-
+      //data = event.data
       draw(event.data);
+
+      //data.nodes = data.nodes.concat(event.data.nodes);
+      //data.links = data.links.concat(event.data.links);
+      console.log(event.data)
+
     };
   } else {
     console.log("Sorry! No Web Worker support.");
@@ -267,7 +270,6 @@ async function dataLoad() {
 search = function() {
   searchTerm = document.getElementById("myInput").value;
   console.log('searching for ' + searchTerm)
-  pathArray = {'nodes': [], 'links' : []}
   startWorker(searchTerm,metObjects,list)
 }
 

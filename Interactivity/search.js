@@ -1,6 +1,8 @@
 importScripts('https://unpkg.com/ngraph.graph@0.0.17/dist/ngraph.graph.min.js', 'https://unpkg.com/ngraph.path@1.1.0/dist/ngraph.path.min.js');
 
 var searchTerm;
+let pathArray = {'nodes': [], 'links' : []}
+
 
 async function go(searchTerm,data,list){
 
@@ -76,11 +78,8 @@ async function filterAJList(data,arr,results,list){
 }
 
 async function findPath(list,data,start,end){
-    console.log('start end', start, end)
 
-    if (pathArray.nodes.length > 0){
-        pathArray.nodes.pop()
-    }
+    console.log('start end', start, end)
     
     let graph = createGraph();
     for (index in list) {
@@ -121,7 +120,14 @@ async function findPath(list,data,start,end){
         //check to see if start or end node and add node
         if (foundPath[i].id == "ID-"+start || foundPath[i].id == "ID-"+end){
             size = 3
-            pathArray['nodes'].push({'id' : foundPath[i].id, 'value' : foundPath[i].data, 'size' : size})
+            // check if its the first ever node
+            if (foundPath[i].id != "ID-"+end && pathArray.nodes.length == 0){
+                pathArray['nodes'].push({'id' : foundPath[i].id, 'value' : foundPath[i].data, 'size' : size})
+            }
+            // check if its the end
+            if (foundPath[i].id == "ID-"+end){
+                pathArray['nodes'].push({'id' : foundPath[i].id, 'value' : foundPath[i].data, 'size' : size})
+            }
         } else {
             size = 2
         }
@@ -129,7 +135,7 @@ async function findPath(list,data,start,end){
         if (i < foundPath.length-1){
             // check to see if it is an id but NOT the starting id
             if (foundPath[i].id.split('-')[0] == 'ID' && foundPath[i].id != ("ID-"+start) ) {
-                console.log(foundPath[i].id.split('-')[0], foundPath[i].id)
+                //console.log(foundPath[i].id.split('-')[0], foundPath[i].id)
                 //push to pathArray
                 pathArray['nodes'].push({'id' : foundPath[i].id, 'value' : foundPath[i].data, 'size' : size})
                 pathArray['links'].push({'source' : linkstart, 'target' : foundPath[i].id,'desc' : desc})
@@ -170,13 +176,12 @@ async function findPath(list,data,start,end){
         }
     }
     //console.log('-------')
-
     postMessage(pathArray)
     return Promise.resolve()
 }
 
 /////////////////////////////////////////////////////////////////////
 onmessage = function(e) {
-    pathArray = {'nodes': [], 'links' : []}
+    console.log('running')
     go(e.data[0],e.data[1],e.data[2]);
   }
