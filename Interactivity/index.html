@@ -2,150 +2,29 @@
 <meta charset="utf-8">
 <head>
   <title>Let me tell you a story...</title>
+  <link rel="stylesheet" type="text/css" href="style.css" media="screen" />
+
 </head>
-
-<style>
-  @font-face {
-  font-family: "The Met Serif Web";
-  src: url("fonts/The-Met-Serif-Web-Roman.ttf");
-}
-  body{
-    font-family: Helvetica, Arial, sans-serif;
-  }
-
-  circle {
-    cursor: pointer;
-
-  }
-
-  .link {
-		  	fill:none; 
-		  	stroke:grey; 
-		  	stroke-width:1 
-      }
-  header {
-    position:fixed;
-    width: 100%;
-    height:10%;
-  }
-  #title {
-
-    font-family: "The Met Serif Web";
-    font-size: 2em;
-    padding-top: 2%;
-    text-align: center;
-    background-color: white;
-  }
-  #searchform {
-    text-align: center;
-  }
-
-  .titles {
-    font-size: 0.5em;
-    font-weight: 800;
-
-  }
-
-
-/* date styling */
-.years {
-font: bold 16px / 1.2 'nyt-franklin', Arial, sans-serif;
-color: white;
-background-color: #7c7c7c;
-padding: 5px 10px;
-border-radius: 3px;
--webkit-font-smoothing: antialiased;
-}
-
-.linkdesc {
-  font-size: 0.7em;
-}
-
-
-/*the container must be positioned relative:*/
-.autocomplete {
-  position: relative;
-  display: inline-block;
-}
-
-input {
-  border: 1px solid transparent;
-  background-color: #f1f1f1;
-  padding: 10px;
-  font-size: 16px;
-}
-
-input[type=text] {
-  background-color: #f1f1f1;
-  width: 100%;
-}
-
-input[type=submit] {
-  background-color: DodgerBlue;
-  color: #fff;
-  cursor: pointer;
-}
-
-/* auto complete styling*/
-.autocomplete-items {
-  position: absolute;
-  border: 1px solid #d4d4d4;
-  border-bottom: none;
-  border-top: none;
-  z-index: 99;
-  /*position the autocomplete items to be the same width as the container:*/
-  top: 100%;
-  left: 0;
-  right: 0;
-}
-
-.autocomplete-items div {
-  padding: 10px;
-  cursor: pointer;
-  background-color: #fff; 
-  border-bottom: 1px solid #d4d4d4; 
-}
-
-/*when hovering an item:*/
-.autocomplete-items div:hover {
-  background-color: #e9e9e9; 
-}
-
-/*when navigating through the items using the arrow keys:*/
-.autocomplete-active {
-  background-color: DodgerBlue !important; 
-  color: #ffffff; 
-}
-
-#content {
-  padding-top: 20%;
-}
-#linkDesc{
-  text-align: center;
-  position:fixed;
-  font-size: 1em;
-  padding-left: 20%;
-  padding-right: 20%;
-
-}
-
-</style>
+<link href="https://fonts.googleapis.com/css?family=Playfair+Display&display=swap" rel="stylesheet">
 
 <body>
-  <header>
-  <div id="title"><h1>Let me tell you a story about...</h1></div>
-  <div id='searchform'>
+  <div id='metstories'><img src="The_Metropolitan_Museum_of_Art_Logo.svg" alt="MET Logo">Stories</div>
+  <div id='header'>
     <form autocomplete="off" onsubmit="return false;" method="post" name="myForm">
-      <div class="autocomplete" style="width:20%;">
+      <div class="autocomplete" style="width:20rem;">
+          <span id='formlabel'>Tell me a story about&nbsp;</span>
         <input id="myInput" type="text" name="myCountry" placeholder="">
       </div>
-      <input type="submit" id="mySubmit" name="submit" onclick="search()" />
+      <input type="submit" id="mySubmit" value='Go' name="submit" onclick="search()" />
     </form>
+  <div id='explanation'>
+      Artworks between the start and end of the story <span id='smalldot'></span>&nbsp; Artworks included for the story <span id='mediumdot'></span>&nbsp; Artworks containing the topic <span id='largedot'></span>
   </div>
-</header>
+  </div>
   <div id="content"></div>
   <div id='linkDesc'></div>
   <script src="https://d3js.org/d3.v5.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.11"></script>
   <script src="autocomplete.js"></script>
   <script src="story.js"></script>
   <script src="index.js"></script>

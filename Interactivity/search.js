@@ -1,11 +1,12 @@
 importScripts('https://unpkg.com/ngraph.graph@0.0.17/dist/ngraph.graph.min.js', 'https://unpkg.com/ngraph.path@1.1.0/dist/ngraph.path.min.js');
 
 var searchTerm;
-let pathArray = {'nodes': [], 'links' : []}
+let pathArray = {'nodes': [], 'links' : []};
 
+var first = true;
+var last = false;
 
 async function go(searchTerm,data,list){
-
     var arr = Object.entries(data)
     arr.sort((a, b) => a[1].objectBeginDate - b[1].objectBeginDate) 
     let results = arr.filter(function (element) {
@@ -17,12 +18,15 @@ async function go(searchTerm,data,list){
     }
     if (res.length > 1){
         console.log(res)
-        
+        var timespan = arr[res[res.length-1]][1].objectBeginDate - arr[res[0]][1].objectBeginDate
+        console.log(timespan)
         while (res.length >1){
-            await filterAJList(data,arr,res,list)
+            if (res.length == 2){
+                last = true;
+            }
+            await filterAJList(data,arr,res,list,timespan,searchTerm)
             res.shift()
         }
-
     } else {
         console.log('no results found')
         document.getElementById("myInput").placeholder = 'Oops, we didnt find any stories, try again!';
@@ -31,9 +35,8 @@ async function go(searchTerm,data,list){
     }
 }
 
-async function filterAJList(data,arr,results,list){
+async function filterAJList(data,arr,results,list,timespan,searchTerm){
     var newList = {}
-
     for (key in list){
         for (item in list[key]){
             if (key.split('-')[0] == 'ID'){
@@ -71,20 +74,20 @@ async function filterAJList(data,arr,results,list){
             }
         }
     }
-
-    await findPath(newList,data,arr[results[0]][0],arr[results[1]][0])
+    await findPath(newList,data,arr[results[0]][0],arr[results[1]][0],timespan)
     return Promise.resolve()
 
 }
 
-async function findPath(list,data,start,end){
+async function findPath(list,data,start,end,timespan){
+    pathArray = {'nodes': [], 'links' : []}
 
     console.log('start end', start, end)
     
     let graph = createGraph();
     for (index in list) {
         for (let i = 0; i<list[index].length; i++) {
-            if (index.split('-')[0] == 'ID' ){
+            if (index.split('-')[0] == 'ID'){
                 graph.addNode(index, {date : data[index.split('-')[1]].objectBeginDate});
             } else {
                 graph.addNode(index);
@@ -121,7 +124,7 @@ async function findPath(list,data,start,end){
         if (foundPath[i].id == "ID-"+start || foundPath[i].id == "ID-"+end){
             size = 3
             // check if its the first ever node
-            if (foundPath[i].id != "ID-"+end && pathArray.nodes.length == 0){
+            if (foundPath[i].id != "ID-"+end && pathArray.nodes.length == 0 && first == true){
                 pathArray['nodes'].push({'id' : foundPath[i].id, 'value' : foundPath[i].data, 'size' : size})
             }
             // check if its the end
@@ -160,13 +163,14 @@ async function findPath(list,data,start,end){
     pathArray['links'].push({'source' : linkstart, 'target' : foundPath[foundPath.length-1].id,'desc' : desc})
 
     // add extra nodes
+    var extraArray = {'nodes' : []}
     var count = 0
     for (id in list){
         if (id.split('-')[0] == 'ID'){
             for (x=0;x<list[id].length;x++){
                 if (list[id][x][1] == 'objectBeginDate'){
                     if (count<20){
-                        pathArray['nodes'].push({'id' : id, 'value' : {'date': list[id][x][0].split('-')[1]}, 'size' : 1})
+                        extraArray['nodes'].push({'id' : id, 'value' : {'date': parseInt(list[id][x][0].split('-')[1])}, 'size' : 1})
                         count +=1
                     } else {
                         break
@@ -176,7 +180,8 @@ async function findPath(list,data,start,end){
         }
     }
     //console.log('-------')
-    postMessage(pathArray)
+    first = false;
+    postMessage([pathArray,timespan,extraArray,last])
     return Promise.resolve()
 }
 
