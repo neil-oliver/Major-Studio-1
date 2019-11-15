@@ -3,7 +3,7 @@
 // SVG setup
 var margin = {top: 0, right: 60, bottom: 30, left: 60},
 width = window.innerWidth - margin.left - margin.right,
-height = window.innerHeight*0.5
+height = window.innerHeight*0.45
 
 var colorScale = ['#ece7f2', '#a6bddb', '#7fcdbb'];
 var strokeColor = ['gray','#525252','#525252']
@@ -43,7 +43,7 @@ function draw() {
   width = timeSpan*yearSize;
 
   var xScale = d3.scaleLinear().domain([scaleMin, scaleMax]).range([0, width]);
-  var timelineY = height*0.5
+  var timelineY = height*0.6
 
   d3.select('svg').style("width", width+(spacing*2));
 

@@ -1,4 +1,6 @@
 
+  * { box-sizing: border-box; }
+
   body{
     font-family: 'Playfair Display', serif;
     margin :0;
@@ -46,7 +48,7 @@
   }
 
   #content{
-    padding-top: 20%;
+    padding-top: 15%;
     background-color: white;
   }
 
@@ -85,8 +87,9 @@ input[type=submit] {
   border-top: none;
   z-index: 99;
   /*position the autocomplete items to be the same width as the container:*/
+  margin-top: 20px;
   top: 100%;
-  left: 0;
+  left: -5;
   right: 0;
 }
 
@@ -123,6 +126,8 @@ input[type=submit] {
   padding-left: 15%;
   padding-right: 15%;
   line-height: 2em;
+  overflow:scroll;
+  max-height: 22%;
 
 }
 
