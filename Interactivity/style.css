@@ -1,4 +1,7 @@
-
+@font-face {
+    font-family: "TheMetSans-LightTheMet";
+    src: url("fonts/TheMetSans-LightTheMet.woff");
+}
 
   body{
     font-family: 'Playfair Display', serif;
@@ -124,7 +127,7 @@ input[type=submit] {
 
 #linkDesc{
   position: fixed;
-  bottom: 0;
+  bottom: 2.5rem;
   margin-bottom: 0;
   text-align: center;
   font-size: 2em;
@@ -136,6 +139,11 @@ input[type=submit] {
 
 }
 
+#linkDesc a{
+text-decoration: none;
+color: #383838;
+font-weight: 900;
+}
 
 .xAxis path {
     stroke: #B8B8B8;
@@ -180,4 +188,26 @@ input[type=submit] {
     text-align: center;
     z-index: 99;
 
+}
+
+#footer {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    height: 2.5rem;
+    background-image: linear-gradient(to left, rgb(70,70,70), rgb(100,100,100));
+}
+
+#footer a{
+    color : #eee;
+}
+#createdBy{
+    display: block;
+    height:0;
+    margin:0;
+    line-height: 0.8rem;
+    text-align: right;
+    color: #eee;
+    font-family: "TheMetSans-LightTheMet";
+    padding-right: 20px;
 }

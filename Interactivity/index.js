@@ -7,6 +7,7 @@ height = window.innerHeight*0.45
 
 var colorScale = ['#ece7f2', '#a6bddb', '#7fcdbb'];
 var strokeColor = ['gray','#525252','#525252']
+var nodeSize = [5,10,20]
 var previousYear = 0;
 
 // append the SVG object to the body of the page
@@ -78,7 +79,7 @@ function draw() {
     .force('x', d3.forceX().x((d) => xScale(d.value.date)+(spacing/2)))
     .force('y', d3.forceY().y(timelineY))
     .force("link", d3.forceLink().id((d) => d.id))
-    .force('collision', d3.forceCollide().radius((d) => d.size*5))
+    .force('collision', d3.forceCollide().radius((d) => nodeSize[d.size-1]))
     .on('tick', ticked)
 
   ////////////////
@@ -130,13 +131,13 @@ function draw() {
     .join('image')                             
     .filter(function(d) { return d.size == 3 }) 
       .attr('xlink:href', (d) => metObjects[d.id.split('-')[1]].primaryImageSmall)
-      .attr("x", (d) => xScale(d.value.date)-(spacing/2))
+      .attr("x", (d) => xScale(d.value.date)+(spacing/2)-(spacing*2))
       .attr("y", (timelineY)-(spacing*2))
       .attr('class', 'artworkImages')
       .on("click", (d) => window.open("https://www.metmuseum.org/art/collection/search/" + d.id.split('-')[1], "_blank"))
       .attr('id', (d) => d.id)
       .attr('alignment-baseline', 'bottom')
-      .attr('width', (spacing*2))
+      .attr('width', (spacing*4))
       .attr('height', (spacing*2))
 
     // Add the links
@@ -154,7 +155,7 @@ function draw() {
     .selectAll(".nodes")
     .data(data.nodes)
     .join("circle")
-      .attr('r', (d) => d.size*5)
+      .attr('r', (d) => nodeSize[d.size-1])
       .style('fill', (d) => colorScale[d.size-1])
       .on("click", (d) => window.open("https://www.metmuseum.org/art/collection/search/" + d.id.split('-')[1], "_blank"))
       .attr('stroke', (d) => strokeColor[d.size-1])
@@ -190,7 +191,16 @@ function draw() {
       
       //hide images
       svg.selectAll('.artworkImages')
-        .style('opacity',function (image_d) { return d3.select(this).attr("id") === d.id ? 1 : 0;});
+        .style('opacity',function (image_d) { 
+          if(d3.select(this).attr("id") === d.id){
+            d3.select(this).raise()
+            d3.selectAll('.links').raise()
+            d3.selectAll('.nodes').raise()
+            return 1
+          } else {
+            return 0
+          }
+        });
 
       linkDesc
         .style('opacity',function (linkdesc_d) { return d3.select(this).attr("id") === d.id ? 1 : 0.1;});

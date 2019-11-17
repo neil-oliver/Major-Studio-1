@@ -37,7 +37,7 @@ function makeSense(linkatt, metObjects,start, end){
 
         if (i == 0){
             if (itemOne == 'ID'){
-                connectingString += metObjects[start.split('-')[1]].title + list.ID[itemTwo] + linkatt[i][2].split('-')[1] + '. '
+                connectingString += makehyperlink(start) + list.ID[itemTwo] + linkatt[i][2].split('-')[1] + '. '
             } else {
                 connectingString += metObjects[start.split('-')[1]].title + list.ID[itemTwo] + linkatt[i][0].split('-')[1] + '. '
             }
@@ -62,8 +62,8 @@ function makeSense(linkatt, metObjects,start, end){
     return connectingString;
 
     function makehyperlink(id){
-       var hyperlink = '<b><a href="' + metObjects[id.split('-')].objectURL + '" target="_blank">' + metObjects[id.split('-')].title + '</a></b>'
-
+       var hyperlink = '<b><a href="' + metObjects[id.split('-')[1]].objectURL + '" target="_blank">' + metObjects[id.split('-')[1]].title + '</a></b>'
+       return hyperlink
     }
 }
 
