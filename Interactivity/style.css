@@ -1,9 +1,9 @@
 
-  * { box-sizing: border-box; }
 
   body{
     font-family: 'Playfair Display', serif;
     margin :0;
+    color : #383838;
 
   }
 
@@ -19,26 +19,28 @@
 
   #metstories {
     position: fixed;
-    font-size: 2.5em;
-    color:rgb(70,70,70);
+    float : left;
+    font-size: 2em;
+    color:#646464;
     margin-bottom: 20px;
     margin-top: 40px;
-    padding-left: 40px;
-    width: 20%;
+    padding-left: 120px;
   }
 
-  #metstories img {
-    padding-right:10px;
-    width: 20%;
+  #metstoriesimg {
+    position: fixed;
+    float : left;
+    padding:30px;
+    width: 4%;
   }
 
   #header {
     position:fixed;
     top:0;
     width: 100%;
-    height:15rem;
+    height:10%;
     text-align: center;
-    padding-top:5%;
+    padding-top:3%;
     display:inline-block;
   }
 
@@ -59,6 +61,7 @@
 }
 
 input {
+  color : #383838;
   border: 1px solid transparent;
   background-color: #f1f1f1;
   padding: 5px;
@@ -66,6 +69,7 @@ input {
 }
 
 input[type=text] {
+  color : #383838;
   padding-left:10px;
   background-color: #f1f1f1;
   width: 20%;
@@ -120,14 +124,15 @@ input[type=submit] {
 
 #linkDesc{
   position: fixed;
-  margin-bottom: 10%;
+  bottom: 0;
+  margin-bottom: 0;
   text-align: center;
   font-size: 2em;
   padding-left: 15%;
   padding-right: 15%;
   line-height: 2em;
   overflow:scroll;
-  max-height: 22%;
+  max-height: 28%;
 
 }
 
@@ -164,4 +169,15 @@ input[type=submit] {
 
 #explanation {
   visibility: hidden;
+}
+#hovertitle{
+    visibility: hidden;
+    position: fixed;
+    margin-top:12%;
+    font-size: 1em;
+    float: left;
+    width: 100%;
+    text-align: center;
+    z-index: 99;
+
 }

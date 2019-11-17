@@ -60,6 +60,11 @@ function makeSense(linkatt, metObjects,start, end){
     }
 
     return connectingString;
+
+    function makehyperlink(id){
+       var hyperlink = '<b><a href="' + metObjects[id.split('-')].objectURL + '" target="_blank">' + metObjects[id.split('-')].title + '</a></b>'
+
+    }
 }
 
 //ID

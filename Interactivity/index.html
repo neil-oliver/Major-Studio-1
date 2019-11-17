@@ -8,21 +8,23 @@
 <link href="https://fonts.googleapis.com/css?family=Playfair+Display&display=swap" rel="stylesheet">
 
 <body>
-  <div id='metstories'><img src="The_Metropolitan_Museum_of_Art_Logo.svg" alt="MET Logo">Stories</div>
+  <img id='metstoriesimg' src="The_Metropolitan_Museum_of_Art_Logo.svg" alt="MET Logo">
+  <div id='metstories'>Stories</div>
   <div id='header'>
-    <form autocomplete="off" onsubmit="return false;" method="post" name="myForm">
+    <form autocomplete="off" onsubmit="search();return false" name="myForm">
         <span id='formlabel'>Tell me a story about&nbsp;</span>
-      <div class="autocomplete" style="width:20rem;">
+        <div class="autocomplete" style="width:20rem;">
         <input id="myInput" type="text" name="myCountry" placeholder="">
+        <input type="submit" value='myInput' hidden>
       </div>
-      <input type="submit" id="mySubmit" value='Go' name="submit" onclick="search()" />
     </form>
   <div id='explanation'>
       Artworks between the start and end of the story <span id='smalldot'></span>&nbsp; Artworks included for the story <span id='mediumdot'></span>&nbsp; Artworks containing the topic <span id='largedot'></span>
   </div>
   </div>
+  <div id="hovertitle">Hover over a <span id='largedot'></span> to isolate the artwork and story.</div>
   <div id="content"></div>
-  <div id='linkDesc'></div>
+  <div id='linkDesc'><div id='innerlinkdesc'></div></div>
   <script src="https://d3js.org/d3.v5.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.11"></script>
   <script src="autocomplete.js"></script>

@@ -17,11 +17,6 @@ var svg = d3.select("#content")
 .append("g")
 .attr("transform","translate(" + margin.left + "," + margin.top + ")")
 
-// svg.append("rect")
-//     .attr("width", "100%")
-//     .attr("height", "100%")
-//     .attr("fill", "white");
-
 
 var allExtra = []
 var data = {'nodes': [], 'links' : []};
@@ -30,8 +25,9 @@ var timeSpan = 1;
 //////////////////////////////////////////////
 
 function draw() {
-  var explanationCSS = document.getElementById('explanation');
-  explanationCSS.style.visibility='visible';
+  document.getElementById('explanation').style.visibility='visible';
+  document.getElementById('hovertitle').style.visibility='visible';
+
 
   var spacing = 200
   // List of node names
@@ -43,7 +39,7 @@ function draw() {
   width = timeSpan*yearSize;
 
   var xScale = d3.scaleLinear().domain([scaleMin, scaleMax]).range([0, width]);
-  var timelineY = height*0.6
+  var timelineY = height*0.85
 
   d3.select('svg').style("width", width+(spacing*2));
 
@@ -64,6 +60,16 @@ function draw() {
   // set initialcy position before force layout 
   data.nodes.forEach(function(d) { d.x = xScale(d.value.date)+(spacing/2); d.y = timelineY; });
 
+  //for neighbour referencing
+  var linkedByIndex = {};
+  data.links.forEach(function(d) {
+    linkedByIndex[d.source + "," + d.target] = 1;
+  });
+  function neighboring(a, b) {
+    return linkedByIndex[a.id + "," + b.id];
+  }
+
+
   ///////////////////////////////////////////
 
   // force simulation setup
@@ -78,43 +84,43 @@ function draw() {
   ////////////////
 
     // rect for year
-    var titleHeight = [60,80,100,120,140,160,180,200]
-    var titleLine = svg
-      .selectAll('.titleLines')
-      .data(data.nodes)
-      .join('line')
-      .filter(function(d) { return d.size == 3 }) 
-        .style("stroke-width", 1)
-        .attr('y1', timelineY)
-        .attr("y2", (d,i) => (timelineY)+(titleHeight[(i+1)%8]))
-        .attr("x1", function(d){ return(xScale(d.value.date))+(spacing/2)})
-        .attr("x2", function(d){ return(xScale(d.value.date))+(spacing/2)})
-        .attr('stroke', 'lightgray')
-        .attr("dominant-baseline", "middle")
-        .attr('class', 'titleLines')      
-        .attr('id', (d) => d.id);
+    // var titleHeight = [60,80,100,120,140,160,180,200]
+    // var titleLine = svg
+    //   .selectAll('.titleLines')
+    //   .data(data.nodes)
+    //   .join('line')
+    //   .filter(function(d) { return d.size == 3 }) 
+    //     .style("stroke-width", 1)
+    //     .attr('y1', timelineY)
+    //     .attr("y2", (d,i) => (timelineY)+(titleHeight[(i+1)%8]))
+    //     .attr("x1", function(d){ return(xScale(d.value.date))+(spacing/2)})
+    //     .attr("x2", function(d){ return(xScale(d.value.date))+(spacing/2)})
+    //     .attr('stroke', 'lightgray')
+    //     .attr("dominant-baseline", "middle")
+    //     .attr('class', 'titleLines')      
+    //     .attr('id', (d) => d.id);
 
 
-    // And give them a label
-    var titles = svg
-      .selectAll(".titles")
-      .data(data.nodes)
-      .join("text")
-      .filter(function(d) { return d.size == 3 }) 
-        .attr("x", function(d){ return(xScale(d.value.date))+(spacing/2)})
-        .attr("y",(d,i) => (timelineY)+(titleHeight[(i+1)%8]))
-        .text((d) => metObjects[d.id.split('-')[1]].title)
-        .attr("dominant-baseline", "middle")
-        .attr('class', 'titles')
-        .attr('id', (d) => d.id);
+    // // And give them a label
+    // var titles = svg
+    //   .selectAll(".titles")
+    //   .data(data.nodes)
+    //   .join("text")
+    //   .filter(function(d) { return d.size == 3 }) 
+    //     .attr("x", function(d){ return(xScale(d.value.date))+(spacing/2)})
+    //     .attr("y",(d,i) => (timelineY)+(titleHeight[(i+1)%8]))
+    //     .text((d) => metObjects[d.id.split('-')[1]].title)
+    //     .attr("dominant-baseline", "middle")
+    //     .attr('class', 'titles')
+    //     .attr('id', (d) => d.id);
 
 
     // Link story
-    var linkDesc = d3.select('#linkDesc')
+    var linkDesc = d3.select('#innerlinkdesc')
       .selectAll("span")
       .data(data.links)
       .join("span")
-        .text((d) => makeSense(d.desc,metObjects,d.source, d.target))
+        .html((d) => makeSense(d.desc,metObjects,d.source, d.target))
         .attr('id', (d) => d.source);
         
     // images
@@ -124,14 +130,14 @@ function draw() {
     .join('image')                             
     .filter(function(d) { return d.size == 3 }) 
       .attr('xlink:href', (d) => metObjects[d.id.split('-')[1]].primaryImageSmall)
-      .attr('width', (spacing))
-      .attr('height', (spacing))
-      .attr("x", (d) => xScale(d.value.date))
-      .attr("y", (timelineY)-(spacing))
+      .attr("x", (d) => xScale(d.value.date)-(spacing/2))
+      .attr("y", (timelineY)-(spacing*2))
       .attr('class', 'artworkImages')
       .on("click", (d) => window.open("https://www.metmuseum.org/art/collection/search/" + d.id.split('-')[1], "_blank"))
       .attr('id', (d) => d.id)
-      .attr('alignment-baseline', 'bottom');
+      .attr('alignment-baseline', 'bottom')
+      .attr('width', (spacing*2))
+      .attr('height', (spacing*2))
 
     // Add the links
     var links = svg
@@ -159,14 +165,23 @@ function draw() {
     // Add the highlighting functionality
     nodes
     .on('mouseover', function (d) {
+
+      document.getElementById('hovertitle').innerText = d.value.date + ' : ' + metObjects[d.id.split('-')[1]].title;
+      document.getElementById('hovertitle').style.fontSize = "3em";
+
       // Highlight the nodes: every node is green except of him
-      nodes
-        .style('opacity', 0.2)
-        .style('fill', "#B8B8B8")
-        .style('stroke', 'grey')
-        d3.select(this).style('stroke-width', '4')
-        d3.select(this).style('fill', '#69b3b2')
-        .style('opacity', 1);
+        svg.selectAll('.nodes')
+        .style("opacity", function(o) {
+          return neighboring(d, o) || neighboring(o, d) ? 1 : 0.2;
+        })
+        .style("fill", function(o) {
+          return neighboring(d, o) || neighboring(o, d) ? '#69b3b2' : 'B8B8B8';
+        })
+
+        nodes
+          d3.select(this).style('stroke-width', '4')
+          d3.select(this).style('fill', '#69b3b2')
+          .style('opacity', 1);
 
       // Highlight the connections
       links
@@ -189,6 +204,8 @@ function draw() {
 
     })
     .on('mouseout', function (d) {
+      document.getElementById('hovertitle').innerHTML = "Hover over a <span id='largedot'></span> to isolate the artwork and story.";
+      document.getElementById('hovertitle').style.fontSize = "1em";
       nodes
         .style('fill', (d) => colorScale[d.size-1])
         .style('stroke', (d) => strokeColor[d.size-1])
@@ -204,8 +221,6 @@ function draw() {
     
       linkDesc
         .style('opacity', 1);
-
-
 
       titles
         .style('opacity', 1);
@@ -236,8 +251,8 @@ function draw() {
         return ['M', start, idToNode[d.source].y,
       // the arc starts at the coordinate x=start, y=height-30 (where the starting node is)
           'A',                            // This means we're gonna build an elliptical arc
-          (start - end), ',',    // Next 2 lines are the coordinates of the inflexion point. Height of this point is proportional with start - end distance
-          (start - end), 0, 0, ',',
+          (start - end) < -2500 ? (start - end)*((start - end)/2500) : (start - end), ',',    // Next 2 lines are the coordinates of the inflexion point. Height of this point is proportional with start - end distance
+          (start - end) < -2500 ? (start - end)*((start - end)/2500): (start - end), 0, 0, ',',
           start < end ? 1 : 0, end, ',', idToNode[d.target].y] // We always want the arc on top. So if end is before start, putting 0 here turn the arc upside down.
           .join(' ');
       })
@@ -250,22 +265,14 @@ function draw() {
 
 ////////////////////////////////////////////////////
 
-//autoscroll feature
-function pageScroll() {
-  window.scrollBy(0,1);
-  scrolldelay = setTimeout(pageScroll,30);
-}
-
-//setTimeout(pageScroll,20000);
-
-///////////////////////////////////////////////////
 var w;
 
 function startWorker(searchTerm,metObjects,list) {
   if (typeof(Worker) !== "undefined") {
-    if (typeof(w) == "undefined") {
+    //if (typeof(w) == "undefined") {
+      console.log('starting new web worker')
       w = new Worker("search.js");
-    }
+    //}
     w.postMessage([searchTerm,metObjects,list])
 
     w.onmessage = function(event) {
@@ -274,7 +281,6 @@ function startWorker(searchTerm,metObjects,list) {
       timeSpan = event.data[1];
       draw();
       allExtra = allExtra.concat(event.data[2].nodes)
-      console.log(event.data[3])
       if (event.data[3] == true){
         w.terminate()
         addExtra()
@@ -302,8 +308,10 @@ async function dataLoad() {
   metObjects = await metObjects.json()
   list = await fetch("./Node/AJList-update.json");
   list = await list.json()
-  tags = await fetch("./Node/MetTagListandCounts.json");
+  tags = await fetch("./Node/MetSearchTags.json");
   tags = await tags.json()
+  suggestions = await fetch("./Node/MetSearchSuggestions.json");
+  suggestions = await suggestions.json()
   /*initiate the autocomplete function on the "myInput" element, and pass along the countries array as possible autocomplete values:*/
   autocomplete(document.getElementById("myInput"), Object.keys(tags));
   
@@ -317,10 +325,10 @@ async function dataLoad() {
   for (i=0;i<3;i++){
     var selectedVal = Infinity
     while(selectedVal > 500){
-        var keys = Object.keys(tags)
+        var keys = Object.keys(suggestions)
         var rndm = Math.floor(Math.random() * keys.length)
         suggestedTerm = keys[rndm]
-        selectedVal = tags[suggestedTerm]
+        selectedVal = suggestions[suggestedTerm]
         examples.unshift(suggestedTerm)
     }
     if (examples.length == 4) {
@@ -329,15 +337,55 @@ async function dataLoad() {
   }
   
   document.getElementById("myInput").placeholder = 'Anything!';
-  document.getElementById("mySubmit").disabled = false
 }
 
 search = function() {
   searchTerm = document.getElementById("myInput").value;
-  console.log('searching for ' + searchTerm)
-  startWorker(searchTerm,metObjects,list)
+  searchTerm = toTitleCase(searchTerm)
+  if (Object.keys(tags).includes(searchTerm)){
+    console.log('searching for ' + searchTerm)
+    document.getElementById("myInput").value = searchTerm;
+    reset()
+    startWorker(searchTerm,metObjects,list)
+  } else {
+    document.getElementById("myInput").value = '';
+    document.getElementById("myInput").placeholder = 'Try Again!';
+  }
 }
 
-document.getElementById("mySubmit").disabled = true
+function reset(){
+  width = window.innerWidth - margin.left - margin.right
+  height = window.innerHeight*0.45;
+  previousYear = 0;
+  allExtra = []
+  data.nodes = []
+  data.links = []
+  timeSpan = 1;
+  svg.selectAll("*").remove();
+  draw()
+}
+
+function toTitleCase(str) {
+  return str.replace(
+      /\w\S*/g,
+      function(txt) {
+          return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();
+      }
+  );
+}
+
+// scroll testing
+window.addEventListener('scroll', function() {
+  var content = document.querySelector('svg')
+  console.log(content.style.width)
+  if (parseInt(content.style.width) > window.innerWidth){  
+    var scrollPercent = ((pageXOffset+1) / (parseInt(content.style.width) - window.innerWidth)).toFixed(2)
+    var innerlinkdesc = document.getElementById("innerlinkdesc")
+    var storyBox = document.getElementById('linkDesc')
+    storyBox.scroll(0, (innerlinkdesc.offsetHeight-storyBox.offsetHeight)*scrollPercent)
+  }
+
+});
+
 dataLoad()
 
