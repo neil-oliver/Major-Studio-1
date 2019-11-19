@@ -54,7 +54,7 @@
   }
 
   #content{
-    padding-top: 15%;
+    padding-top: 12%;
     background-color: white;
   }
 
@@ -183,7 +183,7 @@ font-weight: 900;
 #hovertitle{
     visibility: hidden;
     position: fixed;
-    margin-top:12%;
+    margin-top:10%;
     font-size: 1em;
     float: left;
     width: 100%;
@@ -215,10 +215,10 @@ font-weight: 900;
 }
 
 #intro{
-  font-size: 2em;
+  font-size: 1.5em;
   text-align: center;
   position: fixed;
   margin-top:12%;
-  margin-left: 32%;
-  width : 36%;
+  margin-left: 30%;
+  width : 40%;
 }

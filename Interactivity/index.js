@@ -177,7 +177,7 @@ function draw() {
 
     })
     .on('mouseout', function (d) {
-      document.getElementById('hovertitle').innerHTML = "Hover over a <span id='largedot'></span> to isolate the artwork and story.";
+      document.getElementById('hovertitle').innerHTML = "";
       document.getElementById('hovertitle').style.fontSize = "1em";
 
       nodes
@@ -249,7 +249,6 @@ function startWorker(searchTerm,metObjects,list) {
         data.links = data.links.concat(event.data[1].links);
         timeSpan = event.data[2];
         document.getElementById("myInput").placeholder = '';
-        document.getElementById('explanation').innerHTML = "Artworks between the start and end of the story <span id='smalldot'></span>&nbsp; Artworks included for the story <span id='mediumdot'></span>&nbsp; Artworks containing the topic <span id='largedot'></span>"
         draw();
         allExtra = allExtra.concat(event.data[3].nodes)
         if (event.data[4] == true){
