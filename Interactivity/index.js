@@ -273,11 +273,21 @@ function startWorker(searchTerm,metObjects,list) {
 
 function addExtra(){
   if (allExtra.length > 0){
-    var newExtra = [allExtra.pop()]
-    console.log(newExtra)
-    data.nodes = data.nodes.concat(allExtra)
-    draw();
-    //setTimeout(addExtra,100);
+    // create existing id list
+    var ids = []
+    var newArray = []
+    for (x in data.nodes){
+      ids.push(data.nodes[x].id)
+    }
+    for (x in allExtra){
+      if (!ids.includes(allExtra[x].id)){
+        newArray.push(allExtra[x])
+      }
+    }
+      //data.nodes = data.nodes.concat(allExtra)
+      data.nodes = data.nodes.concat(newArray)
+      console.log('--------------push it real good')
+      draw();
   }
 }
 

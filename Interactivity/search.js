@@ -6,6 +6,8 @@ let pathArray = {'nodes': [], 'links' : []};
 var first = true;
 var last = false;
 var success = false;
+var resLength = 0;
+var usedIds = [];
 
 async function go(searchTerm,data,list){
     var arr = Object.entries(data)
@@ -19,6 +21,7 @@ async function go(searchTerm,data,list){
     }
     if (res.length > 1){
         console.log(res)
+        resLength = res.length
         var timespan = arr[res[res.length-1]][1].objectBeginDate - arr[res[0]][1].objectBeginDate
         console.log(timespan)
         while (res.length >1){
@@ -41,7 +44,7 @@ async function filterAJList(data,arr,results,list,timespan,searchTerm){
         for (item in list[key]){
             if (key.split('-')[0] == 'ID'){
                 if (data[key.split('-')[1]].objectBeginDate >= arr[results[0]][1].objectBeginDate && data[key.split('-')[1]].objectBeginDate <= arr[results[1]][1].objectBeginDate){
-                    if (list[key][item][0].split('-')[1] != searchTerm) {
+                    if (list[key][item][0].split('-')[1] != searchTerm) {                        
                         if (newList.hasOwnProperty(key)){
                             newList[key].push([list[key][item][0],list[key][item][1]])
                         } else {
@@ -114,7 +117,9 @@ async function findPath(list,data,start,end,timespan){
     });
 
     let foundPath = pathFinder.find("ID-"+end, "ID-"+start);
-    console.log(foundPath)
+    // for (x in foundPath){
+    //     console.log(foundPath[x])
+    // }
 
     let size = 3
     var desc = [];
@@ -127,10 +132,13 @@ async function findPath(list,data,start,end,timespan){
             // check if its the first ever node
             if (foundPath[i].id != "ID-"+end && pathArray.nodes.length == 0 && first == true){
                 pathArray['nodes'].push({'id' : foundPath[i].id, 'value' : foundPath[i].data, 'size' : size})
+                usedIds.push(foundPath[i].id)
             }
             // check if its the end
             if (foundPath[i].id == "ID-"+end){
                 pathArray['nodes'].push({'id' : foundPath[i].id, 'value' : foundPath[i].data, 'size' : size})
+                usedIds.push(foundPath[i].id)
+
             }
         } else {
             size = 2
@@ -142,6 +150,8 @@ async function findPath(list,data,start,end,timespan){
                 //console.log(foundPath[i].id.split('-')[0], foundPath[i].id)
                 //push to pathArray
                 pathArray['nodes'].push({'id' : foundPath[i].id, 'value' : foundPath[i].data, 'size' : size})
+                usedIds.push(foundPath[i].id)
+
                 // loop each possible link for the node
                 for (var x =0; x < foundPath[i].links.length; x++){
                     if (foundPath[i].links[x].toId == foundPath[i+1].id){        
@@ -170,17 +180,20 @@ async function findPath(list,data,start,end,timespan){
     }
     // add the link
     pathArray['links'].push({'source' : linkstart, 'target' : foundPath[foundPath.length-1].id,'desc' : desc})
-
+    
     // add extra nodes
     var extraArray = {'nodes' : []}
     var count = 0
     for (id in list){
         if (id.split('-')[0] == 'ID'){
             for (x=0;x<list[id].length;x++){
-                if (list[id][x][1] == 'objectBeginDate'){
-                    if (count<20){
-                        extraArray['nodes'].push({'id' : id, 'value' : {'date': parseInt(list[id][x][0].split('-')[1])}, 'size' : 1})
-                        count +=1
+                if (list[id][x][1] == 'objectBeginDate' && !(usedIds.includes(id))){
+                    if (count<(500/resLength)){
+                        if (!(Number.isNaN(parseInt(list[id][x][0].split('-')[1])))){
+                            extraArray['nodes'].push({'id' : id, 'value' : {'date': parseInt(list[id][x][0].split('-')[1])}, 'size' : 1})
+                            usedIds.push(id)
+                            count +=1
+                        }
                     } else {
                         break
                     }
