@@ -45,6 +45,7 @@
     text-align: center;
     padding-top:3%;
     display:inline-block;
+    z-index: 99;
   }
 
   .titles {
@@ -88,6 +89,7 @@ input[type=submit] {
 
 /* auto complete styling*/
 .autocomplete-items {
+  background-color: #fff; 
   position: absolute;
   border: 1px solid #d4d4d4;
   border-bottom: none;
@@ -210,4 +212,14 @@ font-weight: 900;
     color: #eee;
     font-family: "TheMetSans-LightTheMet";
     padding-right: 20px;
+}
+
+#intro{
+  font-size: 1.6em;
+  font-family: "TheMetSans-LightTheMet";;
+  text-align: center;
+  position: fixed;
+  margin-top:15%;
+  margin-left: 32.5%;
+  width : 35%;
 }

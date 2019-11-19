@@ -28,11 +28,11 @@ var timeSpan = 1;
 function draw() {
   document.getElementById('explanation').style.visibility='visible';
   document.getElementById('hovertitle').style.visibility='visible';
+  document.getElementById('intro').style.visibility='hidden';
 
 
   var spacing = 200
-  // List of node names
-  //var allNodes = data.nodes.map(function(d){return d.id})
+
   var scaleMin = d3.min(data.nodes, function(d) { return +d.value.date} );
   var scaleMax = scaleMin + timeSpan;
 
@@ -49,9 +49,10 @@ function draw() {
     idToNode[n.id] = n;
   });
 
+  var ticks = Math.floor(timeSpan/50)
   var x_axis = d3.axisBottom()
         .scale(xScale)
-        .tickFormat(d3.format("d"));
+        .tickArguments([ticks, "d"]);
 
   svg.append("g")
     .attr("transform", "translate("+spacing/2+","+ timelineY+")")
@@ -83,38 +84,6 @@ function draw() {
     .on('tick', ticked)
 
   ////////////////
-
-    // rect for year
-    // var titleHeight = [60,80,100,120,140,160,180,200]
-    // var titleLine = svg
-    //   .selectAll('.titleLines')
-    //   .data(data.nodes)
-    //   .join('line')
-    //   .filter(function(d) { return d.size == 3 }) 
-    //     .style("stroke-width", 1)
-    //     .attr('y1', timelineY)
-    //     .attr("y2", (d,i) => (timelineY)+(titleHeight[(i+1)%8]))
-    //     .attr("x1", function(d){ return(xScale(d.value.date))+(spacing/2)})
-    //     .attr("x2", function(d){ return(xScale(d.value.date))+(spacing/2)})
-    //     .attr('stroke', 'lightgray')
-    //     .attr("dominant-baseline", "middle")
-    //     .attr('class', 'titleLines')      
-    //     .attr('id', (d) => d.id);
-
-
-    // // And give them a label
-    // var titles = svg
-    //   .selectAll(".titles")
-    //   .data(data.nodes)
-    //   .join("text")
-    //   .filter(function(d) { return d.size == 3 }) 
-    //     .attr("x", function(d){ return(xScale(d.value.date))+(spacing/2)})
-    //     .attr("y",(d,i) => (timelineY)+(titleHeight[(i+1)%8]))
-    //     .text((d) => metObjects[d.id.split('-')[1]].title)
-    //     .attr("dominant-baseline", "middle")
-    //     .attr('class', 'titles')
-    //     .attr('id', (d) => d.id);
-
 
     // Link story
     var linkDesc = d3.select('#innerlinkdesc')
@@ -205,7 +174,6 @@ function draw() {
       linkDesc
         .style('opacity',function (linkdesc_d) { return d3.select(this).attr("id") === d.id ? 1 : 0.1;});
 
-
       svg.selectAll('.titles')
         .style('opacity',function (titles_d) { return d3.select(this).attr("id") === d.id ? 1 : 0.2;});
 
@@ -216,6 +184,7 @@ function draw() {
     .on('mouseout', function (d) {
       document.getElementById('hovertitle').innerHTML = "Hover over a <span id='largedot'></span> to isolate the artwork and story.";
       document.getElementById('hovertitle').style.fontSize = "1em";
+
       nodes
         .style('fill', (d) => colorScale[d.size-1])
         .style('stroke', (d) => strokeColor[d.size-1])
@@ -286,14 +255,25 @@ function startWorker(searchTerm,metObjects,list) {
     w.postMessage([searchTerm,metObjects,list])
 
     w.onmessage = function(event) {
-      data.nodes = data.nodes.concat(event.data[0].nodes);
-      data.links = data.links.concat(event.data[0].links);
-      timeSpan = event.data[1];
-      draw();
-      allExtra = allExtra.concat(event.data[2].nodes)
-      if (event.data[3] == true){
-        w.terminate()
-        addExtra()
+      if (event.data[0] == true){
+        data.nodes = data.nodes.concat(event.data[1].nodes);
+        data.links = data.links.concat(event.data[1].links);
+        timeSpan = event.data[2];
+        document.getElementById("myInput").placeholder = '';
+        document.getElementById('explanation').innerHTML = "Artworks between the start and end of the story <span id='smalldot'></span>&nbsp; Artworks included for the story <span id='mediumdot'></span>&nbsp; Artworks containing the topic <span id='largedot'></span>"
+        draw();
+        allExtra = allExtra.concat(event.data[3].nodes)
+        if (event.data[4] == true){
+          w.terminate()
+          addExtra()
+        }
+      } else {
+        console.log('no results')
+        document.getElementById("myInput").placeholder = 'Try Again!';
+        document.getElementById('explanation').innerHTML = "We tried, but unfortunately we didn't find any stories for " + document.getElementById("myInput").value
+        document.getElementById('hovertitle').style.visibility='hidden';
+
+        document.getElementById("myInput").value = '';
       }
 
     };
@@ -387,7 +367,6 @@ function toTitleCase(str) {
 // scroll testing
 window.addEventListener('scroll', function() {
   var content = document.querySelector('svg')
-  console.log(content.style.width)
   if (parseInt(content.style.width) > window.innerWidth){  
     var scrollPercent = ((pageXOffset+1) / (parseInt(content.style.width) - window.innerWidth)).toFixed(2)
     var innerlinkdesc = document.getElementById("innerlinkdesc")

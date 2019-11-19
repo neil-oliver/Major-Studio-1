@@ -5,6 +5,7 @@ let pathArray = {'nodes': [], 'links' : []};
 
 var first = true;
 var last = false;
+var success = false;
 
 async function go(searchTerm,data,list){
     var arr = Object.entries(data)
@@ -29,13 +30,12 @@ async function go(searchTerm,data,list){
         }
     } else {
         console.log('no results found')
-        document.getElementById("myInput").placeholder = 'Oops, we didnt find any stories, try again!';
-        document.getElementById("myInput").value = '';
-
+        postMessage([false])
     }
 }
 
 async function filterAJList(data,arr,results,list,timespan,searchTerm){
+    console.log('filtering AJ List')
     var newList = {}
     for (key in list){
         for (item in list[key]){
@@ -74,6 +74,7 @@ async function filterAJList(data,arr,results,list,timespan,searchTerm){
             }
         }
     }
+    console.log('calling find path')
     await findPath(newList,data,arr[results[0]][0],arr[results[1]][0],timespan)
     return Promise.resolve()
 
@@ -141,6 +142,14 @@ async function findPath(list,data,start,end,timespan){
                 //console.log(foundPath[i].id.split('-')[0], foundPath[i].id)
                 //push to pathArray
                 pathArray['nodes'].push({'id' : foundPath[i].id, 'value' : foundPath[i].data, 'size' : size})
+                // loop each possible link for the node
+                for (var x =0; x < foundPath[i].links.length; x++){
+                    if (foundPath[i].links[x].toId == foundPath[i+1].id){        
+                        //console.log(foundPath[i].id + ' -> ' + foundPath[i].links[x].data.linkatt + ' -> ' + foundPath[i+1].id)
+                        desc.push([foundPath[i].id, foundPath[i].links[x].data.linkatt, foundPath[i+1].id])
+                        break
+                    }
+                }
                 pathArray['links'].push({'source' : linkstart, 'target' : foundPath[i].id,'desc' : desc})
                 //wipe the description
                 desc = []
@@ -181,7 +190,8 @@ async function findPath(list,data,start,end,timespan){
     }
     //console.log('-------')
     first = false;
-    postMessage([pathArray,timespan,extraArray,last])
+    success = true;
+    postMessage([success,pathArray,timespan,extraArray,last])
     return Promise.resolve()
 }
 
