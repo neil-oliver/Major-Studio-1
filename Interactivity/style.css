@@ -54,7 +54,7 @@
   }
 
   #content{
-    padding-top: 12%;
+    padding-top: 14%;
     background-color: white;
   }
 
@@ -137,7 +137,7 @@ input[type=submit] {
   padding-right: 15%;
   line-height: 2em;
   overflow:scroll;
-  max-height: 28%;
+  max-height: 26%;
 
 }
 
