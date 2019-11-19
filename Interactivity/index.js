@@ -91,7 +91,7 @@ function draw() {
       .data(data.links)
       .join("span")
         .html((d) => makeSense(d.desc,metObjects,d.source, d.target))
-        .attr('id', (d) => d.source);
+        .attr('class', (d) => d.source);
         
     // images
     var images = svg
@@ -172,13 +172,8 @@ function draw() {
         });
 
       linkDesc
-        .style('opacity',function (linkdesc_d) { return d3.select(this).attr("id") === d.id ? 1 : 0.1;});
-
-      svg.selectAll('.titles')
-        .style('opacity',function (titles_d) { return d3.select(this).attr("id") === d.id ? 1 : 0.2;});
-
-      svg.selectAll('.titleLines')
-        .style('opacity',function (titleLines_d) { return d3.select(this).attr("id") === d.id ? 1 : 0.2;});
+        .style('opacity',function (linkdesc_d) { return d3.select(this).classed(d.id) ? 1 : 0.1;});
+        document.getElementsByClassName(d.id)[0].scrollIntoView()
 
     })
     .on('mouseout', function (d) {
@@ -199,12 +194,6 @@ function draw() {
         .style('opacity', 1);
     
       linkDesc
-        .style('opacity', 1);
-
-      titles
-        .style('opacity', 1);
-
-      titleLine
         .style('opacity', 1);
 
     })

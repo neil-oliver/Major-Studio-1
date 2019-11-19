@@ -215,11 +215,10 @@ font-weight: 900;
 }
 
 #intro{
-  font-size: 1.6em;
-  font-family: "TheMetSans-LightTheMet";;
+  font-size: 2em;
   text-align: center;
   position: fixed;
-  margin-top:15%;
-  margin-left: 32.5%;
-  width : 35%;
+  margin-top:12%;
+  margin-left: 32%;
+  width : 36%;
 }

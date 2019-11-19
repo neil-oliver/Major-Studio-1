@@ -5,7 +5,7 @@ function makeSense(linkatt, metObjects,start, end){
     var connectingString = '';
 
     for (i in linkatt){
-        console.log(linkatt[i])
+        //console.log(linkatt[i])
         
         var from = linkatt[i][0].split('-')[1]
         var to = linkatt[i][2].split('-')[1]
