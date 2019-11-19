@@ -137,7 +137,7 @@ function draw() {
     .on('mouseover', function (d) {
 
       document.getElementById('hovertitle').innerText = d.value.date + ' : ' + metObjects[d.id.split('-')[1]].title;
-      document.getElementById('hovertitle').style.fontSize = "3em";
+      document.getElementById('hovertitle').style.fontSize = "2em";
 
       // Highlight the nodes: every node is green except of him
         svg.selectAll('.nodes')
