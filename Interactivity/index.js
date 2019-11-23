@@ -28,15 +28,17 @@ var timeSpan = 1;
 function draw() {
   document.getElementById('explanation').style.visibility='visible';
   document.getElementById('hovertitle').style.visibility='visible';
-  document.getElementById('intro').style.visibility='hidden';
+  //document.getElementById('intro').style.visibility='hidden';
+  if (document.getElementById('intro')) {
+    document.getElementById('intro').remove()
+  }
 
-
-  var spacing = 200
+  var spacing = height*0.4
 
   var scaleMin = d3.min(data.nodes, function(d) { return +d.value.date} );
   var scaleMax = scaleMin + timeSpan;
 
-  var yearSize = 10
+  var yearSize = spacing/20
   width = timeSpan*yearSize;
 
   var xScale = d3.scaleLinear().domain([scaleMin, scaleMax]).range([0, width]);
@@ -219,8 +221,8 @@ function draw() {
         return ['M', start, idToNode[d.source].y,
       // the arc starts at the coordinate x=start, y=height-30 (where the starting node is)
           'A',                            // This means we're gonna build an elliptical arc
-          (start - end) < -2500 ? (start - end)*((start - end)/2500) : (start - end), ',',    // Next 2 lines are the coordinates of the inflexion point. Height of this point is proportional with start - end distance
-          (start - end) < -2500 ? (start - end)*((start - end)/2500): (start - end), 0, 0, ',',
+          (start - end) < -(height*5) ? (start - end)*((start - end)/(height*5)) : (start - end), ',',    // Next 2 lines are the coordinates of the inflexion point. Height of this point is proportional with start - end distance
+          (start - end) < -(height*5) ? (start - end)*((start - end)/(height*5)): (start - end), 0, 0, ',',
           start < end ? 1 : 0, end, ',', idToNode[d.target].y] // We always want the arc on top. So if end is before start, putting 0 here turn the arc upside down.
           .join(' ');
       })
@@ -376,3 +378,29 @@ window.addEventListener('scroll', function() {
 
 dataLoad()
 
+//vertical alignment
+const header = document.getElementsByTagName('header')[0]
+const content = document.getElementById('content')
+const description = document.getElementById('linkDesc')
+const intro = document.getElementById('intro')
+const hovertitle = document.getElementById('hovertitle')
+
+
+
+function setMargins(){
+  content.style.marginTop = header.clientHeight + 'px';
+  intro.style.marginTop = header.clientHeight + 'px';
+  //hovertitle.style.marginTop = header.clientHeight + 'px';
+
+
+  description.style.maxHeight = window.innerHeight - content.clientHeight - header.clientHeight + 'px';
+
+}
+
+function init(){
+  setMargins()
+}
+
+init();
+
+window.addEventListener('resize', setMargins);
