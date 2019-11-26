@@ -29,17 +29,13 @@
 - ability to save the story for offline reading (PDF printer friendly layout)
 
 ## Designs
-![](./Designs/iPhone X-XS-11 Pro – 1.png)
-![](./Designs/iPhone X-XS-11 Pro – 2.png)
-![](./Designs/iPhone X-XS-11 Pro – 3.png)
-![](./Designs/iPhone X-XS-11 Pro – 4.png)
-![](./Designs/iPhone X-XS-11 Pro – 5.png)
-![](./Designs/iPhone X-XS-11 Pro – 6.png)
-![](./Designs/iPhone X-XS-11 Pro – 7.png)
-![](./Designs/iPhone X-XS-11 Pro – 8.png)
-![](./Designs/iPhone X-XS-11 Pro – 9.png)
-![](./Designs/iPhone X-XS-11 Pro – 10.png)
-
-
-
-
+![](./Designs/iPhone%20X-XS-11%20Pro%20–%201.png)
+![](./Designs/iPhone%20X-XS-11%20Pro%20–%202.png)
+![](./Designs/iPhone%20X-XS-11%20Pro%20–%203.png)
+![](./Designs/iPhone%20X-XS-11%20Pro%20–%204.png)
+![](./Designs/iPhone%20X-XS-11%20Pro%20–%205.png)
+![](./Designs/iPhone%20X-XS-11%20Pro%20–%206.png)
+![](./Designs/iPhone%20X-XS-11%20Pro%20–%207.png)
+![](./Designs/iPhone%20X-XS-11%20Pro%20–%208.png)
+![](./Designs/iPhone%20X-XS-11%20Pro%20–%209.png)
+![](./Designs/iPhone%20X-XS-11%20Pro%20–%210.png)
