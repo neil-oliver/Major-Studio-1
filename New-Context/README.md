@@ -1,5 +1,7 @@
 # New Context - MET Stories
 
+## Give me feedback! - https://adobe.ly/2KXZAbL
+
 ## Considerations on current design
 #### autocomplete does not work well on mobile
 - Could be changed to drop down list allowing for selection to be completed above the keyboard on most mobile devices.
