@@ -634,6 +634,7 @@ const hovertitle = document.getElementById('hovertitle')
 function setMargins(){
   content.style.marginTop = header.clientHeight + 'px';
   intro.style.top = header.clientHeight + 50 + 'px';
+  intro.style.zIndex = -1
   hovertitle.style.top = header.clientHeight + 'px';
 
 
