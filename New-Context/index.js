@@ -121,7 +121,7 @@ function draw() {
       .tickArguments([ticks, "d"]);
 
     svg.append("g")
-    .attr("transform", "translate("+timelineMiddle+","+30+")")
+    .attr("transform", "translate("+timelineMiddle+","+(spacing/2)+")")
     .attr("class", "timelineAxis")
     .call(timelineAxis);
   } else {
@@ -138,7 +138,7 @@ function draw() {
 
   // set initialcy position before force layout 
   if (vertical){
-    data.nodes.forEach(function(d) { d.y = timeScale(d.value.date)+30; d.x = timelineMiddle; });
+    data.nodes.forEach(function(d) { d.y = timeScale(d.value.date)+(spacing/2); d.x = timelineMiddle; });
   } else {
     data.nodes.forEach(function(d) { d.x = timeScale(d.value.date)+(spacing/2); d.y = timelineMiddle; });
   }
@@ -159,7 +159,7 @@ function draw() {
   if (vertical){
     var simulation = d3.forceSimulation(data.nodes)
       .force('charge', d3.forceManyBody().strength(5))
-      .force('y', d3.forceY().y((d) => timeScale(d.value.date)+30))
+      .force('y', d3.forceY().y((d) => timeScale(d.value.date)+(spacing/2)))
       .force('x', d3.forceX().x(timelineMiddle))
       .force("link", d3.forceLink().id((d) => d.id))
       .force('collision', d3.forceCollide().radius((d) => nodeSize[d.size-1]))
@@ -178,7 +178,6 @@ function draw() {
 
     if (vertical){
       d3.selectAll('.artworkImages').remove()
-
 
     } else {
 
@@ -344,6 +343,7 @@ function draw() {
           $('#innerlinkdesc').html(`${d.value.date}<br><a href='https://www.metmuseum.org/art/collection/search/${d.id.split('-')[1]}' target='_blank'>${metObjects[d.id.split('-')[1]].title}</a><br><span>This didn't make it into our story, but its still a fantastic artwork from the same time period.</span>`)
         }
       }
+
       $('#linkDesc span').css('font-size','1em')
       $('#linkDesc a').css('color','#fff')
 
@@ -607,6 +607,9 @@ function scrolly() {
       if (backgroundIndex < 0){
         backgroundIndex = 0
       }
+      if (isNaN(backgroundIndex)){
+        backgroundIndex = 0
+      }
       if (backgroundIndex > filteredImages.length-1){
         backgroundIndex = filteredImages.length-1
       }
@@ -630,6 +633,9 @@ function scrolly() {
       }
       if (linkIndex > data.links.length-1){
         linkIndex = data.links.length-1
+      }
+      if (isNaN(linkIndex)){
+        linkIndex = 0
       }
 
         $('#innerlinkdesc').html(makeSense(data.links[linkIndex].desc,metObjects,data.links[linkIndex].source, data.links[linkIndex].target))
@@ -700,6 +706,7 @@ function setMargins(){
     $('#linkDesc').css('padding-right','5%')
     description.style.marginLeft = '25%'
     description.style.marginRight = '0'
+    content.style.marginTop = 150 + 'px';
 
   } else {
     header.style.position = 'fixed'
