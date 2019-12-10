@@ -1,0 +1,50 @@
+<!-- <!DOCTYPE html> -->
+<meta charset="utf-8">
+<head>
+  <title>MET Stories</title>
+  <link rel="stylesheet" type="text/css" href="style.css" media="screen" />
+
+</head>
+<link href="https://fonts.googleapis.com/css?family=Playfair+Display:400,900&display=swap" rel="stylesheet">
+
+<body>
+  <div id='bg' class='bg'></div>
+  <div id='bottomfade'></div>
+  <div id='topfade'></div>
+
+  <header>
+    <div id=metstories>
+      <div id='innermetstories'><img id='logo' src="The_Metropolitan_Museum_of_Art_Logo.svg" alt="MET Logo" width=70px height=70px>Stories</div>
+    </div>
+    <div id='titleandform'>
+    <form autocomplete="off" onsubmit="search();return false" name="myForm">
+        <div id='tellstory'>Let me tell you a story about </div>
+
+        <div class="autocomplete" style="width:20rem;">
+        <input id="myInput" type="text" name="myCountry" placeholder="">
+        <input type="submit" value='myInput' hidden>
+        </div>
+    </form>
+  </div>
+  </header>
+  <div id='explanation'></div>
+  <div id="hovertitle"></div>
+  <div id='intro'>
+  Every artwork can be linked through common<br>features such as <strong>Time</strong>, <strong>Location</strong> and <strong>Content</strong>.<br><br>Simply search to see a timeline of the artworks, and a story of how they link together.<br>
+  <br><span id='largedot'></span>&nbsp; Artworks containing the topic<br>
+  <span id='mediumdot'></span>&nbsp;Artworks included for the story<br>
+  <span id='smalldot'></span>&nbsp;Artworks between the start and end of the story<br>
+  <br>Hover over a <span id='largedot'></span> to isolate the artwork and story.<br>
+  Click on any artwork to find out more information on the <strong style='color:#EC012A'>MET </strong>Museum's website.</p>
+</div>
+  <div id="content"></div>
+  <div id='linkDesc'><div id='innerlinkdesc'></div></div>
+  <footer id="footer"><div id="createdBy"><br>Created by <a href="https://neiloliver.co">Neil Oliver</a></div></footer>
+  <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+  <script src="./d3.v5.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/typed.js/2.0.11/typed.min.js"></script>
+  <script src="autocomplete.js"></script>
+  <script src="story.js"></script>
+  <script src="index.js"></script>
+</body>
+</html>

@@ -41,3 +41,29 @@
 ![](./Designs/iPhone%20X-XS-11%20Pro%20–%208.png)
 ![](./Designs/iPhone%20X-XS-11%20Pro%20–%209.png)
 ![](./Designs/iPhone%20X-XS-11%20Pro%20–%2010.png)
+
+## Implemented Changes
+
+### All Views
+Halfed the loading speed
+reduced the MET API data to 1/10th of the CSV.
+Removed additional message for not finding story
+All main artworks in the story now contain images
+Suggested searches are stopped when the user clicks the search box
+
+### Mobile
+Timeline rotation and width adjustment (thin links)
+Remove rollover events
+Single link story (between one artwork and the next chronological artwork)
+Full page images
+Highlight current artwork in timeline
+Sticky menu (not fixed position)
+Inverse color scheme & logo
+Faded top and bottom of images
+Transparent timeline to show more of the artwork
+
+### Desktop
+Two way scroll (can scroll either the image or the text)
+Responsive layout for all main screen sizes
+
+
