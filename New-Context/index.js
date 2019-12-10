@@ -16,21 +16,24 @@ var colorScale = ['#ece7f2', '#a6bddb', '#7fcdbb'];
 var strokeColor = ['gray','#525252','#525252']
 var nodeSize = [5,10,20]
 var previousYear = 0;
+var svg;
 
-// append the SVG object to the body of the page
-if (vertical){
-  var svg = d3.select("#content")
-  .append("svg")
-  .attr("width", width + margin.left + margin.right)
-  .attr("height", height + margin.top + margin.bottom)
-  .append("g")
-} else {
-  var svg = d3.select("#content")
-  .append("svg")
-  .attr("width", width + margin.left + margin.right)
-  .attr("height", height + margin.top + margin.bottom)
-  .append("g")
-  .attr("transform","translate(" + margin.left + "," + margin.top + ")")
+function setupSVG(){
+  // append the SVG object to the body of the page
+  if (vertical){
+    svg = d3.select("#content")
+    .append("svg")
+    .attr("width", width + margin.left + margin.right)
+    .attr("height", height + margin.top + margin.bottom)
+    .append("g")
+  } else {
+    svg = d3.select("#content")
+    .append("svg")
+    .attr("width", width + margin.left + margin.right)
+    .attr("height", height + margin.top + margin.bottom)
+    .append("g")
+    .attr("transform","translate(" + margin.left + "," + margin.top + ")")
+  }
 }
 
 var allExtra = []
@@ -401,13 +404,11 @@ function ticked() {
 var w;
 
 function startWorker(searchTerm,metObjects,list) {
+
   if (typeof(Worker) !== "undefined") {
-    //if (typeof(w) == "undefined") {
       console.log('starting new web worker')
       w = new Worker("search.js");
-    //}
     w.postMessage([searchTerm,metObjects,list])
-
     w.onmessage = function(event) {
       if (event.data[0] == true){
         data.nodes = data.nodes.concat(event.data[1].nodes);
@@ -461,7 +462,7 @@ function addExtra(){
 var typed;
 //stop the suggestions when the user clicks a box
 $('input').on('click', function(){
-  console.log('stooooooooop!')
+  console.log('stop auto typing')
   typed.stop()
   setTimeout(function(){ document.getElementById("myInput").value = '';}, 200);
 
@@ -526,10 +527,12 @@ function reset(){
   data.nodes = []
   data.links = []
   timeSpan = 1;
-  svg.selectAll("*").remove();
   $('.bg').css("background-image", "url('')");
   $('#innerlinkdesc').html('')
-  draw()
+  if (svg){
+    svg.selectAll("*").remove();
+    draw()
+  }
 }
 
 function toTitleCase(str) {
@@ -567,22 +570,22 @@ const hovertitle = document.getElementById('hovertitle')
 
 function scrolly() {
   if (vertical){
-    
+
     //sort horizontal orientation for mobile
     var innerStory = document.getElementById('innerlinkdesc')
-    if (screen.orientation.angle == 90 || screen.orientation.angle == -90){
-      innerStory.style.visibility = 'hidden';
-      intro.style.visibility = 'hidden';
+      if (screen.innerWidth > screen.innerHeight){
+        innerStory.style.visibility = 'hidden';
+        intro.style.visibility = 'hidden';
 
-      if (!(pageYOffset < (window.innerHeight*0.5))){
+        if (!(pageYOffset < (window.innerHeight*0.5))){
+          innerStory.style.visibility = 'visible';
+        }
+
+      } else {
         innerStory.style.visibility = 'visible';
+        intro.style.visibility = 'visible';
+
       }
-
-    } else {
-      innerStory.style.visibility = 'visible';
-      intro.style.visibility = 'visible';
-
-    }
 
     if (data.nodes.length != 0){
 
@@ -711,6 +714,10 @@ function setMargins(){
 }
 
 function init(){
+          
+  //setupSVG
+  setupSVG()
+
   flipIt()
   setMargins()
   finished = false
