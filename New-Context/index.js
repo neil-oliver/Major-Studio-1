@@ -199,12 +199,16 @@ function draw() {
       .attr('stroke', (d) => strokeColor[d.size-1])
       .attr('stroke-width', (d) => d.size/2)
       .attr('class', (d) => 'nodes ' + d.id);
+
+      if (vertical){
+        nodes.attr('opactiy', 0.6)
+      }
     
     // Add the highlighting functionality
     if (!vertical){
       nodes
       .on('mouseover', function (d) {
-        document.getElementById('linkDesc').removeEventListener('scroll', matchscroll)
+        //document.getElementById('linkDesc').removeEventListener('scroll', matchscroll)
 
         document.getElementById('hovertitle').innerText = d.value.date + ' : ' + metObjects[d.id.split('-')[1]].title;
         document.getElementById('hovertitle').style.fontSize = "2em";
@@ -250,9 +254,9 @@ function draw() {
       })
 
       .on('mouseout', function (d) {
-        if (finished){
-          document.getElementById('linkDesc').addEventListener('scroll', matchscroll)
-        }
+        // if (finished){
+        //   document.getElementById('linkDesc').addEventListener('scroll', matchscroll)
+        // }
 
         document.getElementById('hovertitle').innerHTML = "";
         document.getElementById('hovertitle').style.fontSize = "1em";
@@ -398,7 +402,7 @@ function startWorker(searchTerm,metObjects,list) {
           addExtra()
           finished = true;
           var storyBox = document.getElementById('linkDesc')
-          storyBox.addEventListener('scroll', matchscroll)
+          //storyBox.addEventListener('scroll', matchscroll)
         }
       } else {
         console.log('no results')
@@ -523,16 +527,15 @@ var svgcontent = document.querySelector('svg')
 var innerlinkdesc = document.getElementById("innerlinkdesc")
 var storyBox = document.getElementById('linkDesc')
 
-function matchscroll(){
-  if (storyBox.scrollTop < 1){
-  var storyScollTop = 1
-  } else {
-    var storyScollTop = storyBox.scrollTop
-  }
-  var storyScrollPercent = storyScollTop / (innerlinkdesc.offsetHeight-storyBox.offsetHeight+1)
-  window.scroll(((parseInt(svgcontent.style.width) - window.innerWidth) * storyScrollPercent),0)
-
-}
+// function matchscroll(){
+//   if (storyBox.scrollTop < 1){
+//   var storyScollTop = 1
+//   } else {
+//     var storyScollTop = storyBox.scrollTop
+//   }
+//   var storyScrollPercent = storyScollTop / (innerlinkdesc.offsetHeight-storyBox.offsetHeight+1)
+//   window.scroll(((parseInt(svgcontent.style.width) - window.innerWidth) * storyScrollPercent),0)
+// }
 
 function scrolly() {
   if (vertical){
