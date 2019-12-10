@@ -703,7 +703,7 @@ function setMargins(){
 
   } else {
     header.style.position = 'fixed'
-    description.style.maxHeight = window.innerHeight - content.clientHeight - header.clientHeight - (window.innerHeight*0.05) - 50 + 'px';
+    description.style.maxHeight = window.innerHeight - content.clientHeight - header.clientHeight - 70 + 'px';
     description.style.marginLeft = '0'
     description.style.marginRight = '0'
     description.style.overflow = 'scroll'
