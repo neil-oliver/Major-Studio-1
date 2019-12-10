@@ -469,8 +469,7 @@ var typed;
 $('input').on('click', function(){
   console.log('stop auto typing')
   typed.stop()
-  setTimeout(function(){ document.getElementById("myInput").value = '';}, 200);
-
+  setTimeout(function(){ document.getElementById("myInput").value = '';   document.getElementById('myInput').style.color = '#383838';}, 200);
 })
 
 async function dataLoad() {
@@ -490,7 +489,7 @@ async function dataLoad() {
   var examples = [''];
   var options = {
     strings: examples,
-    typeSpeed: 100
+    typeSpeed: 110
   };
 
   for (i=0;i<3;i++){
@@ -503,6 +502,8 @@ async function dataLoad() {
         examples.unshift(suggestedTerm)
     }
     if (examples.length == 4 ) {
+      document.getElementById('myInput').style.color = 'grey';
+
       typed = new Typed("#myInput", options);
     }
   }
@@ -702,7 +703,7 @@ function setMargins(){
 
   } else {
     header.style.position = 'fixed'
-    description.style.maxHeight = window.innerHeight - content.clientHeight - header.clientHeight - (window.innerHeight*0.1) + 'px';
+    description.style.maxHeight = window.innerHeight - content.clientHeight - header.clientHeight - (window.innerHeight*0.05) - 50 + 'px';
     description.style.marginLeft = '0'
     description.style.marginRight = '0'
     description.style.overflow = 'scroll'
