@@ -121,7 +121,7 @@ function draw() {
       .tickArguments([ticks, "d"]);
 
     svg.append("g")
-    .attr("transform", "translate("+timelineMiddle+","+20+")")
+    .attr("transform", "translate("+timelineMiddle+","+30+")")
     .attr("class", "timelineAxis")
     .call(timelineAxis);
   } else {
@@ -138,7 +138,7 @@ function draw() {
 
   // set initialcy position before force layout 
   if (vertical){
-    data.nodes.forEach(function(d) { d.y = timeScale(d.value.date)+20; d.x = timelineMiddle; });
+    data.nodes.forEach(function(d) { d.y = timeScale(d.value.date)+30; d.x = timelineMiddle; });
   } else {
     data.nodes.forEach(function(d) { d.x = timeScale(d.value.date)+(spacing/2); d.y = timelineMiddle; });
   }
@@ -159,7 +159,7 @@ function draw() {
   if (vertical){
     var simulation = d3.forceSimulation(data.nodes)
       .force('charge', d3.forceManyBody().strength(5))
-      .force('y', d3.forceY().y((d) => timeScale(d.value.date)+20))
+      .force('y', d3.forceY().y((d) => timeScale(d.value.date)+30))
       .force('x', d3.forceX().x(timelineMiddle))
       .force("link", d3.forceLink().id((d) => d.id))
       .force('collision', d3.forceCollide().radius((d) => nodeSize[d.size-1]))
