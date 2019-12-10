@@ -33,8 +33,9 @@ var timeSpan = 1;
 
 // resizer!
 window.addEventListener("resize", flipIt);
+
 function flipIt(){
-  if (window.innerWidth < 800){
+  if (window.innerWidth < 750 || ((/Android|webOS|iPhone|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) && window.innerWidth < 750)) {
     vertical = true
     d3.selectAll(".xAxis").remove()
     setMargins()

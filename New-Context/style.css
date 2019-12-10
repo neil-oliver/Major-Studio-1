@@ -38,8 +38,7 @@ html {
     width: 100%;
     text-align: center;
     padding-top:3%;
-    /* background-color: white; */
-    backdrop-filter: blur(10px) grayscale(100%)
+
   }
 
   #metstories {
