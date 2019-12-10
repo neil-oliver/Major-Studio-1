@@ -19,6 +19,8 @@ var previousYear = 0;
 var svg;
 
 function setupSVG(){
+  d3.select("svg").remove();
+
   // append the SVG object to the body of the page
   if (vertical){
     svg = d3.select("#content")
@@ -36,12 +38,15 @@ function setupSVG(){
   }
 }
 
+//setupSVG
+setupSVG()
+
 var allExtra = []
 var data = {'nodes': [], 'links' : []};
 var timeSpan = 1;
 
 // resizer!
-window.addEventListener("resize", flipIt);
+//window.addEventListener("resize", flipIt);
 
 function flipIt(){
   if (window.innerWidth < 750 || ((/Android|webOS|iPhone|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) && window.innerWidth < 750)) {
@@ -530,7 +535,9 @@ function reset(){
   $('.bg').css("background-image", "url('')");
   $('#innerlinkdesc').html('')
   if (svg){
+    d3.selectAll(".timelineAxis").remove()
     svg.selectAll("*").remove();
+    setMargins()
     draw()
   }
 }
@@ -569,6 +576,7 @@ const intro = document.getElementById('intro')
 const hovertitle = document.getElementById('hovertitle')
 
 function scrolly() {
+
   if (vertical){
 
     //sort horizontal orientation for mobile
@@ -694,7 +702,7 @@ function setMargins(){
 
   } else {
     header.style.position = 'fixed'
-    description.style.maxHeight = window.innerHeight - content.clientHeight - header.clientHeight - (window.innerHeight*0.05) + 'px';
+    description.style.maxHeight = window.innerHeight - content.clientHeight - header.clientHeight - (window.innerHeight*0.1) + 'px';
     description.style.marginLeft = '0'
     description.style.marginRight = '0'
     description.style.overflow = 'scroll'
@@ -715,9 +723,6 @@ function setMargins(){
 
 function init(){
           
-  //setupSVG
-  setupSVG()
-
   flipIt()
   setMargins()
   finished = false
