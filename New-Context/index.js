@@ -1,10 +1,16 @@
+console.log('load index.js')
 
 var vertical = false
 var finished = false;
 // SVG setup
-var margin = {top: 0, right: 60, bottom: 30, left: 60},
-width = window.innerWidth - margin.left - margin.right,
-height = window.innerHeight*0.45
+var margin = {top: 0, right: 60, bottom: 30, left: 60}
+if (vertical){
+  var width = window.innerWidth*0.45
+  var height = window.innerHeight
+} else {
+  var width = window.innerWidth - margin.left - margin.right
+  var height = window.innerHeight*0.45
+}
 
 var colorScale = ['#ece7f2', '#a6bddb', '#7fcdbb'];
 var strokeColor = ['gray','#525252','#525252']
@@ -15,8 +21,8 @@ var previousYear = 0;
 if (vertical){
   var svg = d3.select("#content")
   .append("svg")
-  .attr("width", height + margin.left + margin.right)
-  .attr("height", width + margin.top + margin.bottom)
+  .attr("width", width + margin.left + margin.right)
+  .attr("height", height + margin.top + margin.bottom)
   .append("g")
 } else {
   var svg = d3.select("#content")
@@ -37,12 +43,12 @@ window.addEventListener("resize", flipIt);
 function flipIt(){
   if (window.innerWidth < 750 || ((/Android|webOS|iPhone|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) && window.innerWidth < 750)) {
     vertical = true
-    d3.selectAll(".xAxis").remove()
+    d3.selectAll(".timelineAxis").remove()
     setMargins()
 
   } else {
     vertical = false
-    d3.selectAll(".xAxis").remove()
+    d3.selectAll(".timelineAxis").remove()
     setMargins()
   }
   //draw()
@@ -57,29 +63,43 @@ function draw() {
     document.getElementById('intro').remove()
   }
   
-  var spacing = height*0.4
+  if (vertical){
+    var spacing = width*0.8
+  } else{
+    var spacing = height*0.4
+  }
 
   var scaleMin = d3.min(data.nodes, function(d) { return +d.value.date} );
   var scaleMax = scaleMin + timeSpan;
 
   var yearSize = spacing/20
-  width = timeSpan*yearSize;
+  if (vertical) {
+    width = window.innerWidth*0.45
+    height = timeSpan*yearSize;
+  } else {
+    width = timeSpan*yearSize;
+    height = window.innerHeight*0.45
+  }
 
-  var xScale = d3.scaleLinear().domain([scaleMin, scaleMax]).range([0, width]);
   
   if (vertical){
-    var timelineY = 0
+    var timeScale = d3.scaleLinear().domain([scaleMin, scaleMax]).range([0, height]);
+    var timelineMiddle = 0 //position on the axis
   } else {
-    var timelineY = height*0.85
+    var timeScale = d3.scaleLinear().domain([scaleMin, scaleMax]).range([0, width]);
+    var timelineMiddle = height*0.85
   }
 
   if (vertical){
-    d3.select('svg').style("height", width+(spacing*2));
-    // d3.select('svg').style("width", width + margin.left + margin.right)
-    // d3.select('svg').style("height", height + margin.top + margin.bottom)
+    d3.select('svg')
+    .style("height", height+(spacing*2))
+    .style("width", width + margin.left + margin.right);
   } else {
-    d3.select('svg').style("width", width+(spacing*2));
+    d3.select('svg')
+    .style("width", width+(spacing*2))
+    .style("height", height + margin.top + margin.bottom);
   }
+
   var idToNode = {};
   data.nodes.forEach(function (n) {
     idToNode[n.id] = n;
@@ -88,31 +108,31 @@ function draw() {
   var ticks = Math.floor(timeSpan/50)
 
   if (vertical){
-      var x_axis = d3.axisLeft()
-      .scale(xScale)
+      var timelineAxis = d3.axisLeft()
+      .scale(timeScale)
       .tickArguments([ticks, "d"]);
 
     svg.append("g")
-    .attr("transform", "translate("+timelineY+","+spacing/2+")")
-    .attr("class", "xAxis")
-    .call(x_axis);
+    .attr("transform", "translate("+timelineMiddle+","+20+")")
+    .attr("class", "timelineAxis")
+    .call(timelineAxis);
   } else {
-    var x_axis = d3.axisBottom()
-          .scale(xScale)
+    var timelineAxis = d3.axisBottom()
+          .scale(timeScale)
           .tickArguments([ticks, "d"]);
 
     svg.append("g")
-    .attr("transform", "translate("+spacing/2+","+ timelineY+")")
-    .attr("class", "xAxis")
-    .call(x_axis);
+    .attr("transform", "translate("+spacing/2+","+ timelineMiddle+")")
+    .attr("class", "timelineAxis")
+    .call(timelineAxis);
 }
 
 
   // set initialcy position before force layout 
   if (vertical){
-    data.nodes.forEach(function(d) { d.y = xScale(d.value.date)+(spacing/2); d.x = timelineY; });
+    data.nodes.forEach(function(d) { d.y = timeScale(d.value.date)+20; d.x = timelineMiddle; });
   } else {
-    data.nodes.forEach(function(d) { d.x = xScale(d.value.date)+(spacing/2); d.y = timelineY; });
+    data.nodes.forEach(function(d) { d.x = timeScale(d.value.date)+(spacing/2); d.y = timelineMiddle; });
   }
 
   //for neighbour referencing
@@ -131,16 +151,16 @@ function draw() {
   if (vertical){
     var simulation = d3.forceSimulation(data.nodes)
       .force('charge', d3.forceManyBody().strength(5))
-      .force('y', d3.forceY().y((d) => xScale(d.value.date)+(spacing/2)))
-      .force('x', d3.forceX().x(timelineY))
+      .force('y', d3.forceY().y((d) => timeScale(d.value.date)+20))
+      .force('x', d3.forceX().x(timelineMiddle))
       .force("link", d3.forceLink().id((d) => d.id))
       .force('collision', d3.forceCollide().radius((d) => nodeSize[d.size-1]))
       .on('tick', ticked)
   } else {
     var simulation = d3.forceSimulation(data.nodes)
       .force('charge', d3.forceManyBody().strength(5))
-      .force('x', d3.forceX().x((d) => xScale(d.value.date)+(spacing/2)))
-      .force('y', d3.forceY().y(timelineY))
+      .force('x', d3.forceX().x((d) => timeScale(d.value.date)+(spacing/2)))
+      .force('y', d3.forceY().y(timelineMiddle))
       .force("link", d3.forceLink().id((d) => d.id))
       .force('collision', d3.forceCollide().radius((d) => nodeSize[d.size-1]))
       .on('tick', function() { finished=false; ticked()})
@@ -169,8 +189,8 @@ function draw() {
       .join('image')                             
       .filter(function(d) { return d.size == 3 }) 
         .attr('xlink:href', (d) => metObjects[d.id.split('-')[1]].primaryImageSmall)
-        .attr("x", (d) => xScale(d.value.date)+(spacing/2)-(spacing*2))
-        .attr("y", (timelineY)-(spacing*2))
+        .attr("x", (d) => timeScale(d.value.date)+(spacing/2)-(spacing*2))
+        .attr("y", (timelineMiddle)-(spacing*2))
         .on("click", (d) => window.open("https://www.metmuseum.org/art/collection/search/" + d.id.split('-')[1], "_blank"))
         .attr('class', (d) => 'artworkImages ' + d.id)
         .attr('alignment-baseline', 'bottom')
@@ -537,12 +557,39 @@ var storyBox = document.getElementById('linkDesc')
 //   window.scroll(((parseInt(svgcontent.style.width) - window.innerWidth) * storyScrollPercent),0)
 // }
 
+
+//vertical alignment
+const header = document.getElementsByTagName('header')[0]
+const content = document.getElementById('content')
+const description = document.getElementById('linkDesc')
+const intro = document.getElementById('intro')
+const hovertitle = document.getElementById('hovertitle')
+
 function scrolly() {
   if (vertical){
-    if (data.nodes){
+    
+    //sort horizontal orientation for mobile
+    var innerStory = document.getElementById('innerlinkdesc')
+    if (screen.orientation.angle == 90 || screen.orientation.angle == -90){
+      innerStory.style.visibility = 'hidden';
+      intro.style.visibility = 'hidden';
+
+      if (!(pageYOffset < (window.innerHeight*0.5))){
+        innerStory.style.visibility = 'visible';
+      }
+
+    } else {
+      innerStory.style.visibility = 'visible';
+      intro.style.visibility = 'visible';
+
+    }
+
+    if (data.nodes.length != 0){
+
+
       // change background image
       var filteredImages = data.nodes.filter(function(d) { return d.size == 3 }) 
-      var backgroundIndex = Math.floor(((pageYOffset / (document.documentElement.scrollHeight - this.window.innerHeight))*100) / (100 / (filteredImages.length)))
+      var backgroundIndex = Math.floor(((pageYOffset / (document.documentElement.scrollHeight - window.innerHeight))*100) / (100 / (filteredImages.length)))
 
       //get rid of overscroll errors
       if (backgroundIndex < 0){
@@ -563,7 +610,7 @@ function scrolly() {
       $('#bottomfade').addClass('bottomfade')
 
       // change text
-      var linkIndex = Math.floor(((pageYOffset / (document.documentElement.scrollHeight - this.window.innerHeight))*100) / (100 / (data.links.length)))
+      var linkIndex = Math.floor(((pageYOffset / (document.documentElement.scrollHeight - window.innerHeight))*100) / (100 / (data.links.length)))
 
       //get rid of overscroll errors
       if (linkIndex < 0){
@@ -591,12 +638,6 @@ function scrolly() {
         .style('fill','#a98b19');
     }
 
-    if (parseInt(svgcontent.style.height) > window.innerHeight){  
-      var scrollPercent = ((pageYOffset+1) / (parseInt(svgcontent.style.height) - window.innerHeight)).toFixed(2)
-      var innerlinkdesc = document.getElementById("innerlinkdesc")
-      var storyBox = document.getElementById('linkDesc')
-      storyBox.scroll(0, (innerlinkdesc.offsetHeight-storyBox.offsetHeight)*scrollPercent)
-    }
   } else {
     if (parseInt(svgcontent.style.width) > window.innerWidth){  
       var scrollPercent = ((pageXOffset+1) / (parseInt(svgcontent.style.width) - window.innerWidth)).toFixed(2)
@@ -624,15 +665,6 @@ function scrolly() {
 };
 
 dataLoad()
-
-//vertical alignment
-const header = document.getElementsByTagName('header')[0]
-const content = document.getElementById('content')
-const description = document.getElementById('linkDesc')
-const intro = document.getElementById('intro')
-const hovertitle = document.getElementById('hovertitle')
-
-
 
 function setMargins(){
   content.style.marginTop = header.clientHeight + 'px';
@@ -689,5 +721,8 @@ init();
 window.addEventListener('resize', setMargins);
 window.addEventListener('resize', scrolly);
 
-//control vertical scroll
-
+//device orientation
+window.addEventListener("orientationchange", function() {
+  console.log("the orientation of the device is now " + screen.orientation.angle);
+  scrolly()
+});
