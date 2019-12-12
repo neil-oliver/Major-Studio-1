@@ -2,9 +2,9 @@
 ## Quantitative Project
 [View The Project](http://neiloliver.co/design/MET/)  
 [Technical Documentation](https://github.com/neil-oliver/Major-Studio-1/tree/master/Quantitative-Design)  
+![](./Images/Quantitative-video-1.gif)
 ![](./Images/Quantitative-2.png)
 ![](./Images/Quantitative-1.png)
-![](./Images/Quantitative-video-1.gif)
 
 
 ## Qualitative Project
