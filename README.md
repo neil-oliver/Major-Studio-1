@@ -4,6 +4,8 @@
 [Technical Documentation](https://github.com/neil-oliver/Major-Studio-1/tree/master/Quantitative-Design)  
 ![](./Images/Quantitative-2.png)
 ![](./Images/Quantitative-1.png)
+![](./Images/Quantitative-video-1.gif)
+
 
 ## Qualitative Project
 [View The Project](https://neil-oliver.github.io/Major-Studio-1/Qualitative-Design/)  
