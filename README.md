@@ -2,8 +2,8 @@
 ## Quantitative Project
 [View The Project](http://neiloliver.co/design/MET/)  
 [Technical Documentation](https://github.com/neil-oliver/Major-Studio-1/tree/master/Quantitative-Design)  
-![](./Images/Quantitative-1.png)
 ![](./Images/Quantitative-2.png)
+![](./Images/Quantitative-1.png)
 
 ## Qualitative Project
 [View The Project](https://neil-oliver.github.io/Major-Studio-1/Qualitative-Design/)  
@@ -20,8 +20,8 @@
 ![](./Images/timeline-2.png)
 ![](./Images/timeline-fullscreen.png)
 ![](./Images/timeline-hover.png)
-<img src='./Images/timeline-mobile-1.png' width='45%'>
-<img src='./Images/timeline-mobile-2.png' width='45%'>
+<img src='./Images/timeline-mobile-1.png' width='49%'>
+<img src='./Images/timeline-mobile-2.png' width='49%'>
 
 
 
