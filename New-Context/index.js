@@ -508,7 +508,7 @@ async function dataLoad() {
   metObjects = await metObjects.json()
   list = await fetch("./Node/AJList-update.json");
   list = await list.json()
-  tags = await fetch("./Node/workingTags.json");
+  tags = await fetch("./Node/goodTags.json");
   tags = await tags.json()
   suggestions = await fetch("./Node/MetSearchSuggestions.json");
   suggestions = await suggestions.json()

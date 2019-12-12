@@ -5,6 +5,7 @@ var alltags
 var timeSpan
 var data = []
 var workingTags = {}
+var goodTags = {}
 
 var w;
 
@@ -21,16 +22,23 @@ function startWorker(searchTerm,metObjects,list) {
 
         if (event.data[4] == true){
           w.terminate()
-          document.getElementById('values').innerHTML += '<br>' + searchTerm
+          document.getElementById('values').innerHTML += '<br>' + searchTerm + ' - timespan : ' + timeSpan + ' - artworks : ' + data.length
           workingTags[searchTerm] = {}
           workingTags[searchTerm]['timespan'] = timeSpan;
           workingTags[searchTerm]['artworks'] = data.length;
+
+          if (data.length > 5 && timeSpan > 30){
+          goodTags[searchTerm] = {}
+          goodTags[searchTerm]['timespan'] = timeSpan;
+          goodTags[searchTerm]['artworks'] = data.length;
+          }
+
           search()
           finished = true;
         } 
       } else {
         w.terminate()
-        document.getElementById('values').innerHTML += '<br> Failed : ' + searchTerm
+        document.getElementById('values').innerHTML += '<br> Failed : ' + searchTerm + ' - timespan : ' + timespan + ' - artworks : ' + data.length
         search()
         finished = true;
       }
@@ -64,6 +72,8 @@ function toTitleCase(str) {
 function search() {
   finished = false;
   if (alltags.length > 0){
+    data = []
+    timespan = 0
     var searchTerm = alltags.pop()
     searchTerm = toTitleCase(searchTerm)
     console.log('searching for ' + searchTerm)
@@ -71,7 +81,7 @@ function search() {
   } else {
     console.log(workingTags)
     download(JSON.stringify(workingTags), "workingTags.json", '"application/json"');
-
+    setTimeout(function(){ download(JSON.stringify(goodTags), "goodTags.json", '"application/json"'); }, 2000);
   }
 }
 
