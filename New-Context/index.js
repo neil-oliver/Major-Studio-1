@@ -38,6 +38,13 @@ function setupSVG(){
   }
 }
 
+$('#fullscreencheck').on('change', function(){
+  console.log('go fullscreen!')
+  d3.selectAll(".timelineAxis").remove()
+  draw()
+  scrolly()
+})
+
 //setupSVG
 setupSVG()
 
@@ -181,28 +188,45 @@ function draw() {
 
     } else {
 
-    // Link story
-    var linkDesc = d3.select('#innerlinkdesc')
-    .selectAll("span")
-    .data(data.links)
-    .join("span")
-      .html((d) => makeSense(d.desc,metObjects,d.source, d.target))
-      .attr('class', (d) => d.source);
+      if (data.nodes.length){
+        document.getElementById('fullscreen').style.visibility = 'visible'
+      }
+
+      // Link story
+      var linkDesc = d3.select('#innerlinkdesc')
+      .selectAll("span")
+      .data(data.links)
+      .join("span")
+        .html((d) => makeSense(d.desc,metObjects,d.source, d.target))
+        .attr('class', (d) => d.source);
 
       // images
-      var images = svg
-      .selectAll('.artworkImages')
-      .data(data.nodes)
-      .join('image')                             
-      .filter(function(d) { return d.size == 3 }) 
-        .attr('xlink:href', (d) => metObjects[d.id.split('-')[1]].primaryImageSmall)
-        .attr("x", (d) => timeScale(d.value.date)+(spacing/2)-(spacing*2))
-        .attr("y", (timelineMiddle)-(spacing*2))
-        .on("click", (d) => window.open("https://www.metmuseum.org/art/collection/search/" + d.id.split('-')[1], "_blank"))
-        .attr('class', (d) => 'artworkImages ' + d.id)
-        .attr('alignment-baseline', 'bottom')
-        .attr('width', (spacing*4))
-        .attr('height', (spacing*2))
+      if (!document.getElementById('fullscreencheck').checked){
+        $('.bg').css("background-image", "");
+        //$('.className').removeAttr('style');
+
+
+        var images = svg
+        .selectAll('.artworkImages')
+        .data(data.nodes)
+        .join('image')                             
+        .filter(function(d) { return d.size == 3 }) 
+          .attr('xlink:href', (d) => metObjects[d.id.split('-')[1]].primaryImageSmall)
+          .attr("x", (d) => timeScale(d.value.date)+(spacing/2)-(spacing*2))
+          .attr("y", (timelineMiddle)-(spacing*2))
+          .on("click", (d) => window.open("https://www.metmuseum.org/art/collection/search/" + d.id.split('-')[1], "_blank"))
+          .attr('class', (d) => 'artworkImages ' + d.id)
+          .attr('alignment-baseline', 'bottom')
+          .attr('width', (spacing*4))
+          .attr('height', (spacing*2))
+      } else {
+        svg.selectAll('.artworkImages').remove()
+        if (data.nodes.length){
+          $('.bg').css("background-image", "url('" + metObjects[data.nodes[0].id.split('-')[1]].primaryImage + "')");
+        }
+
+      }
+
     }
 
     // Add the links
@@ -239,6 +263,10 @@ function draw() {
 
         document.getElementById('hovertitle').innerText = d.value.date + ' : ' + metObjects[d.id.split('-')[1]].title;
         document.getElementById('hovertitle').style.fontSize = "2em";
+
+        if (document.getElementById('fullscreencheck').checked){
+          $('.bg').css("background-image", "url('" + metObjects[d.id.split('-')[1]].primaryImage + "')");
+        }
 
         // Highlight the nodes: every node is green except of him
           svg.selectAll('.nodes')
@@ -297,9 +325,11 @@ function draw() {
         links
           .style('stroke', 'gray')
           .style('stroke-width', 1);
-
-        images
-          .style('opacity', 1);
+        
+        if (!document.getElementById('fullscreencheck').checked){
+          images
+            .style('opacity', 1);
+        }
       
         linkDesc
           .style('opacity', 1);
@@ -466,7 +496,7 @@ function addExtra(){
 }
 var typed;
 //stop the suggestions when the user clicks a box
-$('input').on('click', function(){
+$('#myInput').on('click', function(){
   console.log('stop auto typing')
   typed.stop()
   setTimeout(function(){ document.getElementById("myInput").value = '';   document.getElementById('myInput').style.color = '#383838';}, 200);
@@ -478,7 +508,7 @@ async function dataLoad() {
   metObjects = await metObjects.json()
   list = await fetch("./Node/AJList-update.json");
   list = await list.json()
-  tags = await fetch("./Node/MetSearchTags.json");
+  tags = await fetch("./Node/workingTags.json");
   tags = await tags.json()
   suggestions = await fetch("./Node/MetSearchSuggestions.json");
   suggestions = await suggestions.json()
@@ -533,7 +563,7 @@ function reset(){
   data.nodes = []
   data.links = []
   timeSpan = 1;
-  $('.bg').css("background-image", "url('')");
+  $('.bg').css("background-image", "");
   $('#innerlinkdesc').html('')
   if (svg){
     d3.selectAll(".timelineAxis").remove()
@@ -577,14 +607,25 @@ const intro = document.getElementById('intro')
 const hovertitle = document.getElementById('hovertitle')
 
 function scrolly() {
+  console.log(window.innerHeight)
 
   if (vertical){
 
     //sort horizontal orientation for mobile
     var innerStory = document.getElementById('innerlinkdesc')
-      if (screen.innerWidth > screen.innerHeight){
+
+      if (window.matchMedia("(orientation: landscape)").matches) {
         innerStory.style.visibility = 'hidden';
-        intro.style.visibility = 'hidden';
+        //intro.style.visibility = 'hidden';
+        intro.style.width = '100%'
+        intro.style.marginLeft = '0'
+
+        intro.innerHTML = `Every artwork can be linked through common features such as <strong>Time</strong>, <strong>Location</strong> and <strong>Content</strong>.<br><br>Simply search to see a timeline of the artworks, and a story of how they link together.<br>
+        <br><span id='largedot'></span>&nbsp; Artworks containing the topic, 
+        <span id='mediumdot'></span>&nbsp;Artworks included for the story, 
+        <span id='smalldot'></span>&nbsp;Artworks between the start and end of the story<br>
+        <br>Hover over a <span id='largedot'></span> to isolate the artwork and story.<br>
+        Click on any artwork to find out more information on the <strong style='color:#EC012A'>MET </strong>Museum's website.</p>`
 
         if (!(pageYOffset < (window.innerHeight*0.5))){
           innerStory.style.visibility = 'visible';
@@ -593,6 +634,14 @@ function scrolly() {
       } else {
         innerStory.style.visibility = 'visible';
         intro.style.visibility = 'visible';
+        intro.style.width = '60%'
+        intro.style.marginLeft = '20%'
+        intro.innerHTML = `Every artwork can be linked through common<br>features such as <strong>Time</strong>, <strong>Location</strong> and <strong>Content</strong>.<br><br>Simply search to see a timeline of the artworks, and a story of how they link together.<br>
+        <br><span id='largedot'></span>&nbsp; Artworks containing the topic<br>
+        <span id='mediumdot'></span>&nbsp;Artworks included for the story<br>
+        <span id='smalldot'></span>&nbsp;Artworks between the start and end of the story<br>
+        <br>Hover over a <span id='largedot'></span> to isolate the artwork and story.<br>
+        Click on any artwork to find out more information on the <strong style='color:#EC012A'>MET </strong>Museum's website.</p>`
 
       }
 
@@ -657,6 +706,11 @@ function scrolly() {
     }
 
   } else {
+
+    // add white fade 
+    $('#linkDesc').css('background-image', 'linear-gradient(to bottom, rgba(255,255,255,0) 0%, rgba(255,255,255,0.9) 70%, rgba(255,255,255,0.9) 30%)')
+    $('header').css('background-image', 'linear-gradient(to top, rgba(255,255,255,0), rgba(255,255,255,0.7))')
+
     if (parseInt(svgcontent.style.width) > window.innerWidth){  
       var scrollPercent = ((pageXOffset+1) / (parseInt(svgcontent.style.width) - window.innerWidth)).toFixed(2)
       var innerlinkdesc = document.getElementById("innerlinkdesc")
@@ -668,13 +722,38 @@ function scrolly() {
     $('#linkDesc').css('font-size','2em')
     $('#linkDesc').css('line-height','2em')
     $('body').css('color','#383838')
-    $('.bg').css("background-image", "url('')");
+    if (!document.getElementById('fullscreencheck').checked){
+      $('.bg').css("background-image", "");
+    } else {
+      // change background image
+      var filteredImages = data.nodes.filter(function(d) { return d.size == 3 }) 
+      var backgroundIndex = Math.floor(((pageXOffset / (document.documentElement.scrollWidth - window.innerWidth))*100) / (100 / (filteredImages.length)))
 
-    //highlight node
-    svg.selectAll("circle")
-    .attr('stroke-width',1)
-    .attr('opacity',1)
-    .style('fill',(d) => colorScale[d.size-1]);
+      //get rid of overscroll errors
+      if (backgroundIndex < 0){
+        backgroundIndex = 0
+      }
+      if (isNaN(backgroundIndex)){
+        backgroundIndex = 0
+      }
+      if (backgroundIndex > filteredImages.length-1){
+        backgroundIndex = filteredImages.length-1
+      }
+
+      var backgroundId = filteredImages[backgroundIndex].id.split('-')[1]
+      $('.bg').css("background-image", "url('" + metObjects[backgroundId].primaryImage + "')");
+      //set all nodes to normal color / transparent
+      svg.selectAll("circle")
+      .attr('stroke-width',1)
+      .style('fill',(d) => colorScale[d.size-1]);
+
+      // change color of selected node
+      svg.selectAll("circle." + filteredImages[backgroundIndex].id)
+        .attr('stroke-width',3)
+        .style('fill','#a98b19');
+      
+    }
+
 
   }
 
@@ -714,7 +793,7 @@ function setMargins(){
     description.style.marginLeft = '0'
     description.style.marginRight = '0'
     description.style.overflow = 'scroll'
-    description.style.marginBottom = '2.5em'
+    description.style.paddingBottom = '2.5em'
 
 
     $('#topfade').removeClass('topfade')
@@ -746,3 +825,5 @@ window.addEventListener("orientationchange", function() {
   console.log("the orientation of the device is now " + screen.orientation.angle);
   scrolly()
 });
+
+window.addEventListener("deviceorientation", scrolly);

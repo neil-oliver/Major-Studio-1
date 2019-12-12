@@ -33,6 +33,7 @@ function makeMetObjects(){
                                     objects[value.objectID] = {
                                         'objectID' : value.objectID,
                                         'primaryImageSmall' : value.primaryImageSmall,
+                                        'primaryImage' : value.primaryImage,
                                         'artistDisplayName' : value.artistDisplayName,
                                         'title' : value.title,
                                         'artistBeginDate' : value.artistBeginDate,

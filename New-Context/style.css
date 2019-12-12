@@ -17,6 +17,10 @@ html {
     font-family: 'Playfair Display', serif;
     margin :0;
     color : #383838;
+    /* Center and scale the image nicely */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
 
   }
 
@@ -67,7 +71,6 @@ html {
 
   #content{
     padding-top: 6em;
-    /* background-color: white; */
   }
 
 
@@ -86,7 +89,7 @@ html {
 input {
   color : #383838;
   border: 1px solid transparent;
-  background-color: #f1f1f1;
+  /* background-color: #f1f1f1; */
   padding: 5px;
   font-size: 4em;
 }
@@ -127,7 +130,7 @@ input[type=submit] {
 .autocomplete-items div {
   padding: 10px;
   cursor: pointer;
-  background-color:#f1f1f1;
+  /* background-color:#f1f1f1; */
   ; 
   border-bottom: 1px solid #d4d4d4; 
 }
@@ -156,7 +159,7 @@ input[type=submit] {
   font-size: 2em;
   padding-left: 15%;
   padding-right: 15%;
-  margin-bottom: 2.5em;
+  padding-bottom: 2.5em;
   line-height: 2em;
   z-index: 0;
 
@@ -199,7 +202,6 @@ font-weight: 900;
 }
 
 #explanation {
-  background-color: pink;
   visibility: hidden;
 }
 #hovertitle{
@@ -338,10 +340,10 @@ text-align: center;
   height: 100%;
   width:100%;
   z-index: -2;
-    /* Center and scale the image nicely */
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
+  /* Center and scale the image nicely */
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
 .topfade{
@@ -362,5 +364,12 @@ text-align: center;
   height: 60%;
   width:100%;
   z-index: -1;
+}
+
+#fullscreen{
+  display: block;
+  text-align: center;
+  padding-right: 50px;
+  visibility: hidden;
 }
 

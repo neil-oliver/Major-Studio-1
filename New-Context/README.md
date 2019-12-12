@@ -51,6 +51,7 @@ Removed additional message for not finding story
 All main artworks in the story now contain images
 Suggested searches are stopped when the user clicks the search box
 Increased size of autocomplete
+Slowed down autocomplete and adapted color
 
 ### Mobile
 Timeline rotation and width adjustment (links arc height reduced)
