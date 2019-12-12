@@ -20,8 +20,9 @@
 ![](./Images/timeline-2.png)
 ![](./Images/timeline-fullscreen.png)
 ![](./Images/timeline-hover.png)
-![](./Images/timeline-mobile-1.png)
-![](./Images/timeline-mobile-2.png)
+<img src='./Images/timeline-mobile-1.png' width='50%'>
+<img src='./Images/timeline-mobile-2.png' width='50%'>
+
 
 
 
