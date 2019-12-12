@@ -25,5 +25,5 @@
 <img src='./Images/timeline-mobile-2.png' width='49%'>
 
 ## Major Studio Presentations
-![Design Studio - Nadieh Bremer](https://github.com/neil-oliver/Major-Studio-1/tree/master/Design-Studio)
-![Data Visualization Method - Scatter Plots](https://github.com/neil-oliver/Major-Studio-1/tree/master/DV-Method)
+[Design Studio - Nadieh Bremer](https://github.com/neil-oliver/Major-Studio-1/tree/master/Design-Studio)  
+[Data Visualization Method - Scatter Plots](https://github.com/neil-oliver/Major-Studio-1/tree/master/DV-Method)
