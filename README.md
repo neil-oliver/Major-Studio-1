@@ -26,11 +26,3 @@
 ## Major Studio Presentations
 ![Design Studio - Nadieh Bremer](https://github.com/neil-oliver/Major-Studio-1/tree/master/Design-Studio)
 ![Data Visualization Method - Scatter Plots](https://github.com/neil-oliver/Major-Studio-1/tree/master/DV-Method)
-
-
-
-
-
-
-
-
