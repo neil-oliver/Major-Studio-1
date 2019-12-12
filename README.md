@@ -9,6 +9,7 @@
 [View The Project](https://neil-oliver.github.io/Major-Studio-1/Qualitative-Design/)  
 [Technical Documentation](https://github.com/neil-oliver/Major-Studio-1/tree/master/Qualitative-Design)  
 ![](./Images/story-video-1.gif)
+![](./Images/story-video-2.gif)
 ![](./Images/story-1.png)
 ![](./Images/story-2.png)
 ![](./Images/story-3.png)
