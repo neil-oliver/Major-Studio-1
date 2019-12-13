@@ -1,5 +1,6 @@
 # Exploring The MET Museum
 ## Quantitative Project
+
 [View The Project](http://neiloliver.co/design/MET/)  
 [Technical Documentation](https://github.com/neil-oliver/Major-Studio-1/tree/master/Quantitative-Design)  
 ![](./Images/Quantitative-video-1.gif)
@@ -20,6 +21,8 @@
 ## Interactive  / New Context Project
 [View The Project](https://neil-oliver.github.io/Major-Studio-1/New-Context/)  
 [Technical Documentation](https://github.com/neil-oliver/Major-Studio-1/tree/master/New-Context)  
+![](./Images/timeline-video-1.gif)
+![](./Images/timeline-video-2.gif)
 ![](./Images/timeline-1.png)
 ![](./Images/timeline-2.png)
 ![](./Images/timeline-fullscreen.png)
