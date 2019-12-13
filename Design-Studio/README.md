@@ -1,5 +1,5 @@
 # Nadieh Bremer - [Visual Cinnamon](https://www.visualcinnamon.com)
-![](https://github.com/neil-oliver/Major-Studio-1/blob/master/Design%20Studio/Nadieh%20Bremer.jpg)
+![](./Nadieh%20Bremer.jpg)
 ## Background & Biography
 - A freelancing data visualization designer and artist.
 - Based in Amsterdam.
@@ -21,7 +21,7 @@ Projects include:
 ### [Why Do Cats and Dogs...](https://whydocatsanddogs.com)
 Alternatively you can jump straight to [Cats](https://whydocatsanddogs.com/cats) or [Dogs](https://whydocatsanddogs.com/dogs)
 
-<img src="https://github.com/neil-oliver/Major-Studio-1/blob/master/Design%20Studio/why_do_cats_and_dogs.png" alt="drawing" width="45%"/> <img src="https://github.com/neil-oliver/Major-Studio-1/blob/master/Design%20Studio/why_do_cats_and_dogs.gif" alt="drawing" width="45%"/>
+<img src="./why_do_cats_and_dogs.png" alt="drawing" width="45%"/> <img src="./why_do_cats_and_dogs.gif" alt="drawing" width="45%"/>
 
 #### Content & Story
 - Collaboration with Google.  
@@ -45,7 +45,7 @@ The combination of curated results and interactive exploration.
 ### [Digital Trackers](https://www.nytimes.com/interactive/2019/08/23/opinion/data-internet-privacy-tracking.html)
 If you cant access the NYT website, you might be better looking at the [project breakdown and description](https://www.visualcinnamon.com/portfolio/new-york-times-digital-trackers).  
 
-<img src="https://github.com/neil-oliver/Major-Studio-1/blob/master/Design%20Studio/nyt_trackers_laptop.jpg" alt="drawing" width="45%"/> <img src="https://github.com/neil-oliver/Major-Studio-1/blob/master/Design%20Studio/nyt_trackers_detail.jpg" alt="drawing" width="45%"/>
+<img src="./nyt_trackers_laptop.jpg" alt="drawing" width="45%"/> <img src="./nyt_trackers_detail.jpg" alt="drawing" width="45%"/>
 
 #### Content & Story
 - Collaboration with the New York Times.  
@@ -68,7 +68,7 @@ If you cant access the NYT website, you might be better looking at the [project 
 ---
 ### [Frontex: EU’s Deportation Machine](https://vimeo.com/351673775)
 The main project is just a video, so you might want to skip straight to the [project breakdown and description](https://www.visualcinnamon.com/portfolio/lighthouse-reports-frontex).
-<img src="https://github.com/neil-oliver/Major-Studio-1/blob/master/Design%20Studio/lighthouse_reports_detail.gif" alt="drawing" width="45%"/> <img src="https://github.com/neil-oliver/Major-Studio-1/blob/master/Design%20Studio/lighthouse_reports_detail.jpg" alt="drawing" width="45%"/>
+<img src="./lighthouse_reports_detail.gif" alt="drawing" width="45%"/> <img src="./lighthouse_reports_detail.jpg" alt="drawing" width="45%"/>
 
 #### Content & Story
 - Collaboration with the [Lighthouse Report](https://www.lighthousereports.nl/ourprojects/2018/10/18/the-returns-network).
@@ -95,7 +95,7 @@ Personal Project - [Marble Butterflies](https://www.visualcinnamon.com/portfolio
 #### Why?
 The project is purely about creating something beautiful from random data. It relates back to Nadieh's original goal of creating "Something that wouldn’t look bad hanging on a wall."  
 
-![](https://github.com/neil-oliver/Major-Studio-1/blob/master/Design%20Studio/marble_butterflies_laptop_animation.gif)
+![](./marble_butterflies_laptop_animation.gif)
 
 ## Class discussion
 - Look through Nadieh's portfolio [HERE](https://www.visualcinnamon.com/portfolio/). What common design themes do you spot?
