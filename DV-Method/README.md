@@ -31,30 +31,30 @@ Both
 
 ## Examples
 ### Basic
-![](https://github.com/neil-oliver/Major-Studio-1/blob/master/dv_method/Images/basic-scatter-plot-in-r.png)
+![](./Images/basic-scatter-plot-in-r.png)
 Example created in R ([code](https://www.sharpsightlabs.com/blog/scatter-plot-in-r/)). This example is missing axis labels and a title.
 
 ### Inclusion of Color
-![](https://github.com/neil-oliver/Major-Studio-1/blob/master/dv_method/Images/python-color-scatterplot.jpg)
+![](./Images/python-color-scatterplot.jpg)
 Example created in Python with Matplotlib ([code](https://towardsdatascience.com/customizing-plots-with-python-matplotlib-bcf02691931f)). This example also uses transparency to more easily show multiple clustered data points.
 
 ### Use of Shapes
-![](https://github.com/neil-oliver/Major-Studio-1/blob/master/dv_method/Images/ggplot-shapes-scatterplot.png)  
+![](./Images/ggplot-shapes-scatterplot.png)  
 Examples created in R with ggplot ([code](https://www.datanovia.com/en/lessons/ggplot-scatter-plot/)). 
-![](https://github.com/neil-oliver/Major-Studio-1/blob/master/dv_method/Images/NYT-shapes-scatterplot.png)
+![](./Images/NYT-shapes-scatterplot.png)
 Example from the [New York Times](https://www.nytimes.com/2017/10/09/learning/whats-going-on-in-this-graph-oct-10-2017.html) (no code sorry!) which uses color images to easily ideitify the different data points.
 
 ### Third Axis (Scatter Plot Matrix)
-![](https://github.com/neil-oliver/Major-Studio-1/blob/master/dv_method/Images/matlab-3d-scatterplot.png)
+![](./Images/matlab-3d-scatterplot.png)
 Example created in MATLAB displaying 4 variables ([code](https://www.mathworks.com/help/matlabmobile/ug/creating-3d-scatter-plot.html)).
 
 ### Use of Interactivitiy
-![](https://github.com/neil-oliver/Major-Studio-1/blob/master/dv_method/Images/Hannah-Davids-Interactive.png)
+![](./Images/Hannah-Davids-Interactive.png)
 Interactive design by [Hannah Davis](http://www.hannahishere.com/) about [Holywood Movies](http://www.hannahishere.com/hollywood/). Design created in 2011 using [Processing.js](http://processingjs.org).
 
 ### Bubble Charts
 Bubble Chart have been covered as a seaprate visualization type, but the [Gapminder](https://www.gapminder.org/tools/) example by [Hans Rosling](https://en.wikipedia.org/wiki/Hans_Rosling) is a brilliant interarative example that demonstrates the power of scatterplots / bubble charts, but also to demonstrate that **correlation does not always equal causation**.
-![](https://github.com/neil-oliver/Major-Studio-1/blob/master/dv_method/Images/gapminder.gif)
+![](./Images/gapminder.gif)
 If you havent seen it before, definitely watch [Let my dataset change your mindset](https://www.ted.com/talks/hans_rosling_at_state).
 
 #### Differences from Bubble Chart
