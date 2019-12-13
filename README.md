@@ -17,7 +17,7 @@ Want to find out more about the custom graph written in .P5? Or how the informat
 We all have things in common, we might be the same age, born in the same place, go to the same college; the possiblities are endless. The same theory can be applied to the artworks in The MET collection.
 Behind the scenes, this visualization linked up every artwork in The MET using dates, locations, people and even the content of the artworks (for example the artwork contains a dog). Starting with a random artwork, these links are explored and an endless story is created navigating through 36 billion possible links. You will never read the exact same story twice.  
 ## [View The Project](https://neil-oliver.github.io/Major-Studio-1/Qualitative-Design/)  
-Combining science and the arts; you can fin out how graph theory was applied to The MET collection in the [Technical Documentation](https://github.com/neil-oliver/Major-Studio-1/tree/master/Qualitative-Design)  
+Combining science and the arts; you can find out how graph theory was applied to The MET collection in the [Technical Documentation](https://github.com/neil-oliver/Major-Studio-1/tree/master/Qualitative-Design)  
 
 #### Video
 ![](./Images/story-video-1.gif)
