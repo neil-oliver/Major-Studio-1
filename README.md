@@ -43,10 +43,12 @@ A star Pathfinding, graph traversal, web workers and force layout simulations an
 ![](./Images/timeline-2.png)
 ![](./Images/timeline-fullscreen.png)
 ![](./Images/timeline-hover.png)
+
 ### Mobile
 #### Images
 <img src='./Images/timeline-mobile-1.png' width='49%'>
-<img src='./Images/timeline-mobile-2.png' width='49%'>
+<img src='./Images/timeline-mobile-2.png' width='49%'>  
+
 #### Video
 <img src='./Images/timeline-mobile-video-1.gif' width='50%'>
 
