@@ -27,6 +27,7 @@
 ![](./Images/timeline-2.png)
 ![](./Images/timeline-fullscreen.png)
 ![](./Images/timeline-hover.png)
+![](./Images/timeline-mobile-video-1.gif)
 <img src='./Images/timeline-mobile-1.png' width='49%'>
 <img src='./Images/timeline-mobile-2.png' width='49%'>
 
