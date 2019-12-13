@@ -36,7 +36,7 @@ Building on 'A Story of The MET Collection', *MET Stories* goes one step further
 ![](./Images/timeline-2.png)
 ![](./Images/timeline-fullscreen.png)
 ![](./Images/timeline-hover.png)
-<img src='./Images/timeline-mobile-video-1.gif' width='80%'>
+<img src='./Images/timeline-mobile-video-1.gif' width='50%'>
 <img src='./Images/timeline-mobile-1.png' width='49%'>
 <img src='./Images/timeline-mobile-2.png' width='49%'>
 
