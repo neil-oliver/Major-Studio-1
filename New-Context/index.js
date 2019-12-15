@@ -619,7 +619,8 @@ function scrolly() {
         //intro.style.visibility = 'hidden';
         intro.style.width = '100%'
         intro.style.marginLeft = '0'
-
+        intro.style.position = 'relative'
+        
         intro.innerHTML = `Every artwork can be linked through common features such as <strong>Time</strong>, <strong>Location</strong> and <strong>Content</strong>.<br><br>Simply search to see a timeline of the artworks, and a story of how they link together.<br>
         <br><span id='largedot'></span>&nbsp; Artworks containing the topic, 
         <span id='mediumdot'></span>&nbsp;Artworks included for the story, 
