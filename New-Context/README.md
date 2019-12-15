@@ -45,28 +45,28 @@
 ## Implemented Changes
 
 ### All Views
-Halved the loading speed (story loads twice as fast)
-Reduced the MET API data to 1/10th of the CSV.
-Removed additional message for not finding story
-All main artworks in the story now contain images
-Suggested searches are stopped when the user clicks the search box
-Increased size of autocomplete
-Slowed down autocomplete and adapted color
+- Halved the loading speed (story loads twice as fast)
+- Reduced the MET API data to 1/10th of the CSV.
+- Removed additional message for not finding story
+- All main artworks in the story now contain images
+- Suggested searches are stopped when the user clicks the search box
+- Increased size of autocomplete
+- Slowed down autocomplete and adapted color
 
 ### Mobile
-Timeline rotation and width adjustment (links arc height reduced)
-Remove rollover events
-Single link story (between one artwork and the next chronological artwork)
-Full page images
-Highlight current artwork in timeline
-Sticky menu (not fixed position)
-Inverse color scheme & logo
-Dark fade top and bottom of images
-Transparent timeline to show more of the artwork
-Click any node (circle) to jump to story including artworks not included in the story.
-Links in text direct to MET website
+- Timeline rotation and width adjustment (links arc height reduced)
+- Remove rollover events
+- Single link story (between one artwork and the next chronological artwork)
+- Full page images
+- Highlight current artwork in timeline
+- Sticky menu (not fixed position)
+- Inverse color scheme & logo
+- Dark fade top and bottom of images
+- Transparent timeline to show more of the artwork
+- Click any node (circle) to jump to story including artworks not included in the story.
+- Links in text direct to MET website
 
 ### Desktop
-Responsive layout for all main screen sizes
+- Responsive layout for all main screen sizes
 
 
