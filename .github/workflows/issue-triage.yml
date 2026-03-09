@@ -1,0 +1,13 @@
+name: Issue Triage
+
+on:
+  issues:
+    types: [opened]
+
+jobs:
+  triage:
+    uses: neil-oliver/.github/.github/workflows/issue-triage-reusable.yml@main
+    secrets: inherit
+    permissions:
+      issues: write
+      contents: read
