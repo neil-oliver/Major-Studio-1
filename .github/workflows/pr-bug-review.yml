@@ -1,0 +1,13 @@
+name: PR Bug Review
+
+on:
+  pull_request:
+    types: [opened]
+
+jobs:
+  bug-review:
+    uses: neil-oliver/.github/.github/workflows/pr-bug-review-reusable.yml@main
+    secrets: inherit
+    permissions:
+      pull-requests: write
+      contents: read
